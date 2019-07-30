@@ -7,7 +7,7 @@
     <ProjectGuid>{D1A7E458-50A4-45CC-842F-7F11DDF223DD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartInventorySystem</RootNamespace>
+    <RootNamespace>Smart_Inventory_System</RootNamespace>
     <AssemblyName>SmartInventorySystem</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -155,6 +155,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Stock_Sheet.resx" />
     <EmbeddedResource Include="Stock_Update.resx" />
