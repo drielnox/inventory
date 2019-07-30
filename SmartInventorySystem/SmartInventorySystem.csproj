@@ -87,66 +87,110 @@
     <Compile Include="Change_Pass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Change_Pass.Designer.cs" />
+    <Compile Include="Change_Pass.Designer.cs">
+      <DependentUpon>Change_Pass.cs</DependentUpon>
+    </Compile>
     <Compile Include="dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dashboard.Designer.cs" />
+    <Compile Include="dashboard.Designer.cs">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dispense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dispense.Designer.cs" />
+    <Compile Include="Dispense.Designer.cs">
+      <DependentUpon>Dispense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dispense_Sheet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dispense_Sheet.Designer.cs" />
+    <Compile Include="Dispense_Sheet.Designer.cs">
+      <DependentUpon>Dispense_Sheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items_Record.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Items_Record.Designer.cs" />
+    <Compile Include="Items_Record.Designer.cs">
+      <DependentUpon>Items_Record.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs" />
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="New_Item.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_Item.Designer.cs" />
+    <Compile Include="New_Item.Designer.cs">
+      <DependentUpon>New_Item.cs</DependentUpon>
+    </Compile>
     <Compile Include="New_Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_Supplier.Designer.cs" />
+    <Compile Include="New_Supplier.Designer.cs">
+      <DependentUpon>New_Supplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="New_User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_User.Designer.cs" />
+    <Compile Include="New_User.Designer.cs">
+      <DependentUpon>New_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock_Sheet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Sheet.Designer.cs" />
+    <Compile Include="Stock_Sheet.Designer.cs">
+      <DependentUpon>Stock_Sheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock_Update.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Update.Designer.cs" />
+    <Compile Include="Stock_Update.Designer.cs">
+      <DependentUpon>Stock_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Suppliers_Record.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Suppliers_Record.Designer.cs" />
+    <Compile Include="Suppliers_Record.Designer.cs">
+      <DependentUpon>Suppliers_Record.cs</DependentUpon>
+    </Compile>
     <Compile Include="View_Users.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View_Users.Designer.cs" />
-    <EmbeddedResource Include="Change_Pass.resx" />
-    <EmbeddedResource Include="dashboard.resx" />
-    <EmbeddedResource Include="Dispense.resx" />
-    <EmbeddedResource Include="Dispense_Sheet.resx" />
-    <EmbeddedResource Include="Items_Record.resx" />
-    <EmbeddedResource Include="Login.resx" />
-    <EmbeddedResource Include="New_Item.resx" />
-    <EmbeddedResource Include="New_Supplier.resx" />
-    <EmbeddedResource Include="New_User.resx" />
+    <Compile Include="View_Users.Designer.cs">
+      <DependentUpon>View_Users.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Change_Pass.resx">
+      <DependentUpon>Change_Pass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dashboard.resx">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dispense.resx">
+      <DependentUpon>Dispense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dispense_Sheet.resx">
+      <DependentUpon>Dispense_Sheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items_Record.resx">
+      <DependentUpon>Items_Record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Item.resx">
+      <DependentUpon>New_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Supplier.resx">
+      <DependentUpon>New_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_User.resx">
+      <DependentUpon>New_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -157,10 +201,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Stock_Sheet.resx" />
-    <EmbeddedResource Include="Stock_Update.resx" />
-    <EmbeddedResource Include="Suppliers_Record.resx" />
-    <EmbeddedResource Include="View_Users.resx" />
+    <EmbeddedResource Include="Stock_Sheet.resx">
+      <DependentUpon>Stock_Sheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock_Update.resx">
+      <DependentUpon>Stock_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suppliers_Record.resx">
+      <DependentUpon>Suppliers_Record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View_Users.resx">
+      <DependentUpon>View_Users.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
