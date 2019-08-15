@@ -1,6 +1,6 @@
 ﻿namespace SmartInventorySystem
 {
-    partial class frmLogin
+    partial class LoginPopup
     {
         /// <summary>
         /// Required designer variable.

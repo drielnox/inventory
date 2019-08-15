@@ -1,6 +1,6 @@
 ﻿namespace SmartInventorySystem
 {
-    partial class Change_Pass
+    partial class ChangePassForm
     {
         /// <summary>
         /// Required designer variable.

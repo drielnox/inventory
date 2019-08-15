@@ -112,17 +112,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Change_Pass.cs">
+    <Compile Include="ChangePassForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Change_Pass.Designer.cs">
-      <DependentUpon>Change_Pass.cs</DependentUpon>
+    <Compile Include="ChangePassForm.Designer.cs">
+      <DependentUpon>ChangePassForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="dashboard.cs">
+    <Compile Include="DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dashboard.Designer.cs">
-      <DependentUpon>dashboard.cs</DependentUpon>
+    <Compile Include="DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\Mapping\DispenseSummaryTypeConfiguration.cs" />
     <Compile Include="DataAccess\Mapping\DispenseTypeConfiguration.cs" />
@@ -131,30 +131,30 @@
     <Compile Include="DataAccess\Mapping\SupplierTypeConfiguration.cs" />
     <Compile Include="DataAccess\Mapping\UserTypeConfiguration.cs" />
     <Compile Include="DataAccess\Seed\DevelopDbInitializer.cs" />
-    <Compile Include="Dispense.cs">
+    <Compile Include="DispenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dispense.Designer.cs">
-      <DependentUpon>Dispense.cs</DependentUpon>
+    <Compile Include="DispenseForm.Designer.cs">
+      <DependentUpon>DispenseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dispense_Sheet.cs">
+    <Compile Include="ListDispenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dispense_Sheet.Designer.cs">
-      <DependentUpon>Dispense_Sheet.cs</DependentUpon>
+    <Compile Include="ListDispenseForm.Designer.cs">
+      <DependentUpon>ListDispenseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\InventoryModel.cs" />
-    <Compile Include="Items_Record.cs">
+    <Compile Include="UpdateItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Items_Record.Designer.cs">
-      <DependentUpon>Items_Record.cs</DependentUpon>
+    <Compile Include="UpdateItemForm.Designer.cs">
+      <DependentUpon>UpdateItemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="LoginPopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="LoginPopup.Designer.cs">
+      <DependentUpon>LoginPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Dispense.cs" />
     <Compile Include="Model\DispenseSummary.cs" />
@@ -163,76 +163,76 @@
     <Compile Include="Model\StockUpdate.cs" />
     <Compile Include="Model\Supplier.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="New_Item.cs">
+    <Compile Include="NewItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_Item.Designer.cs">
-      <DependentUpon>New_Item.cs</DependentUpon>
+    <Compile Include="NewItemForm.Designer.cs">
+      <DependentUpon>NewItemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="New_Supplier.cs">
+    <Compile Include="NewSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_Supplier.Designer.cs">
-      <DependentUpon>New_Supplier.cs</DependentUpon>
+    <Compile Include="NewSupplierForm.Designer.cs">
+      <DependentUpon>NewSupplierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="New_User.cs">
+    <Compile Include="NewUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_User.Designer.cs">
-      <DependentUpon>New_User.cs</DependentUpon>
+    <Compile Include="NewUserForm.Designer.cs">
+      <DependentUpon>NewUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stock_Sheet.cs">
+    <Compile Include="ListStockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Sheet.Designer.cs">
-      <DependentUpon>Stock_Sheet.cs</DependentUpon>
+    <Compile Include="ListStockForm.Designer.cs">
+      <DependentUpon>ListStockForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Update.cs">
+    <Compile Include="UpdateStockForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Update.Designer.cs">
-      <DependentUpon>Stock_Update.cs</DependentUpon>
+    <Compile Include="UpdateStockForm.Designer.cs">
+      <DependentUpon>UpdateStockForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Suppliers_Record.cs">
+    <Compile Include="UpdateSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Suppliers_Record.Designer.cs">
-      <DependentUpon>Suppliers_Record.cs</DependentUpon>
+    <Compile Include="UpdateSupplierForm.Designer.cs">
+      <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View_Users.cs">
+    <Compile Include="ListUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View_Users.Designer.cs">
-      <DependentUpon>View_Users.cs</DependentUpon>
+    <Compile Include="ListUsersForm.Designer.cs">
+      <DependentUpon>ListUsersForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Change_Pass.resx">
-      <DependentUpon>Change_Pass.cs</DependentUpon>
+    <EmbeddedResource Include="ChangePassForm.resx">
+      <DependentUpon>ChangePassForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dashboard.resx">
-      <DependentUpon>dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dispense.resx">
-      <DependentUpon>Dispense.cs</DependentUpon>
+    <EmbeddedResource Include="DispenseForm.resx">
+      <DependentUpon>DispenseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dispense_Sheet.resx">
-      <DependentUpon>Dispense_Sheet.cs</DependentUpon>
+    <EmbeddedResource Include="ListDispenseForm.resx">
+      <DependentUpon>ListDispenseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Items_Record.resx">
-      <DependentUpon>Items_Record.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateItemForm.resx">
+      <DependentUpon>UpdateItemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="LoginPopup.resx">
+      <DependentUpon>LoginPopup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="New_Item.resx">
-      <DependentUpon>New_Item.cs</DependentUpon>
+    <EmbeddedResource Include="NewItemForm.resx">
+      <DependentUpon>NewItemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="New_Supplier.resx">
-      <DependentUpon>New_Supplier.cs</DependentUpon>
+    <EmbeddedResource Include="NewSupplierForm.resx">
+      <DependentUpon>NewSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="New_User.resx">
-      <DependentUpon>New_User.cs</DependentUpon>
+    <EmbeddedResource Include="NewUserForm.resx">
+      <DependentUpon>NewUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -244,17 +244,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Stock_Sheet.resx">
-      <DependentUpon>Stock_Sheet.cs</DependentUpon>
+    <EmbeddedResource Include="ListStockForm.resx">
+      <DependentUpon>ListStockForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Update.resx">
-      <DependentUpon>Stock_Update.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateStockForm.resx">
+      <DependentUpon>UpdateStockForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Suppliers_Record.resx">
-      <DependentUpon>Suppliers_Record.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateSupplierForm.resx">
+      <DependentUpon>UpdateSupplierForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View_Users.resx">
-      <DependentUpon>View_Users.cs</DependentUpon>
+    <EmbeddedResource Include="ListUsersForm.resx">
+      <DependentUpon>ListUsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.DispenseSheetViewModel2.datasource" />
@@ -272,10 +272,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Smart_Inventory_System_TemporaryKey.pfx" />
-    <None Include="test.sqlite">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

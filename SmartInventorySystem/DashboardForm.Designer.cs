@@ -1,6 +1,6 @@
 ﻿namespace SmartInventorySystem
 {
-    partial class dashboard
+    partial class DashboardForm
     {
         /// <summary>
         /// Required designer variable.

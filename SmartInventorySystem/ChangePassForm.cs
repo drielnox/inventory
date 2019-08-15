@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace SmartInventorySystem
 {
-    public partial class Change_Pass : Form
+    public partial class ChangePassForm : Form
     {
-        public Change_Pass()
+        public ChangePassForm()
         {
             InitializeComponent();
         }

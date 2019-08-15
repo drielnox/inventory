@@ -7,9 +7,9 @@ using SmartInventorySystem.ViewModel;
 
 namespace SmartInventorySystem
 {
-    public partial class dashboard : Form
+    public partial class DashboardForm : Form
     {
-        public dashboard()
+        public DashboardForm()
         {
             InitializeComponent();
         }

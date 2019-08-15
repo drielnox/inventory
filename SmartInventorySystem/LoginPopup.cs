@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace SmartInventorySystem
 {
-    public partial class frmLogin : Form
+    public partial class LoginPopup : Form
     {
-        public frmLogin()
+        public LoginPopup()
         {
             InitializeComponent();
         }
@@ -39,7 +39,7 @@ namespace SmartInventorySystem
             if (existUser)
             {
                 MessageBox.Show(this, "Login Granted", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dashboard dashpage = new dashboard();
+                DashboardForm dashpage = new DashboardForm();
                 dashpage.Show();
 
                 Visible = false;

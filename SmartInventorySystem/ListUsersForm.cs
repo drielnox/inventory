@@ -73,7 +73,7 @@ namespace SmartInventorySystem
             {
                 DataGridViewRow dr = dataGridView1.SelectedRows[0];
                 txtpid2.Text = dr.Cells[2].Value.ToString();
-                Change_Pass user_pass = new Change_Pass();
+                ChangePassForm user_pass = new ChangePassForm();
                 user_pass.ShowDialog();
 
             }
