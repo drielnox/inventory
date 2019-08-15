@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartInventorySystem", "SmartInventorySystem\SmartInventorySystem.csproj", "{D1A7E458-50A4-45CC-842F-7F11DDF223DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{D1A7E458-50A4-45CC-842F-7F11DDF223DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{BE29A432-4712-4DA3-ACB5-481D952C10CB}"
 EndProject
