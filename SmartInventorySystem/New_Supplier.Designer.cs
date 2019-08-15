@@ -1,4 +1,4 @@
-﻿namespace Smart_Inventory_System
+﻿namespace SmartInventorySystem
 {
     partial class frmNewSupplier
     {

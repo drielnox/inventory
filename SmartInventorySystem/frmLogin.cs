@@ -1,0 +1,61 @@
+﻿using System;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace SmartInventorySystem
+{
+    public partial class frmLogin : Form
+    {
+        public frmLogin()
+        {
+            InitializeComponent();
+        }
+
+        // connect to database
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            bool existUser = false;
+
+            try
+            {
+                using (var ctx = new InventoryModel())
+                {
+                    existUser = ctx.Users
+                        .Where(x => x.UserName == txtUsername.Text)
+                        .Where(x => x.Password == txtPassword.Text)
+                        .Any();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (existUser)
+            {
+                MessageBox.Show(this, "Login Granted", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dashboard dashpage = new dashboard();
+                dashpage.Show();
+
+                Visible = false;
+            }
+            else
+            {
+                MessageBox.Show(this, "Invalid Login Details! Try Again", "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtUsername.Clear();
+                txtPassword.Clear();
+            }
+        }
+
+        // end the application
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}

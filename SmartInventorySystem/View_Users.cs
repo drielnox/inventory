@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using SmartInventorySystem.ViewModel;
 
-namespace Smart_Inventory_System
+namespace SmartInventorySystem
 {
     public partial class frmViewUsers : Form
     {
@@ -19,53 +16,40 @@ namespace Smart_Inventory_System
 
         // variable declarations 
         public static TextBox tb;
-
-        string connectionString;
-        MySqlDataReader dr;
-        MySqlConnection con;
-        MySqlCommand cmd;
-        MySqlDataAdapter adap;
-        DataSet ds1, ds;
-
+        
         private void View_Users_Load(object sender, EventArgs e)
         {
             try
             {
                 tb = txtpid2;
-
-                connectionString = "Server=127.0.0.1;Database=smart_inventory;Uid=pharm;Pwd=password;";
-                con = new MySqlConnection(connectionString);
-                con.Open();
-
+                
                 Load_Users();
-
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "View Users Record");  
+                MessageBox.Show(this, ex.Message, "View Users Record", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
 
         private void Load_Users()
         {
+            var users = new List<ViewUserViewModel>();
+
             try
             {
-
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select first_name, last_name, Username, user_role, phone, email from users";
-                adap = new MySqlDataAdapter(cmd);
-                ds1 = new DataSet();
-                adap.Fill(ds1, "users");
-                dataGridView1.DataSource = ds1.Tables[0];
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                using (var ctx = new InventoryModel())
+                {
+                    users = ctx.Users
+                        .Select(x => new ViewUserViewModel { FirstName = x.FirstName, LastName = x.LastName, UserName = x.UserName, Role = x.Role, Phone = x.Phone, Email = x.Email })
+                        .ToList();
+                }
             }
-            catch (System.Exception err)
+            catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show(this, err.Message, "ViewUser", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            bsViewUser.DataSource = users;
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -78,7 +62,7 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Users");  
+                MessageBox.Show(ex.Message, "Users");
             }
 
         }
@@ -96,13 +80,13 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Users");  
+                MessageBox.Show(ex.Message, "Users");
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            Close();
         }
 
     }

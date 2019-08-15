@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using SmartInventorySystem.ViewModel;
 
-namespace Smart_Inventory_System
+namespace SmartInventorySystem
 {
     public partial class dashboard : Form
     {
@@ -28,7 +25,7 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "New Drug / Item"); 
+                MessageBox.Show(ex.Message, "New Drug / Item");
             }
         }
 
@@ -42,46 +39,49 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "New Drug / Item"); 
+                MessageBox.Show(ex.Message, "New Drug / Item");
             }
         }
 
         private void btnDispense_Click(object sender, EventArgs e)
         {
-            try {
-            frmDispense dispense = new frmDispense();
-            dispense.ShowDialog();
+            try
+            {
+                frmDispense dispense = new frmDispense();
+                dispense.ShowDialog();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "New Drug / Item"); 
+                MessageBox.Show(ex.Message, "New Drug / Item");
             }
         }
 
         private void btnNewItem_Click(object sender, EventArgs e)
         {
-            try {
-                frmNew_Item new_item = new frmNew_Item();            
-            new_item.ShowDialog();
+            try
+            {
+                frmNew_Item new_item = new frmNew_Item();
+                new_item.ShowDialog();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "New Drug / Item"); 
+                MessageBox.Show(ex.Message, "New Drug / Item");
             }
         }
 
         private void btnNewSupplier_Click(object sender, EventArgs e)
         {
-            try {
-                frmNewSupplier new_supp = new frmNewSupplier();            
-            new_supp.ShowDialog();
+            try
+            {
+                frmNewSupplier new_supp = new frmNewSupplier();
+                new_supp.ShowDialog();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "New Supplier"); 
+                MessageBox.Show(ex.Message, "New Supplier");
             }
         }
 
@@ -95,7 +95,7 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Suppliers"); 
+                MessageBox.Show(ex.Message, "Suppliers");
             }
         }
 
@@ -109,7 +109,7 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Users"); 
+                MessageBox.Show(ex.Message, "Users");
             }
         }
 
@@ -123,7 +123,7 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Users"); 
+                MessageBox.Show(ex.Message, "Users");
             }
         }
 
@@ -137,7 +137,7 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock"); 
+                MessageBox.Show(ex.Message, "Stock");
             }
         }
 
@@ -151,7 +151,7 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "dispense"); 
+                MessageBox.Show(ex.Message, "dispense");
             }
         }
 
@@ -161,48 +161,37 @@ namespace Smart_Inventory_System
             txtExpiryAlert.Text = DateTime.Now.AddDays(90).ToString("yyyy/MM/dd");
 
             LoadExpiry();
-            
+
         }
 
 
         private void LoadExpiry()
         {
+            var expiredItems = new List<ItemExpiredViewModel>();
+            var parseExpiryDate = DateTime.Parse(txtExpiryAlert.Text);
+
             try
             {
-
-                // variable declarations         
-                string connectionString;
-               // MySqlDataReader dr;
-                MySqlConnection con;
-                //MySqlCommand cmd;
-                MySqlDataAdapter adap;
-                DataSet ds1;
-
-                connectionString = "Server=127.0.0.1;Database=smart_inventory;Uid=pharm;Pwd=password;";
-                con = new MySqlConnection(connectionString);
-                con.Open();
-
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select item_name, expiry_date from items_record where expiry_date <= '" + txtExpiryAlert.Text + "'";
-                adap = new MySqlDataAdapter(cmd);
-                ds1 = new DataSet();
-                adap.Fill(ds1, "stock");
-                dataGridView1.DataSource = ds1.Tables[0];
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                using (var ctx = new InventoryModel())
+                {
+                    expiredItems = ctx.Items
+                        .Where(x => x.Expire <= parseExpiryDate)
+                        .Select(x => new ItemExpiredViewModel { Name = x.Name, Expire = x.CreatedAt })
+                        .ToList();
+                }
             }
-            catch (System.Exception err)
+            catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show(this, err.Message, "dashboard", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            bsExpiredItems.DataSource = expiredItems;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-    
     }
-            
-    }
+}
 

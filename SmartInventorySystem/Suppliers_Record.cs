@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using SmartInventorySystem.ViewModel;
 
-namespace Smart_Inventory_System
+namespace SmartInventorySystem
 {
     public partial class frmSuppliersRecord : Form
     {
@@ -16,97 +13,73 @@ namespace Smart_Inventory_System
         {
             InitializeComponent();
         }
-
-        // variable declarations 
-        string connectionString;
-        MySqlDataReader dr;
-        MySqlConnection con;
-        MySqlCommand cmd;
-        MySqlDataAdapter adap;
-        DataSet ds1, ds;
-
+        
         // connect to database on formload
         private void frmSuppliersRecord_Load(object sender, EventArgs e)
         {
-            try
-            {
-                connectionString = "Server=127.0.0.1;Database=smart_inventory;Uid=pharm;Pwd=password;";
-                con = new MySqlConnection(connectionString);
-                con.Open();
-
-                txtDateAmend.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Update Suppliers");  
-            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
-
                 if (txtSearch.Text == "")
                 {
                     MessageBox.Show("No Supplier search requested");
                 }
-
                 else
                 {
-                    MySqlCommand cmd = con.CreateCommand();
-                    cmd.CommandText = "Select * from suppliers where supplier_name like '" + txtSearch.Text + "%" + "' or email like '" + txtSearch.Text + "%" + "' or phone like '" + txtSearch.Text + "%" + "' or contact_person like '" + txtSearch.Text + "%" + "'  ";
-                    adap = new MySqlDataAdapter(cmd);
-                    ds1 = new DataSet();
-                    adap.Fill(ds1, "suppliers");
-                    dataGridView1.DataSource = ds1.Tables[0];
-                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    var suppliers = new List<SupplierViewModel>();
 
+                    using (var ctx = new InventoryModel())
+                    {
+                        suppliers = ctx.Suppliers
+                            .Where(x => x.Name.StartsWith(txtSearch.Text)
+                                        || x.Email.StartsWith(txtSearch.Text)
+                                        || x.Phone.StartsWith(txtSearch.Text)
+                                        || x.ContactPerson.StartsWith(txtSearch.Text))
+                            .Select(x => new SupplierViewModel
+                            {
+                                Identifier = x.Identifier,
+                                Name = x.Name,
+                                ContactPerson = x.ContactPerson,
+                                Address = x.Address,
+                                Phone = x.Phone,
+                                Email = x.Email,
+                            })
+                            .ToList();
+                    }
+                    
+                    bsSupplier.DataSource = suppliers;
 
                     txtSearch.Clear();
                     dataGridView1.Visible = true;
                     btnSelect.Visible = true;
-
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Update Suppliers");  
             }
         }
-
         
         // a method to be called for loading details of selected drug from the seach result
         private void Load_SuppliersRecord()
         {
             try
             {
-
-                string a = txtSupId.Text;
-
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from suppliers where supplier_id = '" + a + "' ";
-                dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                var selectedSupplier = bsSupplier.Current as SupplierViewModel;
+                
+                if (selectedSupplier != null)
                 {
-                    txtSupId.Text = Convert.ToString(dr[0]);
-                    txtSupplierName.Text = Convert.ToString(dr[1]);
-                    txtContactPerson.Text = Convert.ToString(dr[2]);
-                    txtOfficeAddress.Text = Convert.ToString(dr[3]);
-
-
-                    txtEmail.Text = Convert.ToString(dr[4]);
-                    txtPhone.Text = Convert.ToString(dr[5]);
-                    
-                    dr.Close();
-
+                    txtSupId.Text = selectedSupplier.Identifier.ToString();
+                    txtSupplierName.Text = selectedSupplier.Name;
+                    txtContactPerson.Text = selectedSupplier.ContactPerson;
+                    txtOfficeAddress.Text = selectedSupplier.Address;
+                    txtEmail.Text = selectedSupplier.Email;
+                    txtPhone.Text = selectedSupplier.Phone;
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Update Suppliers Record");  
@@ -124,7 +97,6 @@ namespace Smart_Inventory_System
                 Load_SuppliersRecord();
                 panel1.Visible = true;
                 txtSave.Visible = true;
-
             }
 
             catch (Exception ex)
@@ -138,39 +110,36 @@ namespace Smart_Inventory_System
         {
             try
             {
-                          
-                cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE suppliers SET supplier_name=@supplier_name, contact_person=@contact_person, office_address=@office_address, email=@email, phone=@phone, date_amended=@date_amended, user_amended=@user_amended WHERE supplier_id= '" + txtSupId.Text + "' ;";
+                var selectedSupplier = bsSupplier.Current as SupplierViewModel;
 
-                cmd.Parameters.AddWithValue("@supplier_name", txtSupplierName.Text);
-                cmd.Parameters.AddWithValue("@contact_person", txtContactPerson.Text);
-                cmd.Parameters.AddWithValue("@office_address", txtOfficeAddress.Text);
-                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
-                cmd.Parameters.AddWithValue("@date_amended", txtDateAmend.Text);
-                cmd.Parameters.AddWithValue("@user_amended", txtUserAmend.Text);
-                
-                cmd.ExecuteNonQuery();
+                using (var ctx = new InventoryModel())
+                {
+                    var supplier = ctx.Suppliers.Single(x => x.Identifier == selectedSupplier.Identifier);
+
+                    supplier.Name = txtSupplierName.Text;
+                    supplier.Address = txtContactPerson.Text;
+                    supplier.Address = txtOfficeAddress.Text;
+                    supplier.Email = txtEmail.Text;
+                    supplier.Phone = txtPhone.Text;
+
+                    ctx.SaveChanges();
+                }
 
                 MessageBox.Show("Suppliers Record Updated Successfully");
                 panel1.Visible = false;
                 txtSave.Visible = false;
-                
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Update Suppliers Record");  
             }
-
         }
 
         // close this module
         private void txtCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            Close(); 
         }
-
     }
 }
 

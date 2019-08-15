@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Smart_Inventory_System
+namespace SmartInventorySystem
 {
     static class Program
     {

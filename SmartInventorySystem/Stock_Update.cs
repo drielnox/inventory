@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using SmartInventorySystem.ViewModel;
+using SmartInventorySystem.Model;
 
-namespace Smart_Inventory_System
+namespace SmartInventorySystem
 {
     public partial class frmStock_Update : Form
     {
@@ -16,21 +14,11 @@ namespace Smart_Inventory_System
         {
             InitializeComponent();
         }
-        // variable declarations 
-        string connectionString;
-        MySqlDataReader dr;
-        MySqlConnection con;
-        MySqlCommand cmd;
-        MySqlDataAdapter adap;
-        DataSet ds1, ds;
 
         private void frmStock_Update_Load(object sender, EventArgs e)
         {
             try
             {
-                connectionString = "Server=127.0.0.1;Database=smart_inventory;Uid=pharm;Pwd=password;";
-                con = new MySqlConnection(connectionString);
-                con.Open();
 
                 txtDateAmend.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
@@ -38,110 +26,144 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
         }
 
         private void txtStockLevel_Leave(object sender, EventArgs e)
         {
-            try {
-            int level, add, deduct, balance;
-            level = int.Parse(txtStockLevel.Text);
-            add = int.Parse(txtAdd.Text);
-            deduct = int.Parse(txtDeduct.Text);
-            balance = (level + add) - deduct;
-            txtStockBal.Text = balance.ToString();
+            try
+            {
+                int level, add, deduct, balance;
+                level = int.Parse(txtStockLevel.Text);
+                add = int.Parse(txtAdd.Text);
+                deduct = int.Parse(txtDeduct.Text);
+                balance = (level + add) - deduct;
+                txtStockBal.Text = balance.ToString();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
         }
 
         private void txtAdd_Leave(object sender, EventArgs e)
         {
-            try {
-            int level, add, deduct, balance;
-            level = int.Parse(txtStockLevel.Text);
-            add = int.Parse(txtAdd.Text);
-            deduct = int.Parse(txtDeduct.Text);
-            balance = (level + add) - deduct;
-            txtStockBal.Text = balance.ToString();
+            try
+            {
+                int level, add, deduct, balance;
+                level = int.Parse(txtStockLevel.Text);
+                add = int.Parse(txtAdd.Text);
+                deduct = int.Parse(txtDeduct.Text);
+                balance = (level + add) - deduct;
+                txtStockBal.Text = balance.ToString();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
         }
 
         private void txtDeduct_Leave(object sender, EventArgs e)
         {
-            try {
-            int level, add, deduct, balance;
-            level = int.Parse(txtStockLevel.Text);
-            add = int.Parse(txtAdd.Text);
-            deduct = int.Parse(txtDeduct.Text);
-            balance = (level + add) - deduct;
-            txtStockBal.Text = balance.ToString();
+            try
+            {
+                int level, add, deduct, balance;
+                level = int.Parse(txtStockLevel.Text);
+                add = int.Parse(txtAdd.Text);
+                deduct = int.Parse(txtDeduct.Text);
+                balance = (level + add) - deduct;
+                txtStockBal.Text = balance.ToString();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
         }
 
         // search for drug or item using search box
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
 
-            if (txtSearch.Text == "")
-            {
-                MessageBox.Show("No item or drug search requested");
-            }
-           
-            else
-            {
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from items_record where item_name like '" + txtSearch.Text + "%" + "' or item_code = '" + txtSearch.Text + "' or item_id = '" + txtSearch.Text + "'  ";
-                adap = new MySqlDataAdapter(cmd);
-                ds1 = new DataSet();
-                adap.Fill(ds1, "items");
-                dataGridView1.DataSource = ds1.Tables[0];
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                
-                txtSearch.Clear();
-                dataGridView1.Visible = true;
-                btnSelect.Visible = true; 
-                               
-            }
+                if (txtSearch.Text == "")
+                {
+                    MessageBox.Show("No item or drug search requested");
+                }
+                else
+                {
+                    var items = new List<ItemViewModel>();
+                    int parsedId;
+                    int.TryParse(txtSearch.Text, out parsedId);
+
+                    using (var ctx = new InventoryModel())
+                    {
+                        items = ctx.Items
+                            .Where(x => x.Name.StartsWith(txtSearch.Text)
+                                        || x.Code == txtSearch.Text
+                                        || x.Identifier == parsedId)
+                            .Select(x => new ItemViewModel
+                            {
+                                Identifier = x.Identifier,
+                                Code = x.Code,
+                                Name = x.Name,
+                                Description = x.Description,
+                                AlternativeName = x.AlternativeName,
+                                Manufacturer = x.Manufacturer,
+                                MajorSupplier = x.MajorSupplier,
+                                PackQuantity = x.PackQuantity,
+                                PackDescription = x.PackDescription,
+                                AlternativeItem = x.AlternativeItem,
+                                StandardIssueQuantity = x.StandardIssueQuantity,
+                                EconomicOrderQuantity = x.EconomicOrderQuantity,
+                                PurchasePrice = x.PurchasePrice,
+                                MarkupPercent = x.MarkupPercent,
+                                SellingPrice = x.SellingPrice,
+                                StockLevel = x.StockLevel,
+                                MinimumLevel = x.MinimumLevel,
+                                ReOrderLevel = x.ReOrderLevel,
+                                MaximumLevel = x.MaximumLevel,
+                                LeadDays = x.LeadDays,
+                            })
+                            .ToList();
+                    }
+
+                    bsItemsSearched.DataSource = items;
+
+                    txtSearch.Clear();
+                    dataGridView1.Visible = true;
+                    btnSelect.Visible = true;
+
+                }
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
 
         }
 
         // display data of selected record onto item record textboxes
         private void btnSelect_Click(object sender, EventArgs e)
-        {            
-            try {
-            DataGridViewRow dr = dataGridView1.SelectedRows[0];
-            txtItemid.Text = dr.Cells[0].Value.ToString();
-            
-            Load_ItemsRecord();
-            panel1.Visible = true;
+        {
+            try
+            {
+                DataGridViewRow dr = dataGridView1.SelectedRows[0];
+                txtItemid.Text = dr.Cells[0].Value.ToString();
+
+                Load_ItemsRecord();
+                panel1.Visible = true;
 
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
         }
 
@@ -151,29 +173,20 @@ namespace Smart_Inventory_System
         {
             try
             {
+                var selectedItem = bsItemsSearched.Current as ItemViewModel;
 
-                string a = txtItemid.Text;
-
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from items_record where item_id = '" + a + "' ";
-                dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                if (selectedItem != null)
                 {
-                    txtItemid.Text = Convert.ToString(dr[0]);
-                    txtCode.Text = Convert.ToString(dr[1]);
-                    txtItemName.Text = Convert.ToString(dr[2]);
-
-                    txtStockLevel.Text = Convert.ToString(dr[15]);
-                                        
-                    dr.Close();
-
+                    txtItemid.Text = selectedItem.Identifier.ToString();
+                    txtCode.Text = selectedItem.Code;
+                    txtItemName.Text = selectedItem.Name;
+                    txtStockLevel.Text = selectedItem.StockLevel.ToString();
                 }
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
         }
 
@@ -200,32 +213,33 @@ namespace Smart_Inventory_System
                     txtStockBal.Text = "0";
                 }
 
-                cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO stock_update(item_id,item_code,item_name,stock_level,qty_added,qty_deducted,stock_balance,date_updated,user_updated)VALUES(@item_id,@item_code,@item_name,@stock_level,@qty_added,@qty_deducted,@stock_balance,@date_updated,@user_updated)";
+                var newStockUpdate = new StockUpdate();
+                newStockUpdate.ItemId = txtItemid.Text;
+                newStockUpdate.ItemCode = txtCode.Text;
+                newStockUpdate.ItemName = txtItemName.Text;
+                newStockUpdate.StockLevel = int.Parse(txtStockLevel.Text);
+                newStockUpdate.QuantityAdded = int.Parse(txtAdd.Text);
+                newStockUpdate.QuantityDeducted = int.Parse(txtDeduct.Text);
+                newStockUpdate.StockBalance = int.Parse(txtStockBal.Text);
+                newStockUpdate.UpdatedAt = DateTime.Now;
+                newStockUpdate.UpdatedBy = Environment.UserName;
 
-                cmd.Parameters.AddWithValue("@item_id", txtItemid.Text);
-                cmd.Parameters.AddWithValue("@item_code", txtCode.Text);
-                cmd.Parameters.AddWithValue("@item_name", txtItemName.Text);
+                using (var ctx = new InventoryModel())
+                {
+                    ctx.StockUpdates.Add(newStockUpdate);
 
-                cmd.Parameters.AddWithValue("@stock_level", txtStockLevel.Text);
-                cmd.Parameters.AddWithValue("@qty_added", txtAdd.Text);
-                cmd.Parameters.AddWithValue("@qty_deducted", txtDeduct.Text);
-                cmd.Parameters.AddWithValue("@stock_balance", txtStockBal.Text);
-                cmd.Parameters.AddWithValue("@date_updated", txtDateAmend.Text);
-
-                cmd.Parameters.AddWithValue("@user_updated", txtUserAmend.Text);
-
-                cmd.ExecuteNonQuery();
+                    ctx.SaveChanges();
+                }
 
                 MessageBox.Show("New Stock Level successfully saved");
                 //this.Close(); 
 
-                
+
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "New Drug / Item");  
+                MessageBox.Show(ex.Message, "New Drug / Item");
             }
 
         }
@@ -240,25 +254,28 @@ namespace Smart_Inventory_System
                 {
                     txtStockLevel.Text = "0";
                 }
+
+                int parsedId;
+                int.TryParse(txtItemid.Text, out parsedId);
+
                 txtStockLevel.Text = txtStockBal.Text;
-                
-                cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE items_record SET stock_level=@stock_level, date_amended=@date_amended, user_amended=@user_amended WHERE item_id= '" + txtItemid.Text + "' ;";
 
-                cmd.Parameters.AddWithValue("@stock_level", int.Parse(txtStockLevel.Text));
+                using (var ctx = new InventoryModel())
+                {
+                    var aItem = ctx.Items
+                        .Single(x => x.Identifier == parsedId);
 
-                cmd.Parameters.AddWithValue("@date_amended", txtDateAmend.Text);
-                cmd.Parameters.AddWithValue("@user_amended", txtUserAmend.Text);
+                    aItem.StockLevel = int.Parse(txtStockLevel.Text);
 
+                    ctx.SaveChanges();
+                }
 
-                cmd.ExecuteNonQuery();
-
-                //MessageBox.Show("Stock Level Updated Successfully");
+                MessageBox.Show("Stock Level Updated Successfully");
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
 
         }
@@ -272,15 +289,15 @@ namespace Smart_Inventory_System
             txtAdd.Text = "0";
             txtDeduct.Text = "0";
             txtStockBal.Text = "0";
-            panel1.Visible = false; 
+            panel1.Visible = false;
 
         }
 
         private void txtCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            Close();
         }
-        
+
     }
 }
 

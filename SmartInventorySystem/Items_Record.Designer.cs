@@ -1,4 +1,4 @@
-﻿namespace Smart_Inventory_System
+﻿namespace SmartInventorySystem
 {
     partial class frmItems_Record
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label22 = new System.Windows.Forms.Label();
@@ -56,6 +57,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtItemid = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.txtExpiry = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.txtUserAmend = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtLead = new System.Windows.Forms.TextBox();
@@ -93,15 +97,34 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.identifierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alternativeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.majorSupplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.alternativeItemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.standardIssueQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.economicOrderQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.markupPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sellingPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minimumLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reOrderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maximumLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leadDaysDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsItem = new System.Windows.Forms.BindingSource(this.components);
             this.btnSelect = new System.Windows.Forms.Button();
-            this.label23 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.txtExpiry = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsItem)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -402,6 +425,31 @@
             this.tabPage2.Size = new System.Drawing.Size(680, 303);
             this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "Additional Details";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(460, 128);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(20, 20);
+            this.dateTimePicker2.TabIndex = 111;
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // txtExpiry
+            // 
+            this.txtExpiry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExpiry.Location = new System.Drawing.Point(339, 128);
+            this.txtExpiry.Name = "txtExpiry";
+            this.txtExpiry.Size = new System.Drawing.Size(120, 20);
+            this.txtExpiry.TabIndex = 110;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(242, 133);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(61, 13);
+            this.label23.TabIndex = 106;
+            this.label23.Text = "Expiry Date";
             // 
             // txtUserAmend
             // 
@@ -719,15 +767,184 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.identifierDataGridViewTextBoxColumn,
+            this.codeDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.alternativeNameDataGridViewTextBoxColumn,
+            this.manufacturerDataGridViewTextBoxColumn,
+            this.majorSupplierDataGridViewTextBoxColumn,
+            this.packQuantityDataGridViewTextBoxColumn,
+            this.packDescriptionDataGridViewTextBoxColumn,
+            this.alternativeItemDataGridViewTextBoxColumn,
+            this.standardIssueQuantityDataGridViewTextBoxColumn,
+            this.economicOrderQuantityDataGridViewTextBoxColumn,
+            this.purchasePriceDataGridViewTextBoxColumn,
+            this.markupPercentDataGridViewTextBoxColumn,
+            this.sellingPriceDataGridViewTextBoxColumn,
+            this.stockLevelDataGridViewTextBoxColumn,
+            this.minimumLevelDataGridViewTextBoxColumn,
+            this.reOrderLevelDataGridViewTextBoxColumn,
+            this.maximumLevelDataGridViewTextBoxColumn,
+            this.leadDaysDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bsItem;
             this.dataGridView1.Location = new System.Drawing.Point(339, 35);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(360, 87);
             this.dataGridView1.TabIndex = 75;
             this.dataGridView1.Visible = false;
+            // 
+            // identifierDataGridViewTextBoxColumn
+            // 
+            this.identifierDataGridViewTextBoxColumn.DataPropertyName = "Identifier";
+            this.identifierDataGridViewTextBoxColumn.HeaderText = "Identifier";
+            this.identifierDataGridViewTextBoxColumn.Name = "identifierDataGridViewTextBoxColumn";
+            this.identifierDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // alternativeNameDataGridViewTextBoxColumn
+            // 
+            this.alternativeNameDataGridViewTextBoxColumn.DataPropertyName = "AlternativeName";
+            this.alternativeNameDataGridViewTextBoxColumn.HeaderText = "AlternativeName";
+            this.alternativeNameDataGridViewTextBoxColumn.Name = "alternativeNameDataGridViewTextBoxColumn";
+            this.alternativeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // manufacturerDataGridViewTextBoxColumn
+            // 
+            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
+            this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // majorSupplierDataGridViewTextBoxColumn
+            // 
+            this.majorSupplierDataGridViewTextBoxColumn.DataPropertyName = "MajorSupplier";
+            this.majorSupplierDataGridViewTextBoxColumn.HeaderText = "MajorSupplier";
+            this.majorSupplierDataGridViewTextBoxColumn.Name = "majorSupplierDataGridViewTextBoxColumn";
+            this.majorSupplierDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // packQuantityDataGridViewTextBoxColumn
+            // 
+            this.packQuantityDataGridViewTextBoxColumn.DataPropertyName = "PackQuantity";
+            this.packQuantityDataGridViewTextBoxColumn.HeaderText = "PackQuantity";
+            this.packQuantityDataGridViewTextBoxColumn.Name = "packQuantityDataGridViewTextBoxColumn";
+            this.packQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // packDescriptionDataGridViewTextBoxColumn
+            // 
+            this.packDescriptionDataGridViewTextBoxColumn.DataPropertyName = "PackDescription";
+            this.packDescriptionDataGridViewTextBoxColumn.HeaderText = "PackDescription";
+            this.packDescriptionDataGridViewTextBoxColumn.Name = "packDescriptionDataGridViewTextBoxColumn";
+            this.packDescriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // alternativeItemDataGridViewTextBoxColumn
+            // 
+            this.alternativeItemDataGridViewTextBoxColumn.DataPropertyName = "AlternativeItem";
+            this.alternativeItemDataGridViewTextBoxColumn.HeaderText = "AlternativeItem";
+            this.alternativeItemDataGridViewTextBoxColumn.Name = "alternativeItemDataGridViewTextBoxColumn";
+            this.alternativeItemDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // standardIssueQuantityDataGridViewTextBoxColumn
+            // 
+            this.standardIssueQuantityDataGridViewTextBoxColumn.DataPropertyName = "StandardIssueQuantity";
+            this.standardIssueQuantityDataGridViewTextBoxColumn.HeaderText = "StandardIssueQuantity";
+            this.standardIssueQuantityDataGridViewTextBoxColumn.Name = "standardIssueQuantityDataGridViewTextBoxColumn";
+            this.standardIssueQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // economicOrderQuantityDataGridViewTextBoxColumn
+            // 
+            this.economicOrderQuantityDataGridViewTextBoxColumn.DataPropertyName = "EconomicOrderQuantity";
+            this.economicOrderQuantityDataGridViewTextBoxColumn.HeaderText = "EconomicOrderQuantity";
+            this.economicOrderQuantityDataGridViewTextBoxColumn.Name = "economicOrderQuantityDataGridViewTextBoxColumn";
+            this.economicOrderQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // purchasePriceDataGridViewTextBoxColumn
+            // 
+            this.purchasePriceDataGridViewTextBoxColumn.DataPropertyName = "PurchasePrice";
+            this.purchasePriceDataGridViewTextBoxColumn.HeaderText = "PurchasePrice";
+            this.purchasePriceDataGridViewTextBoxColumn.Name = "purchasePriceDataGridViewTextBoxColumn";
+            this.purchasePriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // markupPercentDataGridViewTextBoxColumn
+            // 
+            this.markupPercentDataGridViewTextBoxColumn.DataPropertyName = "MarkupPercent";
+            this.markupPercentDataGridViewTextBoxColumn.HeaderText = "MarkupPercent";
+            this.markupPercentDataGridViewTextBoxColumn.Name = "markupPercentDataGridViewTextBoxColumn";
+            this.markupPercentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sellingPriceDataGridViewTextBoxColumn
+            // 
+            this.sellingPriceDataGridViewTextBoxColumn.DataPropertyName = "SellingPrice";
+            this.sellingPriceDataGridViewTextBoxColumn.HeaderText = "SellingPrice";
+            this.sellingPriceDataGridViewTextBoxColumn.Name = "sellingPriceDataGridViewTextBoxColumn";
+            this.sellingPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stockLevelDataGridViewTextBoxColumn
+            // 
+            this.stockLevelDataGridViewTextBoxColumn.DataPropertyName = "StockLevel";
+            this.stockLevelDataGridViewTextBoxColumn.HeaderText = "StockLevel";
+            this.stockLevelDataGridViewTextBoxColumn.Name = "stockLevelDataGridViewTextBoxColumn";
+            this.stockLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // minimumLevelDataGridViewTextBoxColumn
+            // 
+            this.minimumLevelDataGridViewTextBoxColumn.DataPropertyName = "MinimumLevel";
+            this.minimumLevelDataGridViewTextBoxColumn.HeaderText = "MinimumLevel";
+            this.minimumLevelDataGridViewTextBoxColumn.Name = "minimumLevelDataGridViewTextBoxColumn";
+            this.minimumLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // reOrderLevelDataGridViewTextBoxColumn
+            // 
+            this.reOrderLevelDataGridViewTextBoxColumn.DataPropertyName = "ReOrderLevel";
+            this.reOrderLevelDataGridViewTextBoxColumn.HeaderText = "ReOrderLevel";
+            this.reOrderLevelDataGridViewTextBoxColumn.Name = "reOrderLevelDataGridViewTextBoxColumn";
+            this.reOrderLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // maximumLevelDataGridViewTextBoxColumn
+            // 
+            this.maximumLevelDataGridViewTextBoxColumn.DataPropertyName = "MaximumLevel";
+            this.maximumLevelDataGridViewTextBoxColumn.HeaderText = "MaximumLevel";
+            this.maximumLevelDataGridViewTextBoxColumn.Name = "maximumLevelDataGridViewTextBoxColumn";
+            this.maximumLevelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // leadDaysDataGridViewTextBoxColumn
+            // 
+            this.leadDaysDataGridViewTextBoxColumn.DataPropertyName = "LeadDays";
+            this.leadDaysDataGridViewTextBoxColumn.HeaderText = "LeadDays";
+            this.leadDaysDataGridViewTextBoxColumn.Name = "leadDaysDataGridViewTextBoxColumn";
+            this.leadDaysDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bsItem
+            // 
+            this.bsItem.AllowNew = false;
+            this.bsItem.DataSource = typeof(SmartInventorySystem.ViewModel.ItemViewModel);
             // 
             // btnSelect
             // 
@@ -740,31 +957,6 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Visible = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(242, 133);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(61, 13);
-            this.label23.TabIndex = 106;
-            this.label23.Text = "Expiry Date";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(460, 128);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(20, 20);
-            this.dateTimePicker2.TabIndex = 111;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
-            // 
-            // txtExpiry
-            // 
-            this.txtExpiry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtExpiry.Location = new System.Drawing.Point(339, 128);
-            this.txtExpiry.Name = "txtExpiry";
-            this.txtExpiry.Size = new System.Drawing.Size(120, 20);
-            this.txtExpiry.TabIndex = 110;
             // 
             // frmItems_Record
             // 
@@ -796,6 +988,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -873,5 +1066,26 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TextBox txtExpiry;
+        private System.Windows.Forms.BindingSource bsItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn identifierDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alternativeNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn majorSupplierDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn alternativeItemDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn standardIssueQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn economicOrderQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchasePriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn markupPercentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sellingPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn minimumLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reOrderLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maximumLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn leadDaysDataGridViewTextBoxColumn;
     }
 }

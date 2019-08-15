@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using SmartInventorySystem.ViewModel;
+using SmartInventorySystem.Model;
 
-namespace Smart_Inventory_System
+namespace SmartInventorySystem
 {
     public partial class frmDispense : Form
     {
@@ -17,22 +15,10 @@ namespace Smart_Inventory_System
             InitializeComponent();
         }
 
-        // variable declarations 
-        string connectionString;
-        MySqlDataReader dr;
-        MySqlConnection con;
-        MySqlCommand cmd;
-        MySqlDataAdapter adap, adap1;
-        DataSet ds1, ds, ds2;
-
         private void frmDispense_Load(object sender, EventArgs e)
         {
             try
             {
-                connectionString = "Server=127.0.0.1;Database=smart_inventory;Uid=pharm;Pwd=password;";
-                con = new MySqlConnection(connectionString);
-                con.Open();
-
                 txtDateAmend.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
                 txtgroupDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
 
@@ -42,10 +28,10 @@ namespace Smart_Inventory_System
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
         }
-                
+
         private void UpdateQty_Amt()
         {
             try
@@ -85,42 +71,66 @@ namespace Smart_Inventory_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
-
         }
-
-        
 
         // search for drug or item using search box
         private void btnSearch_Click(object sender, EventArgs e)
-        {            
-            try {
-
-            if (txtSearch.Text == "")
+        {
+            try
             {
-                MessageBox.Show("No item or drug search requested");
-            }
-           
-            else
-            {
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from items_record where item_name like '" + txtSearch.Text + "%" + "' or item_code = '" + txtSearch.Text + "' or item_id = '" + txtSearch.Text + "'  ";
-                adap = new MySqlDataAdapter(cmd);
-                ds1 = new DataSet();
-                adap.Fill(ds1, "items");
-                dataGridView1.DataSource = ds1.Tables[0];
-                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                
-                txtSearch.Clear();
-                panel3.Visible = true;
-                               
-            }
-            }
+                if (txtSearch.Text == "")
+                {
+                    MessageBox.Show("No item or drug search requested");
+                }
+                else
+                {
+                    var items = new List<ItemViewModel>();
+                    int parsedId;
+                    int.TryParse(txtSearch.Text, out parsedId);
 
+                    using (var ctx = new InventoryModel())
+                    {
+                        items = ctx.Items
+                            .Where(x => x.Name.StartsWith(txtSearch.Text)
+                                        || x.Code == txtSearch.Text
+                                        || x.Identifier == parsedId)
+                            .Select(x => new ItemViewModel
+                            {
+                                Identifier = x.Identifier,
+                                Code = x.Code,
+                                Name = x.Name,
+                                Description = x.Description,
+                                AlternativeName = x.AlternativeName,
+                                Manufacturer = x.Manufacturer,
+                                MajorSupplier = x.MajorSupplier,
+                                PackQuantity = x.PackQuantity,
+                                PackDescription = x.PackDescription,
+                                AlternativeItem = x.AlternativeItem,
+                                StandardIssueQuantity = x.StandardIssueQuantity,
+                                EconomicOrderQuantity = x.EconomicOrderQuantity,
+                                PurchasePrice = x.PurchasePrice,
+                                MarkupPercent = x.MarkupPercent,
+                                SellingPrice = x.SellingPrice,
+                                StockLevel = x.StockLevel,
+                                MinimumLevel = x.MinimumLevel,
+                                ReOrderLevel = x.ReOrderLevel,
+                                MaximumLevel = x.MaximumLevel,
+                                LeadDays = x.LeadDays,
+                            })
+                            .ToList();
+                    }
+
+                    bsItem.DataSource = items;
+
+                    txtSearch.Clear();
+                    panel3.Visible = true;
+                }
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
         }
 
@@ -129,47 +139,40 @@ namespace Smart_Inventory_System
         {
             try
             {
-                string a = txtItemid.Text;
+                var selectedItem = bsItem.Current as ItemViewModel;
 
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select * from items_record where item_id = '" + a + "' ";
-                dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                if (selectedItem != null)
                 {
-                    txtItemid.Text = Convert.ToString(dr[0]);
-                    txtCode.Text = Convert.ToString(dr[1]);
-                    txtItemName.Text = Convert.ToString(dr[2]);
-                    txtUnitPrice.Text = Convert.ToString(dr[14]);
-                    txtStockLevel.Text = Convert.ToString(dr[15]);
-
-                    dr.Close();
-
+                    txtItemid.Text = selectedItem.Identifier.ToString();
+                    txtCode.Text = selectedItem.Code;
+                    txtItemName.Text = selectedItem.Name;
+                    txtUnitPrice.Text = selectedItem.PurchasePrice.ToString();
+                    txtStockLevel.Text = selectedItem.StockLevel.ToString();
                 }
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
         }
 
         // display data of selected record onto item record textboxes
         private void btnSelect_Click(object sender, EventArgs e)
-        {            
-            try {
-            DataGridViewRow dr = dataGridView1.SelectedRows[0];
-            txtItemid.Text = dr.Cells[0].Value.ToString();
-            
-            Load_ItemsRecord();
-            panel1.Visible = true;
-            panel3.Visible = false; 
+        {
+            try
+            {
+                DataGridViewRow dr = dataGridView1.SelectedRows[0];
+                txtItemid.Text = dr.Cells[0].Value.ToString();
+
+                Load_ItemsRecord();
+                panel1.Visible = true;
+                panel3.Visible = false;
 
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
         }
 
@@ -183,25 +186,25 @@ namespace Smart_Inventory_System
                 {
                     txtStockLevel.Text = "0";
                 }
-                txtStockLevel.Text = txtStockBal.Text;
 
-                cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE items_record SET stock_level=@stock_level, date_amended=@date_amended, user_amended=@user_amended WHERE item_id= '" + txtItemid.Text + "' ;";
-                cmd.Parameters.AddWithValue("@stock_level", int.Parse(txtStockLevel.Text));
+                int parsedId;
+                int.TryParse(txtItemid.Text, out parsedId);
 
-                cmd.Parameters.AddWithValue("@date_amended", txtDateAmend.Text);
-                cmd.Parameters.AddWithValue("@user_amended", txtUserAmend.Text);
-                
-                cmd.ExecuteNonQuery();
+                using (var ctx = new InventoryModel())
+                {
+                    var item = ctx.Items.Single(x => x.Identifier == parsedId);
 
-                //MessageBox.Show("Stock Level Updated Successfully");
+                    item.StockLevel = int.Parse(txtStockBal.Text);
+
+                    ctx.SaveChanges();
+                }
+
+                MessageBox.Show("Stock Level Updated Successfully");
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Stock Update");  
+                MessageBox.Show(ex.Message, "Stock Update");
             }
-
         }
 
         // summary log of single item dispensary 
@@ -212,81 +215,77 @@ namespace Smart_Inventory_System
                 if (txtDiscount.Text == "")
                 {
                     txtDiscount.Text = "0";
-                }                
+                }
                 else if (txtVat.Text == "")
                 {
                     txtVat.Text = "0.00";
                 }
 
-                cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO dispense_summary(group_id,group_date,sub_amount,discount,vat,total,date_dispensed,user_dispensed)VALUES(@group_id,@group_date,@sub_amount,@discount,@vat,@total,@date_dispensed,@user_dispensed)";
+                var dis_summ = new DispenseSummary();
+                dis_summ.GroupId = txtRandom.Text;
+                dis_summ.GroupDate = DateTime.Parse(txtgroupDate.Text);
+                dis_summ.SubAmount = float.Parse(txtAmountTotal.Text);
+                dis_summ.Discount = float.Parse(txtDiscount.Text);
+                dis_summ.Vat = float.Parse(txtVat.Text);
+                dis_summ.Total = float.Parse(txtTotalFinal.Text);
+                dis_summ.DateDispensed = DateTime.Parse(txtDateAmend.Text);
+                dis_summ.UserDispensed = Environment.UserName;
 
-                cmd.Parameters.AddWithValue("@group_id", txtRandom.Text);
-                cmd.Parameters.AddWithValue("@group_date", txtgroupDate.Text);
-                cmd.Parameters.AddWithValue("@sub_amount", float.Parse(txtAmountTotal.Text));
-                cmd.Parameters.AddWithValue("@discount", float.Parse(txtDiscount.Text));
-                cmd.Parameters.AddWithValue("@vat", float.Parse(txtVat.Text));
-                cmd.Parameters.AddWithValue("@total", float.Parse(txtTotalFinal.Text));
-                cmd.Parameters.AddWithValue("@date_dispensed", txtDateAmend.Text);
-                cmd.Parameters.AddWithValue("@user_dispensed", txtUserAmend.Text);
-                                
-                cmd.ExecuteNonQuery();
+                using (var ctx = new InventoryModel())
+                {
+                    ctx.DispenseSummaries.Add(dis_summ);
+
+                    ctx.SaveChanges();
+                }
 
                 MessageBox.Show("Item successfully dispensed");
-                //this.Close(); 
-                
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
-
         }
-
 
         // save single item dispensary 
         private void Save_Dispensary()
         {
             try
             {
-            int level, qty, bal;
-            level = int.Parse(txtStockLevel.Text);
-            qty = int.Parse(txtDispenseQty.Text);
-            bal = int.Parse(txtStockBal.Text);
-            bal = level - qty;
+                int level, qty, bal;
+                level = int.Parse(txtStockLevel.Text);
+                qty = int.Parse(txtDispenseQty.Text);
+                bal = int.Parse(txtStockBal.Text);
+                bal = level - qty;
 
-            txtStockBal.Text = bal.ToString(); 
-                
-                cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO dispense(item_id,group_id,group_date,item_code,item_name,stock_level,unit_price,dispense_quantity,sub_amount,stock_balance,date_dispensed,user_dispensed)VALUES(@item_id,@group_id,@group_date,@item_code,@item_name,@stock_level,@unit_price,@dispense_quantity,@sub_amount,@stock_balance,@date_dispensed,@user_dispensed)";
+                txtStockBal.Text = bal.ToString();
 
-                cmd.Parameters.AddWithValue("@item_id", txtItemid.Text);
-                cmd.Parameters.AddWithValue("@group_id", txtRandom.Text);
-                cmd.Parameters.AddWithValue("@group_date", txtgroupDate.Text);                               
-                cmd.Parameters.AddWithValue("@item_code", txtCode.Text);
-                cmd.Parameters.AddWithValue("@item_name", txtItemName.Text);
-                cmd.Parameters.AddWithValue("@stock_level", int.Parse(txtStockLevel.Text));
-                cmd.Parameters.AddWithValue("@unit_price", float.Parse(txtUnitPrice.Text));
-                cmd.Parameters.AddWithValue("@dispense_quantity", int.Parse(txtDispenseQty.Text));
-                cmd.Parameters.AddWithValue("@sub_amount", float.Parse(txtAmountSub.Text));
-                cmd.Parameters.AddWithValue("@stock_balance", int.Parse(txtStockBal.Text));
-                cmd.Parameters.AddWithValue("@date_dispensed", txtDateAmend.Text);
-                cmd.Parameters.AddWithValue("@user_dispensed", txtUserAmend.Text);
+                var dis = new Dispense();
+                dis.ItemId = txtItemid.Text;
+                dis.GroupId = txtRandom.Text;
+                dis.GroupDate = DateTime.Parse(txtgroupDate.Text);
+                dis.ItemCode = txtCode.Text;
+                dis.ItemName = txtItemName.Text;
+                dis.StockLevel = int.Parse(txtStockLevel.Text);
+                dis.UnitPrice = float.Parse(txtUnitPrice.Text);
+                dis.DispenseQuantity = int.Parse(txtDispenseQty.Text);
+                dis.SubAmount = float.Parse(txtAmountSub.Text);
+                dis.StockBalance = int.Parse(txtStockBal.Text);
+                dis.DateDispensed = DateTime.Parse(txtDateAmend.Text);
+                dis.UserDispensed = Environment.UserName;
 
-                cmd.ExecuteNonQuery();
+                using (var ctx = new InventoryModel())
+                {
+                    ctx.Dispenses.Add(dis);
 
-           //     MessageBox.Show("Item successfully dispensed");
-                //this.Close(); 
+                    ctx.SaveChanges();
+                }
 
-
+                MessageBox.Show("Item successfully dispensed");
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
-
         }
 
         //calculate the total price for all items dispense (including vat and discount)
@@ -317,66 +316,73 @@ namespace Smart_Inventory_System
 
         // display selected item to be dispensed into a grid sheet
         private void dispense_sheet()
-    {
-        try {
-            
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "Select item_name, dispense_quantity, sub_amount from dispense where group_id = '" + txtRandom.Text + "' && group_date = '" + txtgroupDate.Text  + "'  ";
-                adap1 = new MySqlDataAdapter(cmd);
-                ds2 = new DataSet();
-                adap1.Fill(ds2, "items");
-                dataGridView2.DataSource = ds2.Tables[0];
-                dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        {
+            try
+            {
+                var dispenseSheet = new List<DispenseSheetViewModel>();
+                var parsedGroupDate = DateTime.Parse(txtgroupDate.Text);
 
+                using (var ctx = new InventoryModel())
+                {
+                    dispenseSheet = ctx.Dispenses
+                        .Where(x => x.GroupId == txtRandom.Text)
+                        .Where(x => x.GroupDate == parsedGroupDate)
+                        .Select(x => new DispenseSheetViewModel
+                        {
+                            ItemName = x.ItemName,
+                            DispenseQuantity = x.DispenseQuantity,
+                            SubAmount = x.SubAmount,
+                        })
+                        .ToList();
+                }
 
-                //txtSearch.Clear();
-                              
-            
+                bsDispenseSheet.DataSource = dispenseSheet;
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
-    }
+        }
 
         private void generateRandom()
         {
             // generate a random number between the specified range
-            try {
-            Random dispGroup = new Random();            
-            int num = dispGroup.Next(0, 100000);
-            txtRandom.Text = num.ToString();
+            try
+            {
+                Random dispGroup = new Random();
+                int num = dispGroup.Next(0, 100000);
+                txtRandom.Text = num.ToString();
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
         }
 
         private void CalcTotal_Amount()
         {
-            try { 
-            float subAmt, totalAmount;
-             subAmt= float.Parse(txtAmountSub.Text);
-             totalAmount = float.Parse(txtAmountTotal.Text);
-             totalAmount = totalAmount + subAmt;
+            try
+            {
+                float subAmt, totalAmount;
+                subAmt = float.Parse(txtAmountSub.Text);
+                totalAmount = float.Parse(txtAmountTotal.Text);
+                totalAmount = totalAmount + subAmt;
 
-            txtAmountTotal.Text = totalAmount.ToString() ;
+                txtAmountTotal.Text = totalAmount.ToString();
 
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             UpdateQty_Amt();
-            Update_Stock();            
+            Update_Stock();
             Save_Dispensary();
             dispense_sheet();
             CalcTotal_Amount();
@@ -395,7 +401,7 @@ namespace Smart_Inventory_System
             txtSearch.Focus();
         }
 
-  
+
 
 
         // save outcome of dispensary action (completed or cancelled) 
@@ -405,22 +411,26 @@ namespace Smart_Inventory_System
             {
                 txtdispStatus.Text = "YES";
 
-                cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE dispense SET dispense_completed=@dispense_completed WHERE group_id = '" + txtRandom.Text + "' && group_date = '" + txtgroupDate.Text + "' ;";
+                var parsedGroupDate = DateTime.Parse(txtgroupDate.Text);
 
-                cmd.Parameters.AddWithValue("@dispense_completed", (txtdispStatus.Text));
+                using (var ctx = new InventoryModel())
+                {
+                    var dis = ctx.Dispenses
+                        .Single(x => x.GroupId == txtRandom.Text
+                                     && x.GroupDate == parsedGroupDate);
 
-                cmd.Parameters.AddWithValue("@date_amended", txtDateAmend.Text);
-                cmd.Parameters.AddWithValue("@user_amended", txtUserAmend.Text);
-                
-                cmd.ExecuteNonQuery();
-                
-                //MessageBox.Show("Stock Level Updated Successfully");
+                    dis.DispenseCompleted = txtdispStatus.Text;
+                    dis.DateDispensed = DateTime.Parse(txtDateAmend.Text);
+                    dis.UserDispensed = Environment.UserName;
+
+                    ctx.SaveChanges();
+                }
+
+                MessageBox.Show("Stock Level Updated Successfully");
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispansary");  
+                MessageBox.Show(ex.Message, "Dispansary");
             }
 
         }
@@ -444,7 +454,7 @@ namespace Smart_Inventory_System
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Dispense Item");  
+                MessageBox.Show(ex.Message, "Dispense Item");
             }
         }
 
@@ -454,21 +464,19 @@ namespace Smart_Inventory_System
             Summary_Dispensary();
             Dispensary_Outcome();
             panel2.Visible = false;
-            
+
             txtAmountTotal.Clear();
             txtDiscount.Clear();
             txtVat.Clear();
             txtTotalFinal.Clear();
 
-            this.Close();
+            Close();
         }
 
         private void txtCancel_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            Close();
         }
-
-        }
-            
     }
+}
 
