@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using SmartInventorySystem.ViewModel;
+using SmartInventorySystem.DataAccess;
 
 namespace SmartInventorySystem.WinForms
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmartInventorySystem.WinForms.Model
+namespace SmartInventorySystem.Model
 {
     public class Supplier : IAuditable
     {

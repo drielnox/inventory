@@ -1,8 +1,8 @@
-namespace SmartInventorySystem.WinForms
+namespace SmartInventorySystem.DataAccess
 {
-    using DataAccess.Mapping;
-    using DataAccess.Seed;
+    using Seed;
     using Model;
+    using Mapping;
     using System;
     using System.Data.Entity;
     using System.Linq;

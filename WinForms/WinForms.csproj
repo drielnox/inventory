@@ -82,10 +82,6 @@
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.17\lib\net452\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
       <Private>True</Private>
@@ -140,13 +136,6 @@
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\Mapping\DispenseSummaryTypeConfiguration.cs" />
-    <Compile Include="DataAccess\Mapping\DispenseTypeConfiguration.cs" />
-    <Compile Include="DataAccess\Mapping\ItemTypeConfiguration.cs" />
-    <Compile Include="DataAccess\Mapping\StockUpdateTypeConfiguration.cs" />
-    <Compile Include="DataAccess\Mapping\SupplierTypeConfiguration.cs" />
-    <Compile Include="DataAccess\Mapping\UserTypeConfiguration.cs" />
-    <Compile Include="DataAccess\Seed\DevelopDbInitializer.cs" />
     <Compile Include="DispenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,7 +148,6 @@
     <Compile Include="ListDispenseForm.Designer.cs">
       <DependentUpon>ListDispenseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\InventoryModel.cs" />
     <Compile Include="UpdateItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,13 +160,6 @@
     <Compile Include="LoginPopup.Designer.cs">
       <DependentUpon>LoginPopup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Dispense.cs" />
-    <Compile Include="Model\DispenseSummary.cs" />
-    <Compile Include="Model\IAuditable.cs" />
-    <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\StockUpdate.cs" />
-    <Compile Include="Model\Supplier.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="NewItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +286,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{C45FA339-8B71-41A0-8654-78E54EC00C7B}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{26CC3AFD-6E9D-4812-91A1-E0853867D32E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{be29a432-4712-4da3-acb5-481d952c10cb}</Project>
       <Name>ViewModel</Name>

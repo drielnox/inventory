@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using SmartInventorySystem.WinForms.Model;
+using SmartInventorySystem.Model;
 
-namespace SmartInventorySystem.WinForms.DataAccess.Mapping
+namespace SmartInventorySystem.DataAccess.Mapping
 {
     class DispenseSummaryTypeConfiguration : EntityTypeConfiguration<DispenseSummary>
     {

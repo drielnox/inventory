@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartInventorySystem.WinForms.Model
+namespace SmartInventorySystem.Model
 {
     public class Dispense
     {

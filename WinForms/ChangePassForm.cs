@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartInventorySystem.DataAccess;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 

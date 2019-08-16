@@ -1,82 +1,70 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using SmartInventorySystem.WinForms.Model;
+using SmartInventorySystem.Model;
 
-namespace SmartInventorySystem.WinForms.DataAccess.Mapping
+namespace SmartInventorySystem.DataAccess.Mapping
 {
-    class UserTypeConfiguration : EntityTypeConfiguration<User>
+    class SupplierTypeConfiguration : EntityTypeConfiguration<Supplier>
     {
-        public UserTypeConfiguration() 
+        public SupplierTypeConfiguration() 
             : base()
         {
-            ToTable("users");
+            ToTable("suppliers");
 
             HasKey(x => x.Identifier);
 
             Property(x => x.Identifier)
-                .HasColumnName("id")
+                .HasColumnName("supplier_id")
                 .IsRequired()
                 .HasColumnOrder(0)
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.FirstName)
-                .HasColumnName("first_name")
-                .IsOptional()
+            Property(x => x.Name)
+                .HasColumnName("supplier_name")
+                .IsRequired()
                 .HasColumnOrder(1)
                 .IsVariableLength()
-                .HasMaxLength(45);
-            Property(x => x.LastName)
-                .HasColumnName("last_name")
-                .IsOptional()
+                .HasMaxLength(50);
+            Property(x => x.ContactPerson)
+                .HasColumnName("contact_person")
+                .IsRequired()
                 .HasColumnOrder(2)
                 .IsVariableLength()
-                .HasMaxLength(45);
-            Property(x => x.UserName)
-                .HasColumnName("username")
-                .IsRequired()
+                .HasMaxLength(50);
+            Property(x => x.Address)
+                .HasColumnName("office_address")
+                .IsOptional()
                 .HasColumnOrder(3)
                 .IsVariableLength()
-                .HasMaxLength(45);
-            Property(x => x.Password)
-                .HasColumnName("password")
-                .IsRequired()
-                .HasColumnOrder(4)
-                .IsVariableLength()
-                .HasMaxLength(45);
-            Property(x => x.Role)
-                .HasColumnName("user_role")
-                .IsOptional()
-                .HasColumnOrder(5)
-                .IsVariableLength()
-                .HasMaxLength(45);
+                .HasMaxLength(100);
             Property(x => x.Email)
                 .HasColumnName("email")
                 .IsOptional()
-                .HasColumnOrder(6)
+                .HasColumnOrder(4)
                 .IsVariableLength()
                 .HasMaxLength(100);
             Property(x => x.Phone)
                 .HasColumnName("phone")
                 .IsRequired()
-                .HasColumnOrder(7)
+                .HasColumnOrder(5)
                 .IsVariableLength()
                 .HasMaxLength(30);
             Property(x => x.CreatedAt)
                 .HasColumnName("date_created")
                 .IsOptional()
-                .HasColumnOrder(8);
+                .HasColumnOrder(6);
             Property(x => x.CreatedBy)
                 .HasColumnName("user_created")
                 .IsOptional()
-                .HasColumnOrder(9)
+                .HasColumnOrder(7)
                 .IsVariableLength()
                 .HasMaxLength(30);
             Property(x => x.ModifiedAt)
                 .HasColumnName("date_amended")
                 .IsOptional()
-                .HasColumnOrder(10);
+                .HasColumnOrder(8);
             Property(x => x.ModifiedBy)
                 .HasColumnName("user_amended")
                 .IsOptional()
-                .HasColumnOrder(11)
+                .HasColumnOrder(9)
                 .IsVariableLength()
                 .HasMaxLength(30);
         }

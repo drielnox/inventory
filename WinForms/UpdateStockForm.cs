@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using SmartInventorySystem.WinForms.Model;
+using SmartInventorySystem.Model;
 using SmartInventorySystem.ViewModel;
+using SmartInventorySystem.DataAccess;
 
 namespace SmartInventorySystem.WinForms
 {

@@ -1,9 +1,9 @@
 ﻿using SQLite.CodeFirst;
 using System;
 using System.Data.Entity;
-using SmartInventorySystem.WinForms.Model;
+using SmartInventorySystem.Model;
 
-namespace SmartInventorySystem.WinForms.DataAccess.Seed
+namespace SmartInventorySystem.DataAccess.Seed
 {
     class DevelopDbInitializer : SqliteDropCreateDatabaseAlways<InventoryModel>
     {

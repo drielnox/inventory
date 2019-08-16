@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using SmartInventorySystem.WinForms.Model;
+using SmartInventorySystem.Model;
+using SmartInventorySystem.DataAccess;
 
 namespace SmartInventorySystem.WinForms
 {
