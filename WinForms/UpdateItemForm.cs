@@ -8,9 +8,9 @@ using SmartInventorySystem.DataAccess;
 
 namespace SmartInventorySystem.WinForms
 {
-    public partial class frmItems_Record : Form
+    public partial class UpdateItemForm : Form
     {
-        public frmItems_Record()
+        public UpdateItemForm()
         {
             InitializeComponent();
         }

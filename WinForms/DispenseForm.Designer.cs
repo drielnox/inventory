@@ -52,13 +52,6 @@ namespace SmartInventorySystem.WinForms
             this.txtVat = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtAmountTotal = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dispenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.suppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnCompute = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -70,6 +63,7 @@ namespace SmartInventorySystem.WinForms
             this.label14 = new System.Windows.Forms.Label();
             this.txtdispStatus = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.bsDispenseSheet = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.txtgroupDate = new System.Windows.Forms.TextBox();
@@ -109,15 +103,13 @@ namespace SmartInventorySystem.WinForms
             this.btnSelect = new System.Windows.Forms.Button();
             this.txtUserAmend = new System.Windows.Forms.TextBox();
             this.txtDateAmend = new System.Windows.Forms.TextBox();
-            this.bsDispenseSheet = new System.Windows.Forms.BindingSource(this.components);
-            this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDispenseSheet)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDispenseSheet)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCancel
@@ -325,58 +317,6 @@ namespace SmartInventorySystem.WinForms
             this.txtAmountTotal.TabIndex = 125;
             this.txtAmountTotal.Text = "0";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemToolStripMenuItem,
-            this.inventoryToolStripMenuItem,
-            this.suppliersToolStripMenuItem,
-            this.usersToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(730, 24);
-            this.menuStrip1.TabIndex = 127;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // itemToolStripMenuItem
-            // 
-            this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.itemToolStripMenuItem.Text = "Item";
-            // 
-            // inventoryToolStripMenuItem
-            // 
-            this.inventoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dispenseToolStripMenuItem,
-            this.stockRecordToolStripMenuItem});
-            this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.inventoryToolStripMenuItem.Text = "Inventory";
-            // 
-            // dispenseToolStripMenuItem
-            // 
-            this.dispenseToolStripMenuItem.Name = "dispenseToolStripMenuItem";
-            this.dispenseToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.dispenseToolStripMenuItem.Text = "Dispense";
-            // 
-            // stockRecordToolStripMenuItem
-            // 
-            this.stockRecordToolStripMenuItem.Name = "stockRecordToolStripMenuItem";
-            this.stockRecordToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.stockRecordToolStripMenuItem.Text = "Stock Record";
-            // 
-            // suppliersToolStripMenuItem
-            // 
-            this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.suppliersToolStripMenuItem.Text = "Suppliers";
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.usersToolStripMenuItem.Text = "Users";
-            // 
             // btnAddItem
             // 
             this.btnAddItem.Location = new System.Drawing.Point(32, 266);
@@ -502,6 +442,10 @@ namespace SmartInventorySystem.WinForms
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(262, 87);
             this.dataGridView2.TabIndex = 127;
+            // 
+            // bsDispenseSheet
+            // 
+            this.bsDispenseSheet.AllowNew = false;
             // 
             // panel1
             // 
@@ -846,7 +790,7 @@ namespace SmartInventorySystem.WinForms
             // bsItem
             // 
             this.bsItem.AllowNew = false;
-            this.bsItem.DataSource = typeof(ItemViewModel);
+            this.bsItem.DataSource = typeof(SmartInventorySystem.ViewModel.ItemViewModel);
             // 
             // btnSelect
             // 
@@ -877,10 +821,6 @@ namespace SmartInventorySystem.WinForms
             this.txtDateAmend.TabIndex = 136;
             this.txtDateAmend.Visible = false;
             // 
-            // bsDispenseSheet
-            // 
-            this.bsDispenseSheet.AllowNew = false;
-            // 
             // frmDispense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -895,23 +835,19 @@ namespace SmartInventorySystem.WinForms
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmDispense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dispense";
             this.Load += new System.EventHandler(this.frmDispense_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDispenseSheet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsDispenseSheet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -940,13 +876,6 @@ namespace SmartInventorySystem.WinForms
         private System.Windows.Forms.TextBox txtVat;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtAmountTotal;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem itemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dispenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem suppliersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnCompute;
         private System.Windows.Forms.Panel panel2;

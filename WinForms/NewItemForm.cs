@@ -22,7 +22,7 @@ namespace SmartInventorySystem.WinForms
         {
             try
             {
-                frmItems_Record items = new frmItems_Record();
+                UpdateItemForm items = new UpdateItemForm();
                 items.ShowDialog();
             }
             catch (Exception ex)

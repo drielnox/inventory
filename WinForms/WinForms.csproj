@@ -113,6 +113,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -148,6 +149,7 @@
     <Compile Include="ListDispenseForm.Designer.cs">
       <DependentUpon>ListDispenseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyApplicationContext.cs" />
     <Compile Include="UpdateItemForm.cs">
       <SubType>Form</SubType>
     </Compile>

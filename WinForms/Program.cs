@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace SmartInventorySystem.WinForms
@@ -15,7 +13,7 @@ namespace SmartInventorySystem.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginPopup());
+            Application.Run(new MyApplicationContext());
         }
     }
 }

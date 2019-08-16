@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
-using SmartInventorySystem.ViewModel;
-using SmartInventorySystem.DataAccess;
-
-namespace SmartInventorySystem.WinForms
+﻿namespace SmartInventorySystem.WinForms
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Linq;
+    using System.Windows.Forms;
+    using ViewModel;
+    using DataAccess;
+
     public partial class DashboardForm : Form
     {
         public DashboardForm()
@@ -15,161 +15,17 @@ namespace SmartInventorySystem.WinForms
             InitializeComponent();
         }
 
-        private void btnItemsRecord_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmItems_Record items = new frmItems_Record();
-                items.ShowDialog();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "New Drug / Item");
-            }
-        }
-
-        private void btnUpdateStock_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmStock_Update stock = new frmStock_Update();
-                stock.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "New Drug / Item");
-            }
-        }
-
-        private void btnDispense_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmDispense dispense = new frmDispense();
-                dispense.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "New Drug / Item");
-            }
-        }
-
-        private void btnNewItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmNew_Item new_item = new frmNew_Item();
-                new_item.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "New Drug / Item");
-            }
-        }
-
-        private void btnNewSupplier_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmNewSupplier new_supp = new frmNewSupplier();
-                new_supp.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "New Supplier");
-            }
-        }
-
-        private void btnSuppliers_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmSuppliersRecord supp_record = new frmSuppliersRecord();
-                supp_record.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Suppliers");
-            }
-        }
-
-        private void btnNewUser_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmNewUser new_user = new frmNewUser();
-                new_user.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Users");
-            }
-        }
-
-        private void btnUsers_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmViewUsers view_user = new frmViewUsers();
-                view_user.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Users");
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmStockSheet stock = new frmStockSheet();
-                stock.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Stock");
-            }
-        }
-
-        private void btnDispenseSheet_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmDispenseSheet dispense = new frmDispenseSheet();
-                dispense.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "dispense");
-            }
-        }
-
         private void dashboard_Load(object sender, EventArgs e)
         {
-            txtToday.Text = DateTime.Now.ToString("yyyy/MM/dd");
-            txtExpiryAlert.Text = DateTime.Now.AddDays(90).ToString("yyyy/MM/dd");
-
             LoadExpiry();
-
+            tsslDomainAndUser.Text = string.Format("{0}\\{1}", Environment.UserDomainName, Environment.UserName);
+            tsslSoftwareVersion.Text = string.Format("{0}.{1}.{2}.{3}", Environment.Version.Major, Environment.Version.Minor, Environment.Version.Revision, Environment.Version.Build);
         }
-
 
         private void LoadExpiry()
         {
             var expiredItems = new List<ItemExpiredViewModel>();
-            var parseExpiryDate = DateTime.Parse(txtExpiryAlert.Text);
+            var parseExpiryDate = DateTime.Now.AddDays(90);
 
             try
             {
@@ -189,7 +45,146 @@ namespace SmartInventorySystem.WinForms
             bsExpiredItems.DataSource = expiredItems;
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmNew_Item new_item = new frmNew_Item();
+                new_item.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Drug / Item");
+            }
+        }
+
+        private void listToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var form = new UpdateItemForm();
+                form.ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Drug / Item");
+            }
+        }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmStock_Update stock = new frmStock_Update();
+                stock.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Drug / Item");
+            }
+        }
+
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmStockSheet stock = new frmStockSheet();
+                stock.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Stock");
+            }
+        }
+
+        private void viewToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmViewUsers view_user = new frmViewUsers();
+                view_user.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Users");
+            }
+        }
+
+        private void updateToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmDispense dispense = new frmDispense();
+                dispense.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Drug / Item");
+            }
+        }
+
+        private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmDispenseSheet dispense = new frmDispenseSheet();
+                dispense.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "dispense");
+            }
+        }
+
+        private void listToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmSuppliersRecord supp_record = new frmSuppliersRecord();
+                supp_record.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Suppliers");
+            }
+        }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmNewSupplier new_supp = new frmNewSupplier();
+                new_supp.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Supplier");
+            }
+        }
+
+        private void addToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmNewUser new_user = new frmNewUser();
+                new_user.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Users");
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

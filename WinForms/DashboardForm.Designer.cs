@@ -31,292 +31,74 @@ namespace SmartInventorySystem.WinForms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnNewItem = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnItemsRecord = new System.Windows.Forms.Button();
-            this.btnUpdateStock = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnDispense = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnNewSupplier = new System.Windows.Forms.Button();
-            this.btnSuppliers = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnNewUser = new System.Windows.Forms.Button();
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnDispenseSheet = new System.Windows.Forms.Button();
-            this.txtToday = new System.Windows.Forms.TextBox();
-            this.txtExpiryAlert = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.ToolStripStatusLabel tsslDomainAndUserLabel;
+            System.Windows.Forms.ToolStripStatusLabel tsslSoftwareVersionLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
+            System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+            this.dgvExpiredItems = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expireDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsExpiredItems = new System.Windows.Forms.BindingSource(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drugsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dispenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsslDomainAndUser = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslSoftwareVersion = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            tsslDomainAndUserLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            tsslSoftwareVersionLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExpiredItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsExpiredItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnNewItem
+            // dgvExpiredItems
             // 
-            this.btnNewItem.AutoSize = true;
-            this.btnNewItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnNewItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewItem.ForeColor = System.Drawing.Color.Maroon;
-            this.btnNewItem.Location = new System.Drawing.Point(83, 198);
-            this.btnNewItem.Name = "btnNewItem";
-            this.btnNewItem.Size = new System.Drawing.Size(133, 51);
-            this.btnNewItem.TabIndex = 0;
-            this.btnNewItem.Text = "Add New Drug";
-            this.btnNewItem.UseVisualStyleBackColor = false;
-            this.btnNewItem.Click += new System.EventHandler(this.btnNewItem_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label12.Location = new System.Drawing.Point(339, 36);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(372, 29);
-            this.label12.TabIndex = 73;
-            this.label12.Text = "SMART INVENTORY SYSTEM";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(439, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 25);
-            this.label1.TabIndex = 74;
-            this.label1.Text = "DASHBOARD";
-            // 
-            // btnItemsRecord
-            // 
-            this.btnItemsRecord.AutoSize = true;
-            this.btnItemsRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnItemsRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnItemsRecord.ForeColor = System.Drawing.Color.Maroon;
-            this.btnItemsRecord.Location = new System.Drawing.Point(83, 266);
-            this.btnItemsRecord.Name = "btnItemsRecord";
-            this.btnItemsRecord.Size = new System.Drawing.Size(133, 51);
-            this.btnItemsRecord.TabIndex = 75;
-            this.btnItemsRecord.Text = "Update Drugs";
-            this.btnItemsRecord.UseVisualStyleBackColor = false;
-            this.btnItemsRecord.Click += new System.EventHandler(this.btnItemsRecord_Click);
-            // 
-            // btnUpdateStock
-            // 
-            this.btnUpdateStock.AutoSize = true;
-            this.btnUpdateStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnUpdateStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateStock.ForeColor = System.Drawing.Color.Maroon;
-            this.btnUpdateStock.Location = new System.Drawing.Point(282, 198);
-            this.btnUpdateStock.Name = "btnUpdateStock";
-            this.btnUpdateStock.Size = new System.Drawing.Size(187, 51);
-            this.btnUpdateStock.TabIndex = 76;
-            this.btnUpdateStock.Text = "Update Stock Inventory";
-            this.btnUpdateStock.UseVisualStyleBackColor = false;
-            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(79, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 20);
-            this.label2.TabIndex = 78;
-            this.label2.Text = "Drugs && Items";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(288, 161);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 20);
-            this.label3.TabIndex = 79;
-            this.label3.Text = "Stock Management";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(542, 161);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(204, 20);
-            this.label4.TabIndex = 82;
-            this.label4.Text = "Dispense Drugs && Items";
-            // 
-            // btnDispense
-            // 
-            this.btnDispense.AutoSize = true;
-            this.btnDispense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnDispense.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDispense.ForeColor = System.Drawing.Color.Maroon;
-            this.btnDispense.Location = new System.Drawing.Point(546, 198);
-            this.btnDispense.Name = "btnDispense";
-            this.btnDispense.Size = new System.Drawing.Size(191, 51);
-            this.btnDispense.TabIndex = 80;
-            this.btnDispense.Text = "Dispense Drugs && Items";
-            this.btnDispense.UseVisualStyleBackColor = false;
-            this.btnDispense.Click += new System.EventHandler(this.btnDispense_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(810, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 20);
-            this.label5.TabIndex = 83;
-            this.label5.Text = "Suppliers";
-            // 
-            // btnNewSupplier
-            // 
-            this.btnNewSupplier.AutoSize = true;
-            this.btnNewSupplier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnNewSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewSupplier.ForeColor = System.Drawing.Color.Maroon;
-            this.btnNewSupplier.Location = new System.Drawing.Point(766, 198);
-            this.btnNewSupplier.Name = "btnNewSupplier";
-            this.btnNewSupplier.Size = new System.Drawing.Size(191, 51);
-            this.btnNewSupplier.TabIndex = 84;
-            this.btnNewSupplier.Text = "Add New Supplier";
-            this.btnNewSupplier.UseVisualStyleBackColor = false;
-            this.btnNewSupplier.Click += new System.EventHandler(this.btnNewSupplier_Click);
-            // 
-            // btnSuppliers
-            // 
-            this.btnSuppliers.AutoSize = true;
-            this.btnSuppliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuppliers.ForeColor = System.Drawing.Color.Maroon;
-            this.btnSuppliers.Location = new System.Drawing.Point(766, 266);
-            this.btnSuppliers.Name = "btnSuppliers";
-            this.btnSuppliers.Size = new System.Drawing.Size(191, 51);
-            this.btnSuppliers.TabIndex = 85;
-            this.btnSuppliers.Text = "Suppliers";
-            this.btnSuppliers.UseVisualStyleBackColor = false;
-            this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label6.Location = new System.Drawing.Point(80, 354);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 20);
-            this.label6.TabIndex = 87;
-            this.label6.Text = "Users";
-            // 
-            // btnNewUser
-            // 
-            this.btnNewUser.AutoSize = true;
-            this.btnNewUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnNewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewUser.ForeColor = System.Drawing.Color.Maroon;
-            this.btnNewUser.Location = new System.Drawing.Point(84, 434);
-            this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(133, 51);
-            this.btnNewUser.TabIndex = 86;
-            this.btnNewUser.Text = "Add New User";
-            this.btnNewUser.UseVisualStyleBackColor = false;
-            this.btnNewUser.Visible = false;
-            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.AutoSize = true;
-            this.btnUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsers.ForeColor = System.Drawing.Color.Maroon;
-            this.btnUsers.Location = new System.Drawing.Point(83, 377);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(133, 51);
-            this.btnUsers.TabIndex = 88;
-            this.btnUsers.Text = "View Users";
-            this.btnUsers.UseVisualStyleBackColor = false;
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(282, 266);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 51);
-            this.button1.TabIndex = 89;
-            this.button1.Text = "Stock Record Sheet";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnDispenseSheet
-            // 
-            this.btnDispenseSheet.AutoSize = true;
-            this.btnDispenseSheet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnDispenseSheet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDispenseSheet.ForeColor = System.Drawing.Color.Maroon;
-            this.btnDispenseSheet.Location = new System.Drawing.Point(546, 266);
-            this.btnDispenseSheet.Name = "btnDispenseSheet";
-            this.btnDispenseSheet.Size = new System.Drawing.Size(189, 51);
-            this.btnDispenseSheet.TabIndex = 90;
-            this.btnDispenseSheet.Text = "Dispense Record Sheet";
-            this.btnDispenseSheet.UseVisualStyleBackColor = false;
-            this.btnDispenseSheet.Click += new System.EventHandler(this.btnDispenseSheet_Click);
-            // 
-            // txtToday
-            // 
-            this.txtToday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtToday.Location = new System.Drawing.Point(147, 507);
-            this.txtToday.Name = "txtToday";
-            this.txtToday.Size = new System.Drawing.Size(105, 20);
-            this.txtToday.TabIndex = 92;
-            this.txtToday.Visible = false;
-            // 
-            // txtExpiryAlert
-            // 
-            this.txtExpiryAlert.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtExpiryAlert.Location = new System.Drawing.Point(251, 507);
-            this.txtExpiryAlert.Name = "txtExpiryAlert";
-            this.txtExpiryAlert.Size = new System.Drawing.Size(105, 20);
-            this.txtExpiryAlert.TabIndex = 91;
-            this.txtExpiryAlert.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Maroon;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvExpiredItems.AllowUserToAddRows = false;
+            this.dgvExpiredItems.AllowUserToDeleteRows = false;
+            this.dgvExpiredItems.AllowUserToOrderColumns = true;
+            this.dgvExpiredItems.AutoGenerateColumns = false;
+            this.dgvExpiredItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.expireDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bsExpiredItems;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.Location = new System.Drawing.Point(775, 391);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(247, 136);
-            this.dataGridView1.TabIndex = 93;
+            this.dgvExpiredItems.DataSource = this.bsExpiredItems;
+            this.dgvExpiredItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvExpiredItems.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvExpiredItems.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvExpiredItems.Location = new System.Drawing.Point(3, 16);
+            this.dgvExpiredItems.MultiSelect = false;
+            this.dgvExpiredItems.Name = "dgvExpiredItems";
+            this.dgvExpiredItems.ReadOnly = true;
+            this.dgvExpiredItems.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Salmon;
+            this.dgvExpiredItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvExpiredItems.Size = new System.Drawing.Size(1028, 75);
+            this.dgvExpiredItems.TabIndex = 93;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -335,102 +117,311 @@ namespace SmartInventorySystem.WinForms
             // bsExpiredItems
             // 
             this.bsExpiredItems.AllowNew = false;
-            this.bsExpiredItems.DataSource = typeof(ItemExpiredViewModel);
+            this.bsExpiredItems.DataSource = typeof(SmartInventorySystem.ViewModel.ItemExpiredViewModel);
             // 
-            // label7
+            // splitContainer1
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(771, 368);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 20);
-            this.label7.TabIndex = 94;
-            this.label7.Text = "Drug Expiry Alert";
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // btnExit
+            // splitContainer1.Panel1
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnExit.Location = new System.Drawing.Point(960, 1);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 32);
-            this.btnExit.TabIndex = 95;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             // 
-            // dashboard
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.menuStrip1);
+            this.splitContainer1.Size = new System.Drawing.Size(1034, 534);
+            this.splitContainer1.SplitterDistance = 94;
+            this.splitContainer1.TabIndex = 96;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvExpiredItems);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1034, 94);
+            this.groupBox1.TabIndex = 95;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Drug Expiry Alert";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.systemToolStripMenuItem,
+            this.drugsToolStripMenuItem,
+            this.suppliersToolStripMenuItem,
+            this.stockToolStripMenuItem,
+            this.dispenseToolStripMenuItem,
+            this.usersToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1034, 24);
+            this.menuStrip1.TabIndex = 96;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // systemToolStripMenuItem
+            // 
+            this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.systemToolStripMenuItem.Text = "System";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // drugsToolStripMenuItem
+            // 
+            this.drugsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listToolStripMenuItem,
+            this.addToolStripMenuItem});
+            this.drugsToolStripMenuItem.Name = "drugsToolStripMenuItem";
+            this.drugsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.drugsToolStripMenuItem.Text = "Drugs";
+            // 
+            // listToolStripMenuItem
+            // 
+            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listToolStripMenuItem.Text = "List";
+            this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // suppliersToolStripMenuItem
+            // 
+            this.suppliersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listToolStripMenuItem1,
+            this.addToolStripMenuItem1});
+            this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
+            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.suppliersToolStripMenuItem.Text = "Suppliers";
+            // 
+            // listToolStripMenuItem1
+            // 
+            this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
+            this.listToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
+            this.listToolStripMenuItem1.Text = "List";
+            this.listToolStripMenuItem1.Click += new System.EventHandler(this.listToolStripMenuItem1_Click);
+            // 
+            // addToolStripMenuItem1
+            // 
+            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(96, 22);
+            this.addToolStripMenuItem1.Text = "Add";
+            this.addToolStripMenuItem1.Click += new System.EventHandler(this.addToolStripMenuItem1_Click);
+            // 
+            // stockToolStripMenuItem
+            // 
+            this.stockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewToolStripMenuItem,
+            this.updateToolStripMenuItem});
+            this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.stockToolStripMenuItem.Text = "Stock";
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.viewToolStripMenuItem.Text = "View";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
+            // 
+            // dispenseToolStripMenuItem
+            // 
+            this.dispenseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewToolStripMenuItem1,
+            this.updateToolStripMenuItem1});
+            this.dispenseToolStripMenuItem.Name = "dispenseToolStripMenuItem";
+            this.dispenseToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.dispenseToolStripMenuItem.Text = "Dispense";
+            // 
+            // viewToolStripMenuItem1
+            // 
+            this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
+            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.viewToolStripMenuItem1.Text = "View";
+            this.viewToolStripMenuItem1.Click += new System.EventHandler(this.viewToolStripMenuItem1_Click);
+            // 
+            // updateToolStripMenuItem1
+            // 
+            this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
+            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.updateToolStripMenuItem1.Text = "Update";
+            this.updateToolStripMenuItem1.Click += new System.EventHandler(this.updateToolStripMenuItem1_Click);
+            // 
+            // usersToolStripMenuItem
+            // 
+            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewToolStripMenuItem2,
+            this.addToolStripMenuItem2});
+            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.usersToolStripMenuItem.Text = "Users";
+            // 
+            // viewToolStripMenuItem2
+            // 
+            this.viewToolStripMenuItem2.Name = "viewToolStripMenuItem2";
+            this.viewToolStripMenuItem2.Size = new System.Drawing.Size(99, 22);
+            this.viewToolStripMenuItem2.Text = "View";
+            this.viewToolStripMenuItem2.Click += new System.EventHandler(this.viewToolStripMenuItem2_Click);
+            // 
+            // addToolStripMenuItem2
+            // 
+            this.addToolStripMenuItem2.Name = "addToolStripMenuItem2";
+            this.addToolStripMenuItem2.Size = new System.Drawing.Size(99, 22);
+            this.addToolStripMenuItem2.Text = "Add";
+            this.addToolStripMenuItem2.Click += new System.EventHandler(this.addToolStripMenuItem2_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1,
+            toolStripStatusLabel1,
+            tsslDomainAndUserLabel,
+            this.tsslDomainAndUser,
+            tsslSoftwareVersionLabel,
+            this.tsslSoftwareVersion});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 512);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1034, 22);
+            this.statusStrip1.TabIndex = 97;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // logToolStripMenuItem
+            // 
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logToolStripMenuItem.Text = "Log";
+            // 
+            // tsslDomainAndUser
+            // 
+            this.tsslDomainAndUser.BackColor = System.Drawing.Color.Transparent;
+            this.tsslDomainAndUser.Name = "tsslDomainAndUser";
+            this.tsslDomainAndUser.Size = new System.Drawing.Size(111, 17);
+            this.tsslDomainAndUser.Text = "tsslDomainAndUser";
+            // 
+            // tsslSoftwareVersion
+            // 
+            this.tsslSoftwareVersion.BackColor = System.Drawing.Color.Transparent;
+            this.tsslSoftwareVersion.Name = "tsslSoftwareVersion";
+            this.tsslSoftwareVersion.Size = new System.Drawing.Size(108, 17);
+            this.tsslSoftwareVersion.Text = "tsslSoftwareVersion";
+            // 
+            // tsslDomainAndUserLabel
+            // 
+            tsslDomainAndUserLabel.BackColor = System.Drawing.Color.Transparent;
+            tsslDomainAndUserLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            tsslDomainAndUserLabel.Name = "tsslDomainAndUserLabel";
+            tsslDomainAndUserLabel.Size = new System.Drawing.Size(36, 17);
+            tsslDomainAndUserLabel.Text = "User:";
+            // 
+            // tsslSoftwareVersionLabel
+            // 
+            tsslSoftwareVersionLabel.BackColor = System.Drawing.Color.Transparent;
+            tsslSoftwareVersionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            tsslSoftwareVersionLabel.Name = "tsslSoftwareVersionLabel";
+            tsslSoftwareVersionLabel.Size = new System.Drawing.Size(34, 17);
+            tsslSoftwareVersionLabel.Text = "Vers:";
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 20);
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new System.Drawing.Size(670, 17);
+            toolStripStatusLabel1.Spring = true;
+            // 
+            // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1034, 534);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txtToday);
-            this.Controls.Add(this.txtExpiryAlert);
-            this.Controls.Add(this.btnDispenseSheet);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnUsers);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnNewUser);
-            this.Controls.Add(this.btnSuppliers);
-            this.Controls.Add(this.btnNewSupplier);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnDispense);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnUpdateStock);
-            this.Controls.Add(this.btnItemsRecord);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.btnNewItem);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "dashboard";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "DashboardForm";
             this.Text = "Dashboard - Smart Inventory System ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.dashboard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExpiredItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsExpiredItems)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnNewItem;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnItemsRecord;
-        private System.Windows.Forms.Button btnUpdateStock;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnDispense;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnNewSupplier;
-        private System.Windows.Forms.Button btnSuppliers;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnNewUser;
-        private System.Windows.Forms.Button btnUsers;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnDispenseSheet;
-        private System.Windows.Forms.TextBox txtToday;
-        private System.Windows.Forms.TextBox txtExpiryAlert;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridView dgvExpiredItems;
         private System.Windows.Forms.BindingSource bsExpiredItems;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn expireDataGridViewTextBoxColumn;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem systemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem drugsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suppliersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dispenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel tsslDomainAndUser;
+        private System.Windows.Forms.ToolStripStatusLabel tsslSoftwareVersion;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
     }
 }

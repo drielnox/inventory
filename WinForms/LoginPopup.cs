@@ -40,10 +40,6 @@ namespace SmartInventorySystem.WinForms
             if (existUser)
             {
                 MessageBox.Show(this, "Login Granted", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DashboardForm dashpage = new DashboardForm();
-                dashpage.Show();
-
-                Visible = false;
             }
             else
             {
@@ -51,12 +47,6 @@ namespace SmartInventorySystem.WinForms
                 txtUsername.Clear();
                 txtPassword.Clear();
             }
-        }
-
-        // end the application
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
