@@ -49,7 +49,7 @@
         {
             try
             {
-                frmNew_Item new_item = new frmNew_Item();
+                NewItemForm new_item = new NewItemForm();
                 new_item.ShowDialog();
             }
 
@@ -76,7 +76,7 @@
         {
             try
             {
-                frmStock_Update stock = new frmStock_Update();
+                UpdateStockForm stock = new UpdateStockForm();
                 stock.ShowDialog();
             }
 
@@ -90,7 +90,7 @@
         {
             try
             {
-                frmStockSheet stock = new frmStockSheet();
+                ListStockForm stock = new ListStockForm();
                 stock.ShowDialog();
             }
 
@@ -132,7 +132,7 @@
         {
             try
             {
-                frmDispenseSheet dispense = new frmDispenseSheet();
+                ListDispenseForm dispense = new ListDispenseForm();
                 dispense.ShowDialog();
             }
 
@@ -160,7 +160,7 @@
         {
             try
             {
-                frmNewSupplier new_supp = new frmNewSupplier();
+                NewSupplierForm new_supp = new NewSupplierForm();
                 new_supp.ShowDialog();
             }
 

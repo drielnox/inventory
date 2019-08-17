@@ -2,7 +2,7 @@
 
 namespace SmartInventorySystem.WinForms
 {
-    partial class frmStockSheet
+    partial class ListStockForm
     {
         /// <summary>
         /// Required designer variable.

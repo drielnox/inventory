@@ -33,8 +33,8 @@ namespace SmartInventorySystem.WinForms
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ToolStripStatusLabel tsslDomainAndUserLabel;
             System.Windows.Forms.ToolStripStatusLabel tsslSoftwareVersionLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.dgvExpiredItems = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expireDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +43,7 @@ namespace SmartInventorySystem.WinForms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drugsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,10 +61,11 @@ namespace SmartInventorySystem.WinForms
             this.viewToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsslDomainAndUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslSoftwareVersion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             tsslDomainAndUserLabel = new System.Windows.Forms.ToolStripStatusLabel();
             tsslSoftwareVersionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -77,6 +79,29 @@ namespace SmartInventorySystem.WinForms
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tsslDomainAndUserLabel
+            // 
+            tsslDomainAndUserLabel.BackColor = System.Drawing.Color.Transparent;
+            tsslDomainAndUserLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            tsslDomainAndUserLabel.Name = "tsslDomainAndUserLabel";
+            tsslDomainAndUserLabel.Size = new System.Drawing.Size(36, 17);
+            tsslDomainAndUserLabel.Text = "User:";
+            // 
+            // tsslSoftwareVersionLabel
+            // 
+            tsslSoftwareVersionLabel.BackColor = System.Drawing.Color.Transparent;
+            tsslSoftwareVersionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            tsslSoftwareVersionLabel.Name = "tsslSoftwareVersionLabel";
+            tsslSoftwareVersionLabel.Size = new System.Drawing.Size(34, 17);
+            tsslSoftwareVersionLabel.Text = "Vers:";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new System.Drawing.Size(701, 17);
+            toolStripStatusLabel1.Spring = true;
             // 
             // dgvExpiredItems
             // 
@@ -157,7 +182,8 @@ namespace SmartInventorySystem.WinForms
             this.suppliersToolStripMenuItem,
             this.stockToolStripMenuItem,
             this.dispenseToolStripMenuItem,
-            this.usersToolStripMenuItem});
+            this.usersToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1034, 24);
@@ -173,10 +199,16 @@ namespace SmartInventorySystem.WinForms
             this.systemToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.systemToolStripMenuItem.Text = "System";
             // 
+            // logToolStripMenuItem
+            // 
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.logToolStripMenuItem.Text = "Log";
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -192,14 +224,14 @@ namespace SmartInventorySystem.WinForms
             // listToolStripMenuItem
             // 
             this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.listToolStripMenuItem.Text = "List";
             this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
@@ -310,11 +342,12 @@ namespace SmartInventorySystem.WinForms
             this.statusStrip1.TabIndex = 97;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // logToolStripMenuItem
+            // toolStripDropDownButton1
             // 
-            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.logToolStripMenuItem.Text = "Log";
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 20);
             // 
             // tsslDomainAndUser
             // 
@@ -330,35 +363,19 @@ namespace SmartInventorySystem.WinForms
             this.tsslSoftwareVersion.Size = new System.Drawing.Size(108, 17);
             this.tsslSoftwareVersion.Text = "tsslSoftwareVersion";
             // 
-            // tsslDomainAndUserLabel
+            // helpToolStripMenuItem
             // 
-            tsslDomainAndUserLabel.BackColor = System.Drawing.Color.Transparent;
-            tsslDomainAndUserLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            tsslDomainAndUserLabel.Name = "tsslDomainAndUserLabel";
-            tsslDomainAndUserLabel.Size = new System.Drawing.Size(36, 17);
-            tsslDomainAndUserLabel.Text = "User:";
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
-            // tsslSoftwareVersionLabel
+            // aboutToolStripMenuItem
             // 
-            tsslSoftwareVersionLabel.BackColor = System.Drawing.Color.Transparent;
-            tsslSoftwareVersionLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            tsslSoftwareVersionLabel.Name = "tsslSoftwareVersionLabel";
-            tsslSoftwareVersionLabel.Size = new System.Drawing.Size(34, 17);
-            tsslSoftwareVersionLabel.Text = "Vers:";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 20);
-            // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new System.Drawing.Size(670, 17);
-            toolStripStatusLabel1.Spring = true;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
             // DashboardForm
             // 
@@ -423,5 +440,7 @@ namespace SmartInventorySystem.WinForms
         private System.Windows.Forms.ToolStripStatusLabel tsslDomainAndUser;
         private System.Windows.Forms.ToolStripStatusLabel tsslSoftwareVersion;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

@@ -1,68 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 using SmartInventorySystem.ViewModel;
-using SmartInventorySystem.DataAccess;
+using SmartInventorySystem.WinForms.View;
+using SmartInventorySystem.WinForms.Presenter;
 
 namespace SmartInventorySystem.WinForms
 {
-    public partial class frmStockSheet : Form
+    public partial class ListStockForm : Form, IListStockView
     {
-        public frmStockSheet()
+        private readonly ListStockPresenter _presenter;
+
+        public ListStockForm()
         {
             InitializeComponent();
+
+            _presenter = new ListStockPresenter(this);
         }
 
         private void frmStockSheet_Load(object sender, EventArgs e)
         {
-            try
-            {
-                Load_StockSheet();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "View Stock Sheet");
-            }
-
-        }
-
-        private void Load_StockSheet()
-        {
-            try
-            {
-                var stock = new List<StockViewModel>();
-
-                using (var ctx = new InventoryModel())
-                {
-                    stock = ctx.Items
-                        .Select(x => new StockViewModel
-                        {
-                            Name = x.Name,
-                            Description = x.Description,
-                            Manufacturer = x.Manufacturer,
-                            StockLevel = x.StockLevel,
-                            ReOrderLevel = x.ReOrderLevel,
-                            MajorSupplier = x.MajorSupplier,
-                            PurchasePrice = x.PurchasePrice,
-                            SellingPrice = x.SellingPrice
-                        })
-                        .ToList();
-                }
-
-                bsStock.DataSource = stock;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
+            _presenter.LoadStockList();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void ShowError(Exception ex)
+        {
+            if (Cursor != DefaultCursor)
+            {
+                Cursor = DefaultCursor;
+            }
+
+            MessageBox.Show(this, ex.Message, "View Stock Sheet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void SetStockBindingSource(List<StockViewModel> stock)
+        {
+            bsStock.DataSource = stock;
+        }
+
+        public void ShowInfo(string msg)
+        {
+            throw new NotImplementedException();
         }
     }
 }

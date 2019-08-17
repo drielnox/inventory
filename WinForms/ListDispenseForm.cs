@@ -1,65 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 using SmartInventorySystem.ViewModel;
-using SmartInventorySystem.DataAccess;
+using SmartInventorySystem.WinForms.View;
+using SmartInventorySystem.WinForms.Presenter;
 
 namespace SmartInventorySystem.WinForms
 {
-    public partial class frmDispenseSheet : Form
+    public partial class ListDispenseForm : Form, IListDispenseView
     {
-        public frmDispenseSheet()
+        private readonly ListDispensePresenter _presenter;
+
+        public ListDispenseForm()
         {
             InitializeComponent();
+
+            _presenter = new ListDispensePresenter(this);
         }
 
         private void frmDispenseSheet_Load(object sender, EventArgs e)
         {
-            try
-            {
-                Load_DispenseSheet();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "View Dispense Sheet");
-            }
+            _presenter.LoadDispensedItems();
         }
-
-        private void Load_DispenseSheet()
-        {
-            try
-            {
-                var disSheet = new List<DispenseSheetViewModel2>();
-
-                using (var ctx = new InventoryModel())
-                {
-                    disSheet = ctx.Dispenses
-                        .OrderByDescending(x => x.Identifier)
-                        .Select(x => new DispenseSheetViewModel2
-                        {
-                            GroupId = x.GroupId,
-                            ItemName = x.ItemName,
-                            UnitPrice = x.UnitPrice,
-                            DispenseQuantity = x.DispenseQuantity,
-                            DispenseCompleted = x.DispenseCompleted,
-                            GroupDate = x.GroupDate
-                        })
-                        .ToList();
-                }
-
-                bsDispenseSheet.DataSource = disSheet;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
-        }
-
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void SetDispenseBindingSource(ICollection<DispenseSheetViewModel2> disSheet)
+        {
+            bsDispenseSheet.DataSource = disSheet;
+        }
+
+        public void ShowError(Exception ex)
+        {
+            if (Cursor != DefaultCursor)
+            {
+                Cursor = DefaultCursor;
+            }
+
+            MessageBox.Show(this, ex.Message, "View Dispense Sheet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void ShowInfo(string msg)
+        {
+            throw new NotImplementedException();
         }
     }
 }
