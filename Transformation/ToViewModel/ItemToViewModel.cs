@@ -1,5 +1,5 @@
 ﻿using SmartInventorySystem.Model;
-using SmartInventorySystem.ViewModel;
+using SmartInventorySystem.ViewModel.Grids;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,14 +7,14 @@ namespace SmartInventorySystem.Transformation.ToViewModel
 {
     public static class ItemToViewModel
     {
-        public static IEnumerable<StockViewModel> ToViewModels(this IEnumerable<Item> its)
+        public static IEnumerable<StockRowViewModel> ToViewModels(this IEnumerable<Item> its)
         {
             return its.Select(x => x.ToViewModel());
         }
 
-        public static StockViewModel ToViewModel(this Item it)
+        public static StockRowViewModel ToViewModel(this Item it)
         {
-            var vm = new StockViewModel();
+            var vm = new StockRowViewModel();
             vm.Name = it.Name;
             vm.Description = it.Description;
             vm.Manufacturer = it.Manufacturer;

@@ -56,16 +56,17 @@ namespace SmartInventorySystem.WinForms
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dispenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsslDomainAndUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslSoftwareVersion = new System.Windows.Forms.ToolStripStatusLabel();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.dispenseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             tsslDomainAndUserLabel = new System.Windows.Forms.ToolStripStatusLabel();
             tsslSoftwareVersionLabel = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -215,6 +216,8 @@ namespace SmartInventorySystem.WinForms
             // drugsToolStripMenuItem
             // 
             this.drugsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dispenseToolStripMenuItem1,
+            this.toolStripSeparator1,
             this.listToolStripMenuItem,
             this.addToolStripMenuItem});
             this.drugsToolStripMenuItem.Name = "drugsToolStripMenuItem";
@@ -224,14 +227,14 @@ namespace SmartInventorySystem.WinForms
             // listToolStripMenuItem
             // 
             this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.listToolStripMenuItem.Text = "List";
             this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
@@ -270,22 +273,21 @@ namespace SmartInventorySystem.WinForms
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.viewToolStripMenuItem.Text = "View";
             this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // dispenseToolStripMenuItem
             // 
             this.dispenseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem1,
-            this.updateToolStripMenuItem1});
+            this.viewToolStripMenuItem1});
             this.dispenseToolStripMenuItem.Name = "dispenseToolStripMenuItem";
             this.dispenseToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.dispenseToolStripMenuItem.Text = "Dispense";
@@ -293,16 +295,9 @@ namespace SmartInventorySystem.WinForms
             // viewToolStripMenuItem1
             // 
             this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
-            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.viewToolStripMenuItem1.Text = "View";
             this.viewToolStripMenuItem1.Click += new System.EventHandler(this.viewToolStripMenuItem1_Click);
-            // 
-            // updateToolStripMenuItem1
-            // 
-            this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
-            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
-            this.updateToolStripMenuItem1.Text = "Update";
-            this.updateToolStripMenuItem1.Click += new System.EventHandler(this.updateToolStripMenuItem1_Click);
             // 
             // usersToolStripMenuItem
             // 
@@ -326,6 +321,20 @@ namespace SmartInventorySystem.WinForms
             this.addToolStripMenuItem2.Size = new System.Drawing.Size(99, 22);
             this.addToolStripMenuItem2.Text = "Add";
             this.addToolStripMenuItem2.Click += new System.EventHandler(this.addToolStripMenuItem2_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
             // statusStrip1
             // 
@@ -363,19 +372,17 @@ namespace SmartInventorySystem.WinForms
             this.tsslSoftwareVersion.Size = new System.Drawing.Size(108, 17);
             this.tsslSoftwareVersion.Text = "tsslSoftwareVersion";
             // 
-            // helpToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
-            // aboutToolStripMenuItem
+            // dispenseToolStripMenuItem1
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.dispenseToolStripMenuItem1.Name = "dispenseToolStripMenuItem1";
+            this.dispenseToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.dispenseToolStripMenuItem1.Text = "Dispense";
+            this.dispenseToolStripMenuItem1.Click += new System.EventHandler(this.dispenseToolStripMenuItem1_Click);
             // 
             // DashboardForm
             // 
@@ -431,7 +438,6 @@ namespace SmartInventorySystem.WinForms
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem2;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -442,5 +448,7 @@ namespace SmartInventorySystem.WinForms
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dispenseToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

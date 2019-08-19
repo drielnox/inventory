@@ -45,12 +45,13 @@
     <Compile Include="Core\ViewModel.cs" />
     <Compile Include="DispenseSheetViewModel.cs" />
     <Compile Include="DispenseSheetViewModel2.cs" />
+    <Compile Include="Forms\ListStockFormViewModel.cs" />
     <Compile Include="Forms\NewItemFormViewModel.cs" />
     <Compile Include="Forms\NewSupplierFormViewModel.cs" />
     <Compile Include="ItemExpiredViewModel.cs" />
     <Compile Include="ItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockViewModel.cs" />
+    <Compile Include="Forms\Grids\StockViewModel.cs" />
     <Compile Include="SupplierViewModel.cs" />
     <Compile Include="ViewUserViewModel.cs" />
   </ItemGroup>

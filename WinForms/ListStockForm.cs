@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using SmartInventorySystem.ViewModel;
 using SmartInventorySystem.WinForms.View;
 using SmartInventorySystem.WinForms.Presenter;
+using SmartInventorySystem.ViewModel.Forms;
 
 namespace SmartInventorySystem.WinForms
 {
@@ -11,16 +10,21 @@ namespace SmartInventorySystem.WinForms
     {
         private readonly ListStockPresenter _presenter;
 
+        public ListStockFormViewModel ViewModel { get; private set; }
+
         public ListStockForm()
         {
             InitializeComponent();
 
             _presenter = new ListStockPresenter(this);
+
+            ViewModel = new ListStockFormViewModel();
         }
 
         private void frmStockSheet_Load(object sender, EventArgs e)
         {
             _presenter.LoadStockList();
+            bsForm.DataSource = ViewModel;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -38,14 +42,25 @@ namespace SmartInventorySystem.WinForms
             MessageBox.Show(this, ex.Message, "View Stock Sheet", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void SetStockBindingSource(List<StockViewModel> stock)
-        {
-            bsStock.DataSource = stock;
-        }
-
         public void ShowInfo(string msg)
         {
-            throw new NotImplementedException();
+            if (Cursor != DefaultCursor)
+            {
+                Cursor = DefaultCursor;
+            }
+
+            MessageBox.Show(this, msg, "View Stock Sheet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void UpdateFormBindingSource()
+        {
+            bsForm.ResetBindings(false);
+            bsStock.ResetBindings(false);
+        }
+
+        private void bsStock_CurrentChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

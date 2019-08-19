@@ -1,15 +1,9 @@
 ﻿using SmartInventorySystem.WinForms.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SmartInventorySystem.ViewModel;
+using SmartInventorySystem.ViewModel.Forms;
 
 namespace SmartInventorySystem.WinForms.View
 {
-    interface IListStockView : IView
+    interface IListStockView : IView<ListStockFormViewModel>
     {
-        void SetStockBindingSource(List<StockViewModel> stock);
     }
 }

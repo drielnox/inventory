@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartInventorySystem.WinForms.Core
+﻿namespace SmartInventorySystem.WinForms.Core
 {
     abstract class Presenter<TView>
-    where TView : IView
+        where TView : IView
     {
         protected TView View { get; private set; }
 

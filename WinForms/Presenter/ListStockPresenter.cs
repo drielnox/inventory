@@ -1,10 +1,8 @@
 ﻿using SmartInventorySystem.DataAccess;
 using SmartInventorySystem.Transformation.ToViewModel;
-using SmartInventorySystem.ViewModel;
 using SmartInventorySystem.WinForms.Core;
 using SmartInventorySystem.WinForms.View;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace SmartInventorySystem.WinForms.Presenter
@@ -17,23 +15,21 @@ namespace SmartInventorySystem.WinForms.Presenter
 
         internal void LoadStockList()
         {
-            var stock = new List<StockViewModel>();
-
             try
             {
                 using (var ctx = new InventoryModel())
                 {
-                    stock = ctx.Items
+                    View.ViewModel.CurrentStock = ctx.Items
                         .ToViewModels()
                         .ToList();
                 }
-
-                View.SetStockBindingSource(stock);
             }
             catch (Exception err)
             {
                 View.ShowError(err);
             }
+
+            View.UpdateFormBindingSource();
         }
     }
 }

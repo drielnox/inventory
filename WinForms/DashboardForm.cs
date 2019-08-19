@@ -19,7 +19,7 @@
         {
             LoadExpiry();
             tsslDomainAndUser.Text = string.Format("{0}\\{1}", Environment.UserDomainName, Environment.UserName);
-            tsslSoftwareVersion.Text = string.Format("{0}.{1}.{2}.{3}", Environment.Version.Major, Environment.Version.Minor, Environment.Version.Revision, Environment.Version.Build);
+            tsslSoftwareVersion.Text = string.Format("{0}", Application.ProductVersion);
         }
 
         private void LoadExpiry()
@@ -114,20 +114,6 @@
             }
         }
 
-        private void updateToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmDispense dispense = new frmDispense();
-                dispense.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "New Drug / Item");
-            }
-        }
-
         private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
@@ -187,6 +173,20 @@
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dispenseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DispenseItemForm dispense = new DispenseItemForm();
+                dispense.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Drug / Item");
+            }
         }
     }
 }

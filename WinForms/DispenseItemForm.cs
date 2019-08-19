@@ -9,9 +9,9 @@ using SmartInventorySystem.DataAccess;
 
 namespace SmartInventorySystem.WinForms
 {
-    public partial class frmDispense : Form
+    public partial class DispenseItemForm : Form
     {
-        public frmDispense()
+        public DispenseItemForm()
         {
             InitializeComponent();
         }

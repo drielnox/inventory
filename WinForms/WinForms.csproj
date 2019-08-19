@@ -139,11 +139,11 @@
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DispenseForm.cs">
+    <Compile Include="DispenseItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DispenseForm.Designer.cs">
-      <DependentUpon>DispenseForm.cs</DependentUpon>
+    <Compile Include="DispenseItemForm.Designer.cs">
+      <DependentUpon>DispenseItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ListDispenseForm.cs">
       <SubType>Form</SubType>
@@ -222,8 +222,8 @@
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DispenseForm.resx">
-      <DependentUpon>DispenseForm.cs</DependentUpon>
+    <EmbeddedResource Include="DispenseItemForm.resx">
+      <DependentUpon>DispenseItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListDispenseForm.resx">
       <DependentUpon>ListDispenseForm.cs</DependentUpon>
@@ -267,11 +267,11 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.DispenseSheetViewModel2.datasource" />
+    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.ListStockFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.NewItemFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.NewSupplierFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ItemExpiredViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ItemViewModel.datasource" />
-    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.StockViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.SupplierViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ViewUserViewModel.datasource" />
     <None Include="Properties\Settings.settings">
