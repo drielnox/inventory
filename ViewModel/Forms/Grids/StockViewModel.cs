@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartInventorySystem.ViewModel
+﻿namespace SmartInventorySystem.ViewModel.Grids
 {
-    public class StockViewModel
+    public class StockRowViewModel : Core.ViewModel
     {
         public string Description { get; set; }
         public string MajorSupplier { get; set; }

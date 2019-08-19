@@ -1,6 +1,6 @@
 ﻿namespace SmartInventorySystem.WinForms
 {
-    partial class frmNew_Item
+    partial class NewItemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtItemid = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
             this.label10 = new System.Windows.Forms.Label();
             this.txtItemName = new System.Windows.Forms.TextBox();
+            this.bsForm = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,49 +50,13 @@
             this.txtAlterItem = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtEOQ = new System.Windows.Forms.TextBox();
-            this.txtDateCreated = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemsRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockRecordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.suppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newSuppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.suppliersRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
-            this.txtUserCreated = new System.Windows.Forms.TextBox();
-            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsForm)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Item ID";
-            this.label1.Visible = false;
-            // 
-            // txtItemid
-            // 
-            this.txtItemid.BackColor = System.Drawing.Color.White;
-            this.txtItemid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItemid.Location = new System.Drawing.Point(97, 58);
-            this.txtItemid.Name = "txtItemid";
-            this.txtItemid.ReadOnly = true;
-            this.txtItemid.Size = new System.Drawing.Size(185, 20);
-            this.txtItemid.TabIndex = 12;
-            this.txtItemid.Visible = false;
             // 
             // label10
             // 
@@ -106,10 +70,15 @@
             // txtItemName
             // 
             this.txtItemName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItemName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "Name", true));
             this.txtItemName.Location = new System.Drawing.Point(97, 123);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(185, 20);
             this.txtItemName.TabIndex = 22;
+            // 
+            // bsForm
+            // 
+            this.bsForm.DataSource = typeof(SmartInventorySystem.ViewModel.Forms.NewItemFormViewModel);
             // 
             // label2
             // 
@@ -123,6 +92,7 @@
             // txtDesc
             // 
             this.txtDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDesc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "Description", true));
             this.txtDesc.Location = new System.Drawing.Point(329, 155);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
@@ -141,6 +111,7 @@
             // txtAlterName
             // 
             this.txtAlterName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAlterName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "AlternativeName", true));
             this.txtAlterName.Location = new System.Drawing.Point(97, 159);
             this.txtAlterName.Name = "txtAlterName";
             this.txtAlterName.Size = new System.Drawing.Size(185, 20);
@@ -158,6 +129,7 @@
             // txtManuf
             // 
             this.txtManuf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtManuf.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "Manufacturer", true));
             this.txtManuf.Location = new System.Drawing.Point(97, 195);
             this.txtManuf.Name = "txtManuf";
             this.txtManuf.Size = new System.Drawing.Size(185, 20);
@@ -175,6 +147,7 @@
             // txtMajSupplier
             // 
             this.txtMajSupplier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMajSupplier.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "MajorSupplier", true));
             this.txtMajSupplier.Location = new System.Drawing.Point(97, 232);
             this.txtMajSupplier.Name = "txtMajSupplier";
             this.txtMajSupplier.Size = new System.Drawing.Size(185, 20);
@@ -192,6 +165,7 @@
             // txtPackSize
             // 
             this.txtPackSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPackSize.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "PackSize", true));
             this.txtPackSize.Location = new System.Drawing.Point(97, 267);
             this.txtPackSize.Name = "txtPackSize";
             this.txtPackSize.Size = new System.Drawing.Size(185, 20);
@@ -209,6 +183,7 @@
             // txtPackDesc
             // 
             this.txtPackDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPackDesc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "PackDescription", true));
             this.txtPackDesc.Location = new System.Drawing.Point(97, 302);
             this.txtPackDesc.Name = "txtPackDesc";
             this.txtPackDesc.Size = new System.Drawing.Size(185, 20);
@@ -226,6 +201,7 @@
             // txtIssQuantity
             // 
             this.txtIssQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIssQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "StandardIssueQuantity", true));
             this.txtIssQuantity.Location = new System.Drawing.Point(444, 234);
             this.txtIssQuantity.Name = "txtIssQuantity";
             this.txtIssQuantity.Size = new System.Drawing.Size(70, 20);
@@ -243,6 +219,7 @@
             // txtAlterItem
             // 
             this.txtAlterItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAlterItem.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "AlternativeItem", true));
             this.txtAlterItem.Location = new System.Drawing.Point(412, 271);
             this.txtAlterItem.Name = "txtAlterItem";
             this.txtAlterItem.Size = new System.Drawing.Size(102, 20);
@@ -260,19 +237,11 @@
             // txtEOQ
             // 
             this.txtEOQ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEOQ.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "EconomicOrderQuantity", true));
             this.txtEOQ.Location = new System.Drawing.Point(444, 306);
             this.txtEOQ.Name = "txtEOQ";
             this.txtEOQ.Size = new System.Drawing.Size(70, 20);
             this.txtEOQ.TabIndex = 40;
-            // 
-            // txtDateCreated
-            // 
-            this.txtDateCreated.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateCreated.Location = new System.Drawing.Point(431, 381);
-            this.txtDateCreated.Name = "txtDateCreated";
-            this.txtDateCreated.Size = new System.Drawing.Size(75, 20);
-            this.txtDateCreated.TabIndex = 44;
-            this.txtDateCreated.Visible = false;
             // 
             // btnCancel
             // 
@@ -305,106 +274,6 @@
             this.label12.TabIndex = 45;
             this.label12.Text = "ADD NEW ITEM";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemsToolStripMenuItem,
-            this.inventoryToolStripMenuItem,
-            this.suppliersToolStripMenuItem,
-            this.usersToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(562, 24);
-            this.menuStrip1.TabIndex = 47;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // itemsToolStripMenuItem
-            // 
-            this.itemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newItemToolStripMenuItem,
-            this.itemsRecordToolStripMenuItem});
-            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.itemsToolStripMenuItem.Text = "Items";
-            // 
-            // newItemToolStripMenuItem
-            // 
-            this.newItemToolStripMenuItem.Name = "newItemToolStripMenuItem";
-            this.newItemToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.newItemToolStripMenuItem.Text = "New Item";
-            // 
-            // itemsRecordToolStripMenuItem
-            // 
-            this.itemsRecordToolStripMenuItem.Name = "itemsRecordToolStripMenuItem";
-            this.itemsRecordToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.itemsRecordToolStripMenuItem.Text = "Items Record";
-            this.itemsRecordToolStripMenuItem.Click += new System.EventHandler(this.itemsRecordToolStripMenuItem_Click);
-            // 
-            // inventoryToolStripMenuItem
-            // 
-            this.inventoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stockRecordToolStripMenuItem,
-            this.stockRecordToolStripMenuItem1});
-            this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
-            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.inventoryToolStripMenuItem.Text = "Inventory";
-            // 
-            // stockRecordToolStripMenuItem
-            // 
-            this.stockRecordToolStripMenuItem.Name = "stockRecordToolStripMenuItem";
-            this.stockRecordToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.stockRecordToolStripMenuItem.Text = "Dispense";
-            this.stockRecordToolStripMenuItem.Click += new System.EventHandler(this.stockRecordToolStripMenuItem_Click);
-            // 
-            // stockRecordToolStripMenuItem1
-            // 
-            this.stockRecordToolStripMenuItem1.Name = "stockRecordToolStripMenuItem1";
-            this.stockRecordToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
-            this.stockRecordToolStripMenuItem1.Text = "Stock Record";
-            this.stockRecordToolStripMenuItem1.Click += new System.EventHandler(this.stockRecordToolStripMenuItem1_Click);
-            // 
-            // suppliersToolStripMenuItem
-            // 
-            this.suppliersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newSuppliersToolStripMenuItem,
-            this.suppliersRecordToolStripMenuItem});
-            this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.suppliersToolStripMenuItem.Text = "Suppliers";
-            // 
-            // newSuppliersToolStripMenuItem
-            // 
-            this.newSuppliersToolStripMenuItem.Name = "newSuppliersToolStripMenuItem";
-            this.newSuppliersToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.newSuppliersToolStripMenuItem.Text = "New Suppliers";
-            // 
-            // suppliersRecordToolStripMenuItem
-            // 
-            this.suppliersRecordToolStripMenuItem.Name = "suppliersRecordToolStripMenuItem";
-            this.suppliersRecordToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.suppliersRecordToolStripMenuItem.Text = "Suppliers Record";
-            // 
-            // usersToolStripMenuItem
-            // 
-            this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newUserToolStripMenuItem,
-            this.usersToolStripMenuItem1});
-            this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.usersToolStripMenuItem.Text = "Users";
-            // 
-            // newUserToolStripMenuItem
-            // 
-            this.newUserToolStripMenuItem.Name = "newUserToolStripMenuItem";
-            this.newUserToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.newUserToolStripMenuItem.Text = "New User";
-            // 
-            // usersToolStripMenuItem1
-            // 
-            this.usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            this.usersToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.usersToolStripMenuItem1.Text = "Users";
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -417,30 +286,20 @@
             // txtCode
             // 
             this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "Code", true));
             this.txtCode.Location = new System.Drawing.Point(97, 89);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(185, 20);
             this.txtCode.TabIndex = 13;
             // 
-            // txtUserCreated
-            // 
-            this.txtUserCreated.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUserCreated.Location = new System.Drawing.Point(350, 381);
-            this.txtUserCreated.Name = "txtUserCreated";
-            this.txtUserCreated.Size = new System.Drawing.Size(75, 20);
-            this.txtUserCreated.TabIndex = 50;
-            this.txtUserCreated.Visible = false;
-            // 
-            // frmNew_Item
+            // NewItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 401);
-            this.Controls.Add(this.txtUserCreated);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtDateCreated);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label11);
@@ -463,28 +322,20 @@
             this.Controls.Add(this.txtDesc);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtItemName);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtItemid);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "frmNew_Item";
+            this.Name = "NewItemForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Item";
             this.Load += new System.EventHandler(this.frmNew_Item_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsForm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtItemid;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtItemName;
         private System.Windows.Forms.Label label2;
@@ -505,26 +356,12 @@
         private System.Windows.Forms.TextBox txtAlterItem;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtEOQ;
-        private System.Windows.Forms.TextBox txtDateCreated;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newItemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem itemsRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem suppliersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newSuppliersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem suppliersRecordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newUserToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem stockRecordToolStripMenuItem1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCode;
-        private System.Windows.Forms.TextBox txtUserCreated;
+        private System.Windows.Forms.BindingSource bsForm;
     }
 }
 

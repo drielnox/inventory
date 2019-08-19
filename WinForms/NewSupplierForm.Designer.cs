@@ -1,6 +1,6 @@
 ﻿namespace SmartInventorySystem.WinForms
 {
-    partial class frmNewSupplier
+    partial class NewSupplierForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUserCreated = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtDateCreated = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
+            this.bsForm = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,18 +43,8 @@
             this.txtContactPerson = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtSupplierName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSupId = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.bsForm)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtUserCreated
-            // 
-            this.txtUserCreated.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUserCreated.Location = new System.Drawing.Point(160, 369);
-            this.txtUserCreated.Name = "txtUserCreated";
-            this.txtUserCreated.Size = new System.Drawing.Size(75, 20);
-            this.txtUserCreated.TabIndex = 80;
-            this.txtUserCreated.Visible = false;
             // 
             // label12
             // 
@@ -66,15 +56,6 @@
             this.label12.Size = new System.Drawing.Size(185, 20);
             this.label12.TabIndex = 77;
             this.label12.Text = "ADD NEW SUPPLIER";
-            // 
-            // txtDateCreated
-            // 
-            this.txtDateCreated.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateCreated.Location = new System.Drawing.Point(241, 369);
-            this.txtDateCreated.Name = "txtDateCreated";
-            this.txtDateCreated.Size = new System.Drawing.Size(75, 20);
-            this.txtDateCreated.TabIndex = 76;
-            this.txtDateCreated.Visible = false;
             // 
             // btnCancel
             // 
@@ -108,10 +89,16 @@
             // txtPhone
             // 
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "Phone", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtPhone.Location = new System.Drawing.Point(148, 286);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(185, 20);
             this.txtPhone.TabIndex = 64;
+            // 
+            // bsForm
+            // 
+            this.bsForm.AllowNew = false;
+            this.bsForm.DataSource = typeof(SmartInventorySystem.ViewModel.Forms.NewSupplierFormViewModel);
             // 
             // label5
             // 
@@ -125,6 +112,7 @@
             // txtEmail
             // 
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "Email", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtEmail.Location = new System.Drawing.Point(148, 251);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(185, 20);
@@ -142,6 +130,7 @@
             // txtOfficeAddress
             // 
             this.txtOfficeAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOfficeAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "Address", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtOfficeAddress.Location = new System.Drawing.Point(148, 214);
             this.txtOfficeAddress.Name = "txtOfficeAddress";
             this.txtOfficeAddress.Size = new System.Drawing.Size(185, 20);
@@ -159,6 +148,7 @@
             // txtContactPerson
             // 
             this.txtContactPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContactPerson.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "ContextPerson", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtContactPerson.Location = new System.Drawing.Point(148, 178);
             this.txtContactPerson.Name = "txtContactPerson";
             this.txtContactPerson.Size = new System.Drawing.Size(185, 20);
@@ -176,40 +166,18 @@
             // txtSupplierName
             // 
             this.txtSupplierName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSupplierName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsForm, "SupplierName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.txtSupplierName.Location = new System.Drawing.Point(148, 142);
             this.txtSupplierName.Name = "txtSupplierName";
             this.txtSupplierName.Size = new System.Drawing.Size(185, 20);
             this.txtSupplierName.TabIndex = 54;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 104);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "Supplier ID";
-            this.label1.Visible = false;
-            // 
-            // txtSupId
-            // 
-            this.txtSupId.BackColor = System.Drawing.Color.White;
-            this.txtSupId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSupId.Location = new System.Drawing.Point(148, 99);
-            this.txtSupId.Name = "txtSupId";
-            this.txtSupId.ReadOnly = true;
-            this.txtSupId.Size = new System.Drawing.Size(185, 20);
-            this.txtSupId.TabIndex = 51;
-            this.txtSupId.Visible = false;
-            // 
-            // frmNewSupplier
+            // NewSupplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(453, 413);
-            this.Controls.Add(this.txtUserCreated);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtDateCreated);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label6);
@@ -222,24 +190,21 @@
             this.Controls.Add(this.txtContactPerson);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtSupplierName);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSupId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "frmNewSupplier";
+            this.Name = "NewSupplierForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Supplier";
             this.Load += new System.EventHandler(this.frmNewSupplier_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bsForm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtUserCreated;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtDateCreated;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label6;
@@ -252,7 +217,6 @@
         private System.Windows.Forms.TextBox txtContactPerson;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSupplierName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSupId;
+        private System.Windows.Forms.BindingSource bsForm;
     }
 }
