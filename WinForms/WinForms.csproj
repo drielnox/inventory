@@ -131,17 +131,19 @@
     <Compile Include="ChangePassForm.Designer.cs">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\IView.cs" />
+    <Compile Include="Core\Presenter.cs" />
     <Compile Include="DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DispenseForm.cs">
+    <Compile Include="DispenseItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DispenseForm.Designer.cs">
-      <DependentUpon>DispenseForm.cs</DependentUpon>
+    <Compile Include="DispenseItemForm.Designer.cs">
+      <DependentUpon>DispenseItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ListDispenseForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +152,10 @@
       <DependentUpon>ListDispenseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyApplicationContext.cs" />
+    <Compile Include="Presenter\ListDispensePresenter.cs" />
+    <Compile Include="Presenter\ListStockPresenter.cs" />
+    <Compile Include="Presenter\NewItemPresenter.cs" />
+    <Compile Include="Presenter\NewSupplierPresenter.cs" />
     <Compile Include="UpdateItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,14 +212,18 @@
     <Compile Include="ListUsersForm.Designer.cs">
       <DependentUpon>ListUsersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IListDispenseView.cs" />
+    <Compile Include="View\IListStockView.cs" />
+    <Compile Include="View\INewItemView.cs" />
+    <Compile Include="View\INewSupplierView.cs" />
     <EmbeddedResource Include="ChangePassForm.resx">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DispenseForm.resx">
-      <DependentUpon>DispenseForm.cs</DependentUpon>
+    <EmbeddedResource Include="DispenseItemForm.resx">
+      <DependentUpon>DispenseItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListDispenseForm.resx">
       <DependentUpon>ListDispenseForm.cs</DependentUpon>
@@ -257,9 +267,11 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.DispenseSheetViewModel2.datasource" />
+    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.ListStockFormViewModel.datasource" />
+    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.NewItemFormViewModel.datasource" />
+    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.NewSupplierFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ItemExpiredViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ItemViewModel.datasource" />
-    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.StockViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.SupplierViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ViewUserViewModel.datasource" />
     <None Include="Properties\Settings.settings">
@@ -295,6 +307,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{26CC3AFD-6E9D-4812-91A1-E0853867D32E}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Transformation\Transformation.csproj">
+      <Project>{59ade324-ba41-4937-ab8b-de8413341286}</Project>
+      <Name>Transformation</Name>
     </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{be29a432-4712-4da3-acb5-481d952c10cb}</Project>

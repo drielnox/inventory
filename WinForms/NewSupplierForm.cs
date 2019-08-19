@@ -1,60 +1,57 @@
 ﻿using System;
 using System.Windows.Forms;
-using SmartInventorySystem.Model;
-using SmartInventorySystem.DataAccess;
+using SmartInventorySystem.WinForms.View;
+using SmartInventorySystem.WinForms.Presenter;
+using SmartInventorySystem.ViewModel.Forms;
 
 namespace SmartInventorySystem.WinForms
 {
-    public partial class frmNewSupplier : Form
+    public partial class NewSupplierForm : Form, INewSupplierView
     {
-        public frmNewSupplier()
+        private readonly NewSupplierPresenter _presenter;
+
+        public NewSupplierFormViewModel ViewModel { get; private set; }
+
+        public NewSupplierForm()
         {
             InitializeComponent();
+
+            _presenter = new NewSupplierPresenter(this);
+
+            ViewModel = new NewSupplierFormViewModel();
         }
-       
+
         //connect to database on form load event        
         private void frmNewSupplier_Load(object sender, EventArgs e)
         {
+            bsForm.DataSource = ViewModel;
         }
 
         // save form data into database 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var newSupplier = new Supplier
-                {
-                    Name = txtSupplierName.Text,
-                    ContactPerson = txtContactPerson.Text,
-                    Address = txtOfficeAddress.Text,
-                    Email = txtEmail.Text,
-                    Phone = txtPhone.Text,
-                    CreatedBy = txtUserCreated.Text
-                };
-
-                using (var ctx = new InventoryModel())
-                {
-                    ctx.Suppliers.Add(newSupplier);
-
-                    ctx.SaveChanges();
-                }
-                MessageBox.Show("New Supplier Successfully Added to System");
-                                
-                txtSupplierName.Text = "";
-                txtContactPerson.Text = "";
-                txtOfficeAddress.Text = "";
-                txtEmail.Text = "";
-                txtPhone.Text = "";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "New Supplier");  
-            }
+            _presenter.PerformSave();
+            _presenter.CleanFields();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close(); 
+            Close();
+        }
+
+        public void ShowError(Exception ex)
+        {
+            MessageBox.Show(this, ex.Message, "New Supplier", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void ShowInfo(string msg)
+        {
+            MessageBox.Show(this, msg, "New Supplier", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void UpdateFormBindingSource()
+        {
+            bsForm.ResetBindings(false);
         }
     }
 }

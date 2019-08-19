@@ -19,7 +19,7 @@
         {
             LoadExpiry();
             tsslDomainAndUser.Text = string.Format("{0}\\{1}", Environment.UserDomainName, Environment.UserName);
-            tsslSoftwareVersion.Text = string.Format("{0}.{1}.{2}.{3}", Environment.Version.Major, Environment.Version.Minor, Environment.Version.Revision, Environment.Version.Build);
+            tsslSoftwareVersion.Text = string.Format("{0}", Application.ProductVersion);
         }
 
         private void LoadExpiry()
@@ -49,7 +49,7 @@
         {
             try
             {
-                frmNew_Item new_item = new frmNew_Item();
+                NewItemForm new_item = new NewItemForm();
                 new_item.ShowDialog();
             }
 
@@ -76,7 +76,7 @@
         {
             try
             {
-                frmStock_Update stock = new frmStock_Update();
+                UpdateStockForm stock = new UpdateStockForm();
                 stock.ShowDialog();
             }
 
@@ -90,7 +90,7 @@
         {
             try
             {
-                frmStockSheet stock = new frmStockSheet();
+                ListStockForm stock = new ListStockForm();
                 stock.ShowDialog();
             }
 
@@ -114,25 +114,11 @@
             }
         }
 
-        private void updateToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmDispense dispense = new frmDispense();
-                dispense.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "New Drug / Item");
-            }
-        }
-
         private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
-                frmDispenseSheet dispense = new frmDispenseSheet();
+                ListDispenseForm dispense = new ListDispenseForm();
                 dispense.ShowDialog();
             }
 
@@ -160,7 +146,7 @@
         {
             try
             {
-                frmNewSupplier new_supp = new frmNewSupplier();
+                NewSupplierForm new_supp = new NewSupplierForm();
                 new_supp.ShowDialog();
             }
 
@@ -187,6 +173,20 @@
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dispenseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DispenseItemForm dispense = new DispenseItemForm();
+                dispense.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "New Drug / Item");
+            }
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace SmartInventorySystem.WinForms
 {
-    partial class frmDispense
+    partial class DispenseItemForm
     {
         /// <summary>
         /// Required designer variable.
