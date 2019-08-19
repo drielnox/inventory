@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\DispenseItemDetailsControlViewModel.cs" />
     <Compile Include="Core\FormViewModel.cs" />
     <Compile Include="Core\ViewModel.cs" />
     <Compile Include="DispenseSheetViewModel.cs" />
     <Compile Include="DispenseSheetViewModel2.cs" />
+    <Compile Include="Forms\DispenseItemFormViewModel.cs" />
     <Compile Include="Forms\ListStockFormViewModel.cs" />
     <Compile Include="Forms\NewItemFormViewModel.cs" />
     <Compile Include="Forms\NewSupplierFormViewModel.cs" />

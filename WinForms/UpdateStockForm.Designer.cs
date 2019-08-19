@@ -381,7 +381,7 @@ namespace SmartInventorySystem.WinForms
             // bsItemsSearched
             // 
             this.bsItemsSearched.AllowNew = false;
-            this.bsItemsSearched.DataSource = typeof(ItemViewModel);
+            this.bsItemsSearched.DataSource = typeof(ItemRowViewModel);
             // 
             // identifierDataGridViewTextBoxColumn
             // 

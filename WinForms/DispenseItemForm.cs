@@ -6,14 +6,25 @@ using System.Windows.Forms;
 using SmartInventorySystem.Model;
 using SmartInventorySystem.ViewModel;
 using SmartInventorySystem.DataAccess;
+using SmartInventorySystem.WinForms.View;
+using SmartInventorySystem.WinForms.Presenter;
+using SmartInventorySystem.ViewModel.Forms;
 
 namespace SmartInventorySystem.WinForms
 {
-    public partial class DispenseItemForm : Form
+    public partial class DispenseItemForm : Form, IDispenseItemView
     {
+        private readonly DispenseItemPresenter _presenter;
+
+        public DispenseItemFormViewModel State { get; protected set; }
+
         public DispenseItemForm()
         {
             InitializeComponent();
+
+            _presenter = new DispenseItemPresenter(this);
+
+            State = new DispenseItemFormViewModel();
         }
 
         private void frmDispense_Load(object sender, EventArgs e)
@@ -79,60 +90,10 @@ namespace SmartInventorySystem.WinForms
         // search for drug or item using search box
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (txtSearch.Text == "")
-                {
-                    MessageBox.Show("No item or drug search requested");
-                }
-                else
-                {
-                    var items = new List<ItemViewModel>();
-                    int parsedId;
-                    int.TryParse(txtSearch.Text, out parsedId);
+            _presenter.SearchItem();
+            _presenter.ClearSearchItemText();
 
-                    using (var ctx = new InventoryModel())
-                    {
-                        items = ctx.Items
-                            .Where(x => x.Name.StartsWith(txtSearch.Text)
-                                        || x.Code == txtSearch.Text
-                                        || x.Identifier == parsedId)
-                            .Select(x => new ItemViewModel
-                            {
-                                Identifier = x.Identifier,
-                                Code = x.Code,
-                                Name = x.Name,
-                                Description = x.Description,
-                                AlternativeName = x.AlternativeName,
-                                Manufacturer = x.Manufacturer,
-                                MajorSupplier = x.MajorSupplier,
-                                PackQuantity = x.PackQuantity,
-                                PackDescription = x.PackDescription,
-                                AlternativeItem = x.AlternativeItem,
-                                StandardIssueQuantity = x.StandardIssueQuantity,
-                                EconomicOrderQuantity = x.EconomicOrderQuantity,
-                                PurchasePrice = x.PurchasePrice,
-                                MarkupPercent = x.MarkupPercent,
-                                SellingPrice = x.SellingPrice,
-                                StockLevel = x.StockLevel,
-                                MinimumLevel = x.MinimumLevel,
-                                ReOrderLevel = x.ReOrderLevel,
-                                MaximumLevel = x.MaximumLevel,
-                                LeadDays = x.LeadDays,
-                            })
-                            .ToList();
-                    }
-
-                    bsItem.DataSource = items;
-
-                    txtSearch.Clear();
-                    panel3.Visible = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Dispense Item");
-            }
+            panel3.Visible = true;
         }
 
         // a method to be called for loading details of selected drug from the seach result
@@ -140,7 +101,7 @@ namespace SmartInventorySystem.WinForms
         {
             try
             {
-                var selectedItem = bsItem.Current as ItemViewModel;
+                var selectedItem = bsSearchedItems.Current as ItemRowViewModel;
 
                 if (selectedItem != null)
                 {
@@ -160,9 +121,10 @@ namespace SmartInventorySystem.WinForms
         // display data of selected record onto item record textboxes
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            _presenter.LoadSelectedItemDetails();
             try
             {
-                DataGridViewRow dr = dataGridView1.SelectedRows[0];
+                DataGridViewRow dr = dgvSearchedItem.SelectedRows[0];
                 txtItemid.Text = dr.Cells[0].Value.ToString();
 
                 Load_ItemsRecord();
@@ -337,7 +299,7 @@ namespace SmartInventorySystem.WinForms
                         .ToList();
                 }
 
-                bsDispenseSheet.DataSource = dispenseSheet;
+                //bsDispenseSheet.DataSource = dispenseSheet;
             }
             catch (Exception ex)
             {
@@ -401,10 +363,7 @@ namespace SmartInventorySystem.WinForms
             panel2.Visible = true;
             txtSearch.Focus();
         }
-
-
-
-
+        
         // save outcome of dispensary action (completed or cancelled) 
         private void Dispensary_Outcome()
         {
@@ -477,6 +436,42 @@ namespace SmartInventorySystem.WinForms
         private void txtCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void ShowInfo(string msg)
+        {
+            MessageBox.Show(this, msg, "Dispense Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void ShowError(Exception ex)
+        {
+            MessageBox.Show(this, ex.Message, "Dispense Item", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void UpdateFormBindingSource()
+        {
+            bsForm.ResetBindings(false);
+        }
+
+        private void bsItem_CurrentChanged(object sender, EventArgs e)
+        {
+            State.SelectedItem = bsSearchedItems.Current as ItemRowViewModel;
+            _presenter.EnableSelectItem();
+        }
+
+        public void SetSelectItemEnable(bool v)
+        {
+            btnSelectItem.Enabled = v;
+        }
+
+        public void SetItemDetailsPanelEnable(bool v)
+        {
+            panel1.Enabled = v;
+        }
+
+        public void LoadItemsDetails(ItemRowViewModel selectedItem)
+        {
+            txtItemid.Text = selectedItem.Identifier.ToString();
         }
     }
 }

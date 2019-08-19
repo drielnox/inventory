@@ -1,5 +1,7 @@
 ﻿using SmartInventorySystem.Model;
+using SmartInventorySystem.ViewModel;
 using SmartInventorySystem.ViewModel.Grids;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,12 +9,50 @@ namespace SmartInventorySystem.Transformation.ToViewModel
 {
     public static class ItemToViewModel
     {
-        public static IEnumerable<StockRowViewModel> ToViewModels(this IEnumerable<Item> its)
+        public static IEnumerable<TResult> ToViewModels<TResult>(this IEnumerable<Item> its)
+            where TResult : ViewModel.Core.ViewModel
         {
-            return its.Select(x => x.ToViewModel());
+            if (typeof(TResult) is ItemRowViewModel)
+            {
+                return its.Select(x => (TResult)(ViewModel.Core.ViewModel)x.ToItemRowViewModel());
+            }
+            else if (typeof(TResult) is StockRowViewModel)
+            {
+                return its.Select(x => (TResult)(ViewModel.Core.ViewModel)x.ToStockRowViewModel());
+            }
+            else
+            {
+                throw new ApplicationException("El tipo de resultado elegido no esta contemplado para la transformación.");
+            }
         }
 
-        public static StockRowViewModel ToViewModel(this Item it)
+        public static ItemRowViewModel ToItemRowViewModel(this Item it)
+        {
+            var vm = new ItemRowViewModel();
+            vm.Identifier = it.Identifier;
+            vm.Code = it.Code;
+            vm.Name = it.Name;
+            vm.Description = it.Description;
+            vm.AlternativeName = it.AlternativeName;
+            vm.Manufacturer = it.Manufacturer;
+            vm.MajorSupplier = it.MajorSupplier;
+            vm.PackQuantity = it.PackQuantity;
+            vm.PackDescription = it.PackDescription;
+            vm.AlternativeItem = it.AlternativeItem;
+            vm.StandardIssueQuantity = it.StandardIssueQuantity;
+            vm.EconomicOrderQuantity = it.EconomicOrderQuantity;
+            vm.PurchasePrice = it.PurchasePrice;
+            vm.MarkupPercent = it.MarkupPercent;
+            vm.SellingPrice = it.SellingPrice;
+            vm.StockLevel = it.StockLevel;
+            vm.MinimumLevel = it.MinimumLevel;
+            vm.ReOrderLevel = it.ReOrderLevel;
+            vm.MaximumLevel = it.MaximumLevel;
+            vm.LeadDays = it.LeadDays;
+            return vm;
+        }
+
+        public static StockRowViewModel ToStockRowViewModel(this Item it)
         {
             var vm = new StockRowViewModel();
             vm.Identifier = it.Identifier;

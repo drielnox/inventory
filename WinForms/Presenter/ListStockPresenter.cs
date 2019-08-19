@@ -21,7 +21,7 @@ namespace SmartInventorySystem.WinForms.Presenter
                 using (var ctx = new InventoryModel())
                 {
                     View.State.CurrentStock = ctx.Items
-                        .ToViewModels()
+                        .ToViewModels<StockRowViewModel>()
                         .ToList();
                 }
             }

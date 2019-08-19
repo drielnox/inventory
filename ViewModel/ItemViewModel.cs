@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartInventorySystem.ViewModel
 {
-    public class ItemViewModel
+    public class ItemRowViewModel : Core.ViewModel
     {
         public int Identifier { get; set; }
         public string Code { get; set; }

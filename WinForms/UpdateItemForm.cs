@@ -33,7 +33,7 @@ namespace SmartInventorySystem.WinForms
 
                 else
                 {
-                    var items = new List<ItemViewModel>();
+                    var items = new List<ItemRowViewModel>();
                     int parsedId;
                     int.TryParse(txtSearch.Text, out parsedId);
 
@@ -43,7 +43,7 @@ namespace SmartInventorySystem.WinForms
                             .Where(x => x.Name.StartsWith(txtSearch.Text)
                                         || x.Code == txtSearch.Text
                                         || x.Identifier == parsedId)
-                            .Select(x => new ItemViewModel
+                            .Select(x => new ItemRowViewModel
                             {
                                 Identifier = x.Identifier,
                                 Code = x.Code,
@@ -111,7 +111,7 @@ namespace SmartInventorySystem.WinForms
         {
             try
             {
-                var selectedItem = bsItem.Current as ItemViewModel;
+                var selectedItem = bsItem.Current as ItemRowViewModel;
 
                 if (selectedItem != null)
                 {

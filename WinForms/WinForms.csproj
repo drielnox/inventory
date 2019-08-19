@@ -139,6 +139,20 @@
     <Compile Include="DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DispenseCartDataSet.cs">
+      <DependentUpon>DispenseCartDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseCartDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DispenseCartDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DispenseItemDetailsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DispenseItemDetailsUserControl.Designer.cs">
+      <DependentUpon>DispenseItemDetailsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DispenseItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +166,8 @@
       <DependentUpon>ListDispenseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyApplicationContext.cs" />
+    <Compile Include="Presenter\Controls\DispenseItemDetailsPresenter.cs" />
+    <Compile Include="Presenter\DispenseItemPresenter.cs" />
     <Compile Include="Presenter\ListDispensePresenter.cs" />
     <Compile Include="Presenter\ListStockPresenter.cs" />
     <Compile Include="Presenter\NewItemPresenter.cs" />
@@ -212,6 +228,8 @@
     <Compile Include="ListUsersForm.Designer.cs">
       <DependentUpon>ListUsersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Controls\IDispenseItemDetailsView.cs" />
+    <Compile Include="View\IDispenseItemView.cs" />
     <Compile Include="View\IListDispenseView.cs" />
     <Compile Include="View\IListStockView.cs" />
     <Compile Include="View\INewItemView.cs" />
@@ -221,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DispenseItemDetailsUserControl.resx">
+      <DependentUpon>DispenseItemDetailsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DispenseItemForm.resx">
       <DependentUpon>DispenseItemForm.cs</DependentUpon>
@@ -265,13 +286,25 @@
     <EmbeddedResource Include="ListUsersForm.resx">
       <DependentUpon>ListUsersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DispenseCartDataSet.xsc">
+      <DependentUpon>DispenseCartDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DispenseCartDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DispenseCartDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DispenseCartDataSet.xss">
+      <DependentUpon>DispenseCartDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.DispenseSheetViewModel2.datasource" />
+    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.DispenseItemFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.ListStockFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.NewItemFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.NewSupplierFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ItemExpiredViewModel.datasource" />
-    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ItemViewModel.datasource" />
+    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ItemRowViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.SupplierViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.ViewUserViewModel.datasource" />
     <None Include="Properties\Settings.settings">
