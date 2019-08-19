@@ -10,7 +10,7 @@ namespace SmartInventorySystem.WinForms
     {
         private readonly NewSupplierPresenter _presenter;
 
-        public NewSupplierFormViewModel ViewModel { get; private set; }
+        public NewSupplierFormViewModel State { get; private set; }
 
         public NewSupplierForm()
         {
@@ -18,13 +18,13 @@ namespace SmartInventorySystem.WinForms
 
             _presenter = new NewSupplierPresenter(this);
 
-            ViewModel = new NewSupplierFormViewModel();
+            State = new NewSupplierFormViewModel();
         }
 
         //connect to database on form load event        
         private void frmNewSupplier_Load(object sender, EventArgs e)
         {
-            bsForm.DataSource = ViewModel;
+            bsForm.DataSource = State;
         }
 
         // save form data into database 

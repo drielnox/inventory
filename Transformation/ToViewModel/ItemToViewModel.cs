@@ -15,6 +15,7 @@ namespace SmartInventorySystem.Transformation.ToViewModel
         public static StockRowViewModel ToViewModel(this Item it)
         {
             var vm = new StockRowViewModel();
+            vm.Identifier = it.Identifier;
             vm.Name = it.Name;
             vm.Description = it.Description;
             vm.Manufacturer = it.Manufacturer;

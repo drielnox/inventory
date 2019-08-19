@@ -13,11 +13,6 @@ namespace SmartInventorySystem.WinForms
             InitializeComponent();
         }
 
-        // connect to database
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             bool existUser = false;
@@ -47,6 +42,16 @@ namespace SmartInventorySystem.WinForms
                 txtUsername.Clear();
                 txtPassword.Clear();
             }
+
+            Tag = existUser;
+        }
+
+        private void LoginPopup_Load(object sender, EventArgs e)
+        {
+#if DEBUG
+            txtUsername.Text = "irene";
+            txtPassword.Text = "irene";
+#endif
         }
     }
 }

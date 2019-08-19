@@ -44,7 +44,7 @@ namespace SmartInventorySystem.DataAccess
 
             base.OnModelCreating(modelBuilder);
         }
-
+        
         public override int SaveChanges()
         {
             var timeStamp = DateTime.Now;
@@ -58,8 +58,6 @@ namespace SmartInventorySystem.DataAccess
             {
                 entity.CreatedAt = timeStamp;
                 entity.CreatedBy = Environment.UserName;
-                entity.ModifiedAt = timeStamp;
-                entity.ModifiedBy = Environment.UserName;
             }
 
             var modifiedEntities = ChangeTracker

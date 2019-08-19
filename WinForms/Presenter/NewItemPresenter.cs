@@ -19,17 +19,17 @@ namespace SmartInventorySystem.WinForms.Presenter
             try
             {
                 var newItem = new Item();
-                newItem.Code = View.ViewModel.Code;
-                newItem.Name = View.ViewModel.Name;
-                newItem.Description = View.ViewModel.Description;
-                newItem.AlternativeName = View.ViewModel.AlternativeName;
-                newItem.Manufacturer = View.ViewModel.Manufacturer;
-                newItem.MajorSupplier = View.ViewModel.MajorSupplier;
-                newItem.PackQuantity = View.ViewModel.PackSize;
-                newItem.PackDescription = View.ViewModel.PackDescription;
-                newItem.AlternativeItem = View.ViewModel.AlternativeItem;
-                newItem.StandardIssueQuantity = View.ViewModel.StandardIssueQuantity;
-                newItem.EconomicOrderQuantity = View.ViewModel.EconomicOrderQuantity;
+                newItem.Code = View.State.Code;
+                newItem.Name = View.State.Name;
+                newItem.Description = View.State.Description;
+                newItem.AlternativeName = View.State.AlternativeName;
+                newItem.Manufacturer = View.State.Manufacturer;
+                newItem.MajorSupplier = View.State.MajorSupplier;
+                newItem.PackQuantity = View.State.PackSize;
+                newItem.PackDescription = View.State.PackDescription;
+                newItem.AlternativeItem = View.State.AlternativeItem;
+                newItem.StandardIssueQuantity = View.State.StandardIssueQuantity;
+                newItem.EconomicOrderQuantity = View.State.EconomicOrderQuantity;
 
                 using (var ctx = new InventoryModel())
                 {
@@ -62,17 +62,17 @@ namespace SmartInventorySystem.WinForms.Presenter
 
         internal void CleanFields()
         {
-            View.ViewModel.Code = string.Empty;
-            View.ViewModel.Name = string.Empty;
-            View.ViewModel.Description = string.Empty;
-            View.ViewModel.AlternativeName = string.Empty;
-            View.ViewModel.Manufacturer = string.Empty;
-            View.ViewModel.MajorSupplier = string.Empty;
-            View.ViewModel.PackSize = string.Empty;
-            View.ViewModel.PackDescription = string.Empty;
-            View.ViewModel.AlternativeItem = string.Empty;
-            View.ViewModel.StandardIssueQuantity = string.Empty;
-            View.ViewModel.EconomicOrderQuantity = string.Empty;
+            View.State.Code = string.Empty;
+            View.State.Name = string.Empty;
+            View.State.Description = string.Empty;
+            View.State.AlternativeName = string.Empty;
+            View.State.Manufacturer = string.Empty;
+            View.State.MajorSupplier = string.Empty;
+            View.State.PackSize = string.Empty;
+            View.State.PackDescription = string.Empty;
+            View.State.AlternativeItem = string.Empty;
+            View.State.StandardIssueQuantity = string.Empty;
+            View.State.EconomicOrderQuantity = string.Empty;
             View.UpdateFormBindingSource();
         }
     }

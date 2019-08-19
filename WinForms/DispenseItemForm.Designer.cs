@@ -136,7 +136,7 @@ namespace SmartInventorySystem.WinForms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(250, 106);
+            this.label4.Location = new System.Drawing.Point(250, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 118;
@@ -146,7 +146,7 @@ namespace SmartInventorySystem.WinForms
             // txtStockBal
             // 
             this.txtStockBal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStockBal.Location = new System.Drawing.Point(329, 104);
+            this.txtStockBal.Location = new System.Drawing.Point(333, 75);
             this.txtStockBal.Name = "txtStockBal";
             this.txtStockBal.ReadOnly = true;
             this.txtStockBal.Size = new System.Drawing.Size(52, 20);
@@ -157,7 +157,7 @@ namespace SmartInventorySystem.WinForms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 168);
+            this.label3.Location = new System.Drawing.Point(15, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 13);
             this.label3.TabIndex = 116;
@@ -166,7 +166,7 @@ namespace SmartInventorySystem.WinForms
             // txtDispenseQty
             // 
             this.txtDispenseQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDispenseQty.Location = new System.Drawing.Point(124, 166);
+            this.txtDispenseQty.Location = new System.Drawing.Point(124, 137);
             this.txtDispenseQty.Name = "txtDispenseQty";
             this.txtDispenseQty.Size = new System.Drawing.Size(120, 20);
             this.txtDispenseQty.TabIndex = 115;
@@ -175,7 +175,7 @@ namespace SmartInventorySystem.WinForms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 136);
+            this.label2.Location = new System.Drawing.Point(15, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 114;
@@ -184,7 +184,7 @@ namespace SmartInventorySystem.WinForms
             // txtUnitPrice
             // 
             this.txtUnitPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUnitPrice.Location = new System.Drawing.Point(124, 134);
+            this.txtUnitPrice.Location = new System.Drawing.Point(124, 105);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(120, 20);
             this.txtUnitPrice.TabIndex = 113;
@@ -193,7 +193,7 @@ namespace SmartInventorySystem.WinForms
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 106);
+            this.label15.Location = new System.Drawing.Point(15, 77);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 13);
             this.label15.TabIndex = 112;
@@ -203,7 +203,7 @@ namespace SmartInventorySystem.WinForms
             // txtStockLevel
             // 
             this.txtStockLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStockLevel.Location = new System.Drawing.Point(124, 104);
+            this.txtStockLevel.Location = new System.Drawing.Point(124, 75);
             this.txtStockLevel.Name = "txtStockLevel";
             this.txtStockLevel.ReadOnly = true;
             this.txtStockLevel.Size = new System.Drawing.Size(120, 20);
@@ -216,7 +216,7 @@ namespace SmartInventorySystem.WinForms
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label12.Location = new System.Drawing.Point(213, 41);
+            this.label12.Location = new System.Drawing.Point(280, 12);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(146, 20);
             this.label12.TabIndex = 110;
@@ -225,7 +225,7 @@ namespace SmartInventorySystem.WinForms
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 76);
+            this.label10.Location = new System.Drawing.Point(15, 47);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(58, 13);
             this.label10.TabIndex = 109;
@@ -234,7 +234,7 @@ namespace SmartInventorySystem.WinForms
             // txtItemName
             // 
             this.txtItemName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItemName.Location = new System.Drawing.Point(124, 71);
+            this.txtItemName.Location = new System.Drawing.Point(124, 42);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(185, 20);
             this.txtItemName.TabIndex = 108;
@@ -263,7 +263,7 @@ namespace SmartInventorySystem.WinForms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 202);
+            this.label5.Location = new System.Drawing.Point(15, 173);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 122;
@@ -273,7 +273,7 @@ namespace SmartInventorySystem.WinForms
             // txtAmountSub
             // 
             this.txtAmountSub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAmountSub.Location = new System.Drawing.Point(124, 200);
+            this.txtAmountSub.Location = new System.Drawing.Point(124, 171);
             this.txtAmountSub.Name = "txtAmountSub";
             this.txtAmountSub.Size = new System.Drawing.Size(120, 20);
             this.txtAmountSub.TabIndex = 121;
@@ -319,7 +319,7 @@ namespace SmartInventorySystem.WinForms
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(32, 266);
+            this.btnAddItem.Location = new System.Drawing.Point(3, 277);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(110, 23);
             this.btnAddItem.TabIndex = 128;
@@ -329,7 +329,7 @@ namespace SmartInventorySystem.WinForms
             // 
             // btnCompute
             // 
-            this.btnCompute.Location = new System.Drawing.Point(148, 267);
+            this.btnCompute.Location = new System.Drawing.Point(119, 277);
             this.btnCompute.Name = "btnCompute";
             this.btnCompute.Size = new System.Drawing.Size(110, 23);
             this.btnCompute.TabIndex = 129;
@@ -544,7 +544,7 @@ namespace SmartInventorySystem.WinForms
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(260, 127);
+            this.label8.Location = new System.Drawing.Point(251, 98);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(137, 26);
             this.label8.TabIndex = 132;
@@ -554,7 +554,7 @@ namespace SmartInventorySystem.WinForms
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 47);
+            this.label22.Location = new System.Drawing.Point(15, 18);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(55, 13);
             this.label22.TabIndex = 131;
@@ -564,7 +564,7 @@ namespace SmartInventorySystem.WinForms
             // txtCode
             // 
             this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCode.Location = new System.Drawing.Point(124, 40);
+            this.txtCode.Location = new System.Drawing.Point(124, 11);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(185, 20);
             this.txtCode.TabIndex = 107;
@@ -575,7 +575,7 @@ namespace SmartInventorySystem.WinForms
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label21.Location = new System.Drawing.Point(17, 70);
+            this.label21.Location = new System.Drawing.Point(12, 38);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(252, 20);
             this.label21.TabIndex = 132;
@@ -584,7 +584,7 @@ namespace SmartInventorySystem.WinForms
             // txtSearch
             // 
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSearch.Location = new System.Drawing.Point(21, 102);
+            this.txtSearch.Location = new System.Drawing.Point(12, 61);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(187, 20);
             this.txtSearch.TabIndex = 10;
@@ -592,7 +592,7 @@ namespace SmartInventorySystem.WinForms
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(214, 102);
+            this.btnSearch.Location = new System.Drawing.Point(205, 61);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(90, 23);
             this.btnSearch.TabIndex = 134;
@@ -604,9 +604,9 @@ namespace SmartInventorySystem.WinForms
             // 
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.btnSelect);
-            this.panel3.Location = new System.Drawing.Point(338, 70);
+            this.panel3.Location = new System.Drawing.Point(301, 61);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(380, 123);
+            this.panel3.Size = new System.Drawing.Size(417, 123);
             this.panel3.TabIndex = 135;
             this.panel3.Visible = false;
             // 
@@ -640,11 +640,11 @@ namespace SmartInventorySystem.WinForms
             this.maximumLevelDataGridViewTextBoxColumn,
             this.leadDaysDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bsItem;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(365, 87);
+            this.dataGridView1.Size = new System.Drawing.Size(411, 87);
             this.dataGridView1.TabIndex = 111;
             // 
             // identifierDataGridViewTextBoxColumn
@@ -795,7 +795,7 @@ namespace SmartInventorySystem.WinForms
             // btnSelect
             // 
             this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelect.Location = new System.Drawing.Point(254, 96);
+            this.btnSelect.Location = new System.Drawing.Point(331, 96);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(83, 23);
             this.btnSelect.TabIndex = 112;
@@ -806,7 +806,7 @@ namespace SmartInventorySystem.WinForms
             // txtUserAmend
             // 
             this.txtUserAmend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUserAmend.Location = new System.Drawing.Point(546, 27);
+            this.txtUserAmend.Location = new System.Drawing.Point(619, 12);
             this.txtUserAmend.Name = "txtUserAmend";
             this.txtUserAmend.Size = new System.Drawing.Size(47, 20);
             this.txtUserAmend.TabIndex = 137;
@@ -815,13 +815,13 @@ namespace SmartInventorySystem.WinForms
             // txtDateAmend
             // 
             this.txtDateAmend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateAmend.Location = new System.Drawing.Point(599, 27);
+            this.txtDateAmend.Location = new System.Drawing.Point(672, 12);
             this.txtDateAmend.Name = "txtDateAmend";
             this.txtDateAmend.Size = new System.Drawing.Size(46, 20);
             this.txtDateAmend.TabIndex = 136;
             this.txtDateAmend.Visible = false;
             // 
-            // frmDispense
+            // DispenseItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -835,7 +835,7 @@ namespace SmartInventorySystem.WinForms
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label12);
-            this.Name = "frmDispense";
+            this.Name = "DispenseItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dispense";
             this.Load += new System.EventHandler(this.frmDispense_Load);

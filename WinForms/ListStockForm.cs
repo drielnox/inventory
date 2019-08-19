@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using SmartInventorySystem.WinForms.View;
 using SmartInventorySystem.WinForms.Presenter;
 using SmartInventorySystem.ViewModel.Forms;
+using SmartInventorySystem.ViewModel.Grids;
 
 namespace SmartInventorySystem.WinForms
 {
@@ -10,7 +11,7 @@ namespace SmartInventorySystem.WinForms
     {
         private readonly ListStockPresenter _presenter;
 
-        public ListStockFormViewModel ViewModel { get; private set; }
+        public ListStockFormViewModel State { get; private set; }
 
         public ListStockForm()
         {
@@ -18,13 +19,14 @@ namespace SmartInventorySystem.WinForms
 
             _presenter = new ListStockPresenter(this);
 
-            ViewModel = new ListStockFormViewModel();
+            State = new ListStockFormViewModel();
+
+            bsForm.DataSource = State;
         }
 
         private void frmStockSheet_Load(object sender, EventArgs e)
         {
             _presenter.LoadStockList();
-            bsForm.DataSource = ViewModel;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -60,7 +62,52 @@ namespace SmartInventorySystem.WinForms
 
         private void bsStock_CurrentChanged(object sender, EventArgs e)
         {
-            
+            State.SelectedStock = bsStock.Current as StockRowViewModel;
+            _presenter.EnableUpdate();
+            _presenter.EnableDelete();
+        }
+
+        public void ShowUpdateStockForm(StockRowViewModel selectedStock)
+        {
+            var form = new UpdateStockForm(selectedStock.Identifier);
+            form.Show(this);
+        }
+
+        public void AskDeleteStockMessage(StockRowViewModel selectedStock)
+        {
+            string msg = string.Format("You are sure to delete this stock?");
+            var result = MessageBox.Show(this, msg, "Delete stock", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                _presenter.DeleteStock(selectedStock);
+            }
+        }
+
+        private void tsbUpdate_Click(object sender, EventArgs e)
+        {
+            _presenter.ShowUpdateStockForm();
+            _presenter.LoadStockList();
+        }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            _presenter.ShowDeleteStockMessage();
+            _presenter.LoadStockList();
+        }
+
+        public void SetUpdateButtonEnable(bool v)
+        {
+            tsbUpdate.Enabled = v;
+        }
+
+        public void SetDeleteButtonEnable(bool v)
+        {
+            tsbDelete.Enabled = v;
+        }
+
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            _presenter.LoadStockList();
         }
     }
 }

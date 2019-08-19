@@ -12,8 +12,8 @@ namespace SmartInventorySystem.WinForms
             try
             {
                 var login = new LoginPopup();
-                var result = login.ShowDialog();
-                if (result == DialogResult.OK)
+                login.ShowDialog();
+                if ((bool)login.Tag)
                 {
                     login.Close();
 

@@ -12,7 +12,7 @@ namespace SmartInventorySystem.WinForms.Core
     interface IView<out TFormViewModel> : IView
         where TFormViewModel : FormViewModel
     {
-        TFormViewModel ViewModel { get; }
+        TFormViewModel State { get; }
         void UpdateFormBindingSource();
     }
 }

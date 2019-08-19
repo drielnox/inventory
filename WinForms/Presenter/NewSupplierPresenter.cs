@@ -17,11 +17,11 @@ namespace SmartInventorySystem.WinForms.Presenter
             try
             {
                 var newSupplier = new Supplier();
-                newSupplier.Name = View.ViewModel.SupplierName;
-                newSupplier.ContactPerson = View.ViewModel.ContextPerson;
-                newSupplier.Address = View.ViewModel.Address;
-                newSupplier.Email = View.ViewModel.Email;
-                newSupplier.Phone = View.ViewModel.Phone;
+                newSupplier.Name = View.State.SupplierName;
+                newSupplier.ContactPerson = View.State.ContextPerson;
+                newSupplier.Address = View.State.Address;
+                newSupplier.Email = View.State.Email;
+                newSupplier.Phone = View.State.Phone;
 
                 using (var ctx = new InventoryModel())
                 {
@@ -40,11 +40,11 @@ namespace SmartInventorySystem.WinForms.Presenter
 
         internal void CleanFields()
         {
-            View.ViewModel.SupplierName = string.Empty;
-            View.ViewModel.ContextPerson = string.Empty;
-            View.ViewModel.Address = string.Empty;
-            View.ViewModel.Email = string.Empty;
-            View.ViewModel.Phone = string.Empty;
+            View.State.SupplierName = string.Empty;
+            View.State.ContextPerson = string.Empty;
+            View.State.Address = string.Empty;
+            View.State.Email = string.Empty;
+            View.State.Phone = string.Empty;
             View.UpdateFormBindingSource();
         }
     }

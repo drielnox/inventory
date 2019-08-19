@@ -100,34 +100,6 @@
             }
         }
 
-        private void viewToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmViewUsers view_user = new frmViewUsers();
-                view_user.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Users");
-            }
-        }
-
-        private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ListDispenseForm dispense = new ListDispenseForm();
-                dispense.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "dispense");
-            }
-        }
-
         private void listToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
@@ -156,20 +128,6 @@
             }
         }
 
-        private void addToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmNewUser new_user = new frmNewUser();
-                new_user.ShowDialog();
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Users");
-            }
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -186,6 +144,48 @@
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "New Drug / Item");
+            }
+        }
+
+        private void dispenseToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListDispenseForm dispense = new ListDispenseForm();
+                dispense.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "dispense");
+            }
+        }
+
+        private void viewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmViewUsers view_user = new frmViewUsers();
+                view_user.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Users");
+            }
+        }
+
+        private void addToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmNewUser new_user = new frmNewUser();
+                new_user.ShowDialog();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Users");
             }
         }
     }

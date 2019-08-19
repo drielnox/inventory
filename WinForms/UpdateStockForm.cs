@@ -11,9 +11,17 @@ namespace SmartInventorySystem.WinForms
 {
     public partial class UpdateStockForm : Form
     {
+        private readonly int _stockIdentifier;
+
         public UpdateStockForm()
         {
             InitializeComponent();
+        }
+
+        public UpdateStockForm(int stockIdentifier) 
+            : this()
+        {
+            _stockIdentifier = stockIdentifier;
         }
 
         private void frmStock_Update_Load(object sender, EventArgs e)
