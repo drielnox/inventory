@@ -1,4 +1,8 @@
-﻿using SmartInventorySystem.DataAccess;
+﻿// <copyright file="LoginPopup.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using SmartInventorySystem.DataAccess;
 using System;
 using System.Data;
 using System.Linq;

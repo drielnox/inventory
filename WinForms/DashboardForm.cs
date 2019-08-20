@@ -1,4 +1,8 @@
-﻿namespace SmartInventorySystem.WinForms
+﻿// <copyright file="DashboardForm.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+namespace SmartInventorySystem.WinForms
 {
     using System;
     using System.Collections.Generic;

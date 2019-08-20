@@ -1,4 +1,8 @@
-﻿using SmartInventorySystem.DataAccess;
+﻿// <copyright file="NewSupplierPresenter.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using SmartInventorySystem.DataAccess;
 using SmartInventorySystem.Model;
 using SmartInventorySystem.WinForms.Core;
 using SmartInventorySystem.WinForms.View;
@@ -8,7 +12,8 @@ namespace SmartInventorySystem.WinForms.Presenter
 {
     class NewSupplierPresenter : Presenter<INewSupplierView>
     {
-        public NewSupplierPresenter(INewSupplierView view) : base(view)
+        public NewSupplierPresenter(INewSupplierView view)
+            : base(view)
         {
         }
 

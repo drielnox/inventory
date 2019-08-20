@@ -1,4 +1,8 @@
-﻿using NLog;
+﻿// <copyright file="Program.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using NLog;
 using System;
 using System.Windows.Forms;
 

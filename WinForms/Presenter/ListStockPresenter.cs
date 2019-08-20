@@ -1,4 +1,8 @@
-﻿using SmartInventorySystem.DataAccess;
+﻿// <copyright file="ListStockPresenter.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using SmartInventorySystem.DataAccess;
 using SmartInventorySystem.Transformation.ToViewModel;
 using SmartInventorySystem.WinForms.Core;
 using SmartInventorySystem.WinForms.View;
@@ -10,7 +14,8 @@ namespace SmartInventorySystem.WinForms.Presenter
 {
     class ListStockPresenter : Presenter<IListStockView>
     {
-        public ListStockPresenter(IListStockView view) : base(view)
+        public ListStockPresenter(IListStockView view)
+            : base(view)
         {
         }
 

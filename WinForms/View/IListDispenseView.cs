@@ -1,4 +1,8 @@
-﻿using SmartInventorySystem.WinForms.Core;
+﻿// <copyright file="IListDispenseView.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using SmartInventorySystem.WinForms.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;

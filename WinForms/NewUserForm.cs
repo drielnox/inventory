@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="NewUserForm.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using System;
 using System.Windows.Forms;
 using SmartInventorySystem.Model;
 using SmartInventorySystem.DataAccess;

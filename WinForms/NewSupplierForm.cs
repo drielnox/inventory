@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="NewSupplierForm.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using System;
 using System.Windows.Forms;
 using SmartInventorySystem.WinForms.View;
 using SmartInventorySystem.WinForms.Presenter;

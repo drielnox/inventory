@@ -1,4 +1,8 @@
-﻿using SmartInventorySystem.WinForms.Controls;
+﻿// <copyright file="DispenseItemDetailsPresenter.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using SmartInventorySystem.WinForms.Controls;
 using SmartInventorySystem.WinForms.Core;
 using SmartInventorySystem.WinForms.View.Controls;
 using System;
@@ -7,7 +11,8 @@ namespace SmartInventorySystem.WinForms.Presenter.Controls
 {
     class DispenseItemDetailsPresenter : Presenter<IDispenseItemDetailsView>
     {
-        public DispenseItemDetailsPresenter(IDispenseItemDetailsView view) : base(view)
+        public DispenseItemDetailsPresenter(IDispenseItemDetailsView view)
+            : base(view)
         {
         }
 

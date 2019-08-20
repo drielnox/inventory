@@ -1,8 +1,12 @@
-﻿using SmartInventorySystem.ViewModel.Core;
-using System;
+﻿// <copyright file="IView.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
 
 namespace SmartInventorySystem.WinForms.Core
 {
+    using System;
+    using SmartInventorySystem.ViewModel.Core;
+
     interface IView
     {
         void ShowInfo(string msg);

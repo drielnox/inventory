@@ -1,4 +1,8 @@
-﻿using SmartInventorySystem.WinForms.Core;
+﻿// <copyright file="IListStockView.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using SmartInventorySystem.WinForms.Core;
 using SmartInventorySystem.ViewModel.Forms;
 using SmartInventorySystem.ViewModel.Forms.Grids;
 

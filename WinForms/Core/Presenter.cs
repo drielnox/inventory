@@ -1,4 +1,8 @@
-﻿namespace SmartInventorySystem.WinForms.Core
+﻿// <copyright file="Presenter.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+namespace SmartInventorySystem.WinForms.Core
 {
     abstract class Presenter<TView>
         where TView : IView

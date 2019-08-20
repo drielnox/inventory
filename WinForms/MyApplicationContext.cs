@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="MyApplicationContext.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using System;
 using System.Windows.Forms;
 
 namespace SmartInventorySystem.WinForms

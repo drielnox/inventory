@@ -1,4 +1,8 @@
-﻿using SmartInventorySystem.ViewModel.Controls;
+﻿// <copyright file="IDispenseItemDetailsView.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using SmartInventorySystem.ViewModel.Controls;
 using SmartInventorySystem.WinForms.Controls;
 using SmartInventorySystem.WinForms.Core;
 

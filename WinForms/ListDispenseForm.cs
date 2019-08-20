@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="ListDispenseForm.cs" company="Open Source">
+// Copyright (c) Open Source. All rights reserved.
+// </copyright>
+
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using SmartInventorySystem.ViewModel;
