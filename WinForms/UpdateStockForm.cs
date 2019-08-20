@@ -4,8 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using SmartInventorySystem.Model;
-using SmartInventorySystem.ViewModel;
 using SmartInventorySystem.DataAccess;
+using SmartInventorySystem.ViewModel.Forms.Grids;
 
 namespace SmartInventorySystem.WinForms
 {

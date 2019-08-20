@@ -52,7 +52,7 @@
     <Compile Include="Forms\NewItemFormViewModel.cs" />
     <Compile Include="Forms\NewSupplierFormViewModel.cs" />
     <Compile Include="ItemExpiredViewModel.cs" />
-    <Compile Include="ItemViewModel.cs" />
+    <Compile Include="Forms\Grids\ItemRowViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\Grids\StockViewModel.cs" />
     <Compile Include="SupplierViewModel.cs" />

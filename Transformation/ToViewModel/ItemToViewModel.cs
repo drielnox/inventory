@@ -1,6 +1,5 @@
 ﻿using SmartInventorySystem.Model;
-using SmartInventorySystem.ViewModel;
-using SmartInventorySystem.ViewModel.Grids;
+using SmartInventorySystem.ViewModel.Forms.Grids;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +11,21 @@ namespace SmartInventorySystem.Transformation.ToViewModel
         public static IEnumerable<TResult> ToViewModels<TResult>(this IEnumerable<Item> its)
             where TResult : ViewModel.Core.ViewModel
         {
-            if (typeof(TResult) is ItemRowViewModel)
+            return its.Select(x => x.ToViewModel<TResult>());
+        }
+
+        public static TResult ToViewModel<TResult>(this Item it)
+            where TResult : ViewModel.Core.ViewModel
+        {
+            var resultType = typeof(TResult);
+
+            if (resultType == typeof(ItemRowViewModel))
             {
-                return its.Select(x => (TResult)(ViewModel.Core.ViewModel)x.ToItemRowViewModel());
+                return (TResult)(ViewModel.Core.ViewModel)it.ToItemRowViewModel();
             }
-            else if (typeof(TResult) is StockRowViewModel)
+            else if (resultType is StockRowViewModel)
             {
-                return its.Select(x => (TResult)(ViewModel.Core.ViewModel)x.ToStockRowViewModel());
+                return (TResult)(ViewModel.Core.ViewModel)it.ToStockRowViewModel();
             }
             else
             {

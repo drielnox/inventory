@@ -82,6 +82,10 @@
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.6.6\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
       <Private>True</Private>
@@ -109,9 +113,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -131,6 +137,7 @@
     <Compile Include="ChangePassForm.Designer.cs">
       <DependentUpon>ChangePassForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AddCartItemEventArgs.cs" />
     <Compile Include="Core\IView.cs" />
     <Compile Include="Core\Presenter.cs" />
     <Compile Include="DashboardForm.cs">
@@ -147,11 +154,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DispenseCartDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DispenseItemDetailsUserControl.cs">
+    <Compile Include="Controls\DispenseItemDetailsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DispenseItemDetailsUserControl.Designer.cs">
-      <DependentUpon>DispenseItemDetailsUserControl.cs</DependentUpon>
+    <Compile Include="Controls\DispenseItemDetailsControl.Designer.cs">
+      <DependentUpon>DispenseItemDetailsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DispenseItemForm.cs">
       <SubType>Form</SubType>
@@ -240,8 +247,8 @@
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DispenseItemDetailsUserControl.resx">
-      <DependentUpon>DispenseItemDetailsUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\DispenseItemDetailsControl.resx">
+      <DependentUpon>DispenseItemDetailsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DispenseItemForm.resx">
       <DependentUpon>DispenseItemForm.cs</DependentUpon>
@@ -298,8 +305,10 @@
       <DependentUpon>DispenseCartDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.DispenseSheetViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.DispenseSheetViewModel2.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.DispenseItemFormViewModel.datasource" />
+    <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.Grids.ItemRowViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.ListStockFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.NewItemFormViewModel.datasource" />
     <None Include="Properties\DataSources\SmartInventorySystem.ViewModel.Forms.NewSupplierFormViewModel.datasource" />

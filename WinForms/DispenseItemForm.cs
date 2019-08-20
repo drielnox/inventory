@@ -9,6 +9,7 @@ using SmartInventorySystem.DataAccess;
 using SmartInventorySystem.WinForms.View;
 using SmartInventorySystem.WinForms.Presenter;
 using SmartInventorySystem.ViewModel.Forms;
+using SmartInventorySystem.ViewModel.Forms.Grids;
 
 namespace SmartInventorySystem.WinForms
 {
@@ -25,6 +26,8 @@ namespace SmartInventorySystem.WinForms
             _presenter = new DispenseItemPresenter(this);
 
             State = new DispenseItemFormViewModel();
+
+            bsForm.DataSource = State;
         }
 
         private void frmDispense_Load(object sender, EventArgs e)
@@ -46,9 +49,10 @@ namespace SmartInventorySystem.WinForms
 
         private void UpdateQty_Amt()
         {
+            Program.Logger.Debug("Entering to UpdateQty_Amt()");
+
             try
             {
-
                 int level, deduct, balance;
                 float unit, amountSub;
                 level = int.Parse(txtStockLevel.Text);
@@ -68,7 +72,6 @@ namespace SmartInventorySystem.WinForms
                     //txtStockBal.Text = txtStockLevel.Text;
                     //txtStockLevel.Focus();
                 }
-
                 else
                 {
                     balance = level - deduct;
@@ -93,7 +96,7 @@ namespace SmartInventorySystem.WinForms
             _presenter.SearchItem();
             _presenter.ClearSearchItemText();
 
-            panel3.Visible = true;
+            pnlSearch.Visible = true;
         }
 
         // a method to be called for loading details of selected drug from the seach result
@@ -128,8 +131,8 @@ namespace SmartInventorySystem.WinForms
                 txtItemid.Text = dr.Cells[0].Value.ToString();
 
                 Load_ItemsRecord();
-                panel1.Visible = true;
-                panel3.Visible = false;
+                pnlDispenseItem.Visible = true;
+                pnlSearch.Visible = false;
 
             }
 
@@ -138,8 +141,7 @@ namespace SmartInventorySystem.WinForms
                 MessageBox.Show(ex.Message, "Stock Update");
             }
         }
-
-
+        
         // update item records with new stock level 
         private void Update_Stock()
         {
@@ -270,8 +272,8 @@ namespace SmartInventorySystem.WinForms
             txtDispenseQty.Clear();
             txtAmountSub.Clear();
 
-            panel2.Visible = true;
-            panel1.Visible = false;
+            pnlCheckout.Visible = true;
+            pnlDispenseItem.Visible = false;
             btnComputeTotal.Enabled = true;
             btnSave.Enabled = true;
             txtSearch.Focus();
@@ -299,7 +301,7 @@ namespace SmartInventorySystem.WinForms
                         .ToList();
                 }
 
-                //bsDispenseSheet.DataSource = dispenseSheet;
+                bsDispenseSheet.DataSource = dispenseSheet;
             }
             catch (Exception ex)
             {
@@ -360,7 +362,7 @@ namespace SmartInventorySystem.WinForms
             txtDispenseQty.Clear();
             txtAmountSub.Clear();
 
-            panel2.Visible = true;
+            pnlCheckout.Visible = true;
             txtSearch.Focus();
         }
         
@@ -423,7 +425,7 @@ namespace SmartInventorySystem.WinForms
 
             Summary_Dispensary();
             Dispensary_Outcome();
-            panel2.Visible = false;
+            pnlCheckout.Visible = false;
 
             txtAmountTotal.Clear();
             txtDiscount.Clear();
@@ -466,7 +468,7 @@ namespace SmartInventorySystem.WinForms
 
         public void SetItemDetailsPanelEnable(bool v)
         {
-            panel1.Enabled = v;
+            pnlDispenseItem.Enabled = v;
         }
 
         public void LoadItemsDetails(ItemRowViewModel selectedItem)

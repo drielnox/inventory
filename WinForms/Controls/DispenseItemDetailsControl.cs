@@ -3,12 +3,13 @@ using System.Windows.Forms;
 using SmartInventorySystem.WinForms.View.Controls;
 using SmartInventorySystem.ViewModel.Controls;
 using SmartInventorySystem.WinForms.Presenter.Controls;
+using SmartInventorySystem.WinForms.Controls;
 
 namespace SmartInventorySystem.WinForms
 {
     public partial class DispenseItemDetailsUserControl : UserControl, IDispenseItemDetailsView
     {
-        public event EventHandler OnAddToCart;
+        public event EventHandler<AddCartItemEventArgs> OnAddToCart;
 
         private readonly DispenseItemDetailsPresenter _presenter;
 
@@ -40,7 +41,12 @@ namespace SmartInventorySystem.WinForms
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            _presenter.
+            _presenter.AddItemToCart();
+        }
+
+        public void FireOnAddCartItem(AddCartItemEventArgs args)
+        {
+            OnAddToCart?.Invoke(this, args);
         }
     }
 }

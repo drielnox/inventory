@@ -835,7 +835,7 @@ namespace SmartInventorySystem.WinForms
             // bsItem
             // 
             this.bsItem.AllowNew = false;
-            this.bsItem.DataSource = typeof(SmartInventorySystem.ViewModel.ItemRowViewModel);
+            this.bsItem.DataSource = typeof(ViewModel.Forms.Grids.ItemRowViewModel);
             // 
             // btnSelect
             // 

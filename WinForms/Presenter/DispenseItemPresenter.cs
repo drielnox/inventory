@@ -4,7 +4,7 @@ using SmartInventorySystem.WinForms.View;
 using SmartInventorySystem.DataAccess;
 using System.Linq;
 using SmartInventorySystem.Transformation.ToViewModel;
-using SmartInventorySystem.ViewModel;
+using SmartInventorySystem.ViewModel.Forms.Grids;
 
 namespace SmartInventorySystem.WinForms.Presenter
 {
@@ -35,6 +35,8 @@ namespace SmartInventorySystem.WinForms.Presenter
                         .ToViewModels<ItemRowViewModel>()
                         .ToList();
                 }
+
+                View.UpdateFormBindingSource();
             }
             catch (Exception ex)
             {

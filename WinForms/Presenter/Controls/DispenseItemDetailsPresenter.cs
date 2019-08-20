@@ -1,10 +1,7 @@
-﻿using SmartInventorySystem.WinForms.Core;
+﻿using SmartInventorySystem.WinForms.Controls;
+using SmartInventorySystem.WinForms.Core;
 using SmartInventorySystem.WinForms.View.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmartInventorySystem.WinForms.Presenter.Controls
 {
@@ -12,6 +9,21 @@ namespace SmartInventorySystem.WinForms.Presenter.Controls
     {
         public DispenseItemDetailsPresenter(IDispenseItemDetailsView view) : base(view)
         {
+        }
+
+        internal void AddItemToCart()
+        {
+            try
+            {
+                var args = new AddCartItemEventArgs();
+                args.UnitPrice = View.State.UnitPrice;
+                args.Amount = View.State.Amount;
+                View.FireOnAddCartItem(args);
+            }
+            catch (Exception ex)
+            {
+                View.ShowError(ex);
+            }
         }
     }
 }

@@ -33,6 +33,24 @@ namespace SmartInventorySystem.WinForms
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.GroupBox gbCart;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DispenseItemForm));
+            System.Windows.Forms.Label label4;
+            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label15;
+            System.Windows.Forms.Label label12;
+            System.Windows.Forms.Label label10;
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label17;
+            System.Windows.Forms.Label label16;
+            System.Windows.Forms.Label label14;
+            System.Windows.Forms.Label label13;
+            System.Windows.Forms.Label label11;
+            System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label22;
+            System.Windows.Forms.Label label21;
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.bsCart = new System.Windows.Forms.BindingSource(this.components);
             this.dsCart = new SmartInventorySystem.WinForms.DispenseCartDataSet();
@@ -40,56 +58,41 @@ namespace SmartInventorySystem.WinForms
             this.tsbRemoveItemCart = new System.Windows.Forms.ToolStripButton();
             this.txtCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtStockBal = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtDispenseQty = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.txtStockLevel = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.txtItemName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtItemid = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtAmountSub = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtVat = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtAmountTotal = new System.Windows.Forms.TextBox();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnCompute = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlCheckout = new System.Windows.Forms.Panel();
             this.btnComputeTotal = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.txtDiscount = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.txtTotalFinal = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtdispStatus = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.pnlDispenseItem = new System.Windows.Forms.Panel();
             this.txtgroupDate = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtRandom = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtDspid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.txtCode = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlSearch = new System.Windows.Forms.Panel();
             this.dgvSearchedItem = new System.Windows.Forms.DataGridView();
             this.bsSearchedItems = new System.Windows.Forms.BindingSource(this.components);
             this.btnSelectItem = new System.Windows.Forms.Button();
             this.txtUserAmend = new System.Windows.Forms.TextBox();
             this.txtDateAmend = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dispenseQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsDispenseSheet = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,21 +116,40 @@ namespace SmartInventorySystem.WinForms
             this.expireDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsForm = new System.Windows.Forms.BindingSource(this.components);
             gbCart = new System.Windows.Forms.GroupBox();
+            label4 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label22 = new System.Windows.Forms.Label();
+            label21 = new System.Windows.Forms.Label();
             gbCart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsCart)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlCheckout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnlDispenseItem.SuspendLayout();
+            this.pnlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchedItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSearchedItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsDispenseSheet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsForm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -213,13 +235,12 @@ namespace SmartInventorySystem.WinForms
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(250, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
-            this.label4.TabIndex = 118;
-            this.label4.Text = "Stock Balance";
-            this.label4.Visible = false;
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(250, 77);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(77, 13);
+            label4.TabIndex = 118;
+            label4.Text = "Stock Balance";
             // 
             // txtStockBal
             // 
@@ -230,16 +251,15 @@ namespace SmartInventorySystem.WinForms
             this.txtStockBal.Size = new System.Drawing.Size(52, 20);
             this.txtStockBal.TabIndex = 117;
             this.txtStockBal.Text = "0";
-            this.txtStockBal.Visible = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 13);
-            this.label3.TabIndex = 116;
-            this.label3.Text = "Quantity to Dispense";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(15, 139);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(105, 13);
+            label3.TabIndex = 116;
+            label3.Text = "Quantity to Dispense";
             // 
             // txtDispenseQty
             // 
@@ -252,12 +272,12 @@ namespace SmartInventorySystem.WinForms
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 114;
-            this.label2.Text = "Unit Price (N)";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(15, 107);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(70, 13);
+            label2.TabIndex = 114;
+            label2.Text = "Unit Price (N)";
             // 
             // txtUnitPrice
             // 
@@ -270,13 +290,12 @@ namespace SmartInventorySystem.WinForms
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 77);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(64, 13);
-            this.label15.TabIndex = 112;
-            this.label15.Text = "Stock Level";
-            this.label15.Visible = false;
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(15, 77);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(64, 13);
+            label15.TabIndex = 112;
+            label15.Text = "Stock Level";
             // 
             // txtStockLevel
             // 
@@ -287,27 +306,26 @@ namespace SmartInventorySystem.WinForms
             this.txtStockLevel.Size = new System.Drawing.Size(120, 20);
             this.txtStockLevel.TabIndex = 111;
             this.txtStockLevel.Text = "0";
-            this.txtStockLevel.Visible = false;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.label12.Location = new System.Drawing.Point(308, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(146, 20);
-            this.label12.TabIndex = 110;
-            this.label12.Text = "DISPENSE ITEM";
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            label12.Location = new System.Drawing.Point(308, 9);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(146, 20);
+            label12.TabIndex = 110;
+            label12.Text = "DISPENSE ITEM";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 47);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 13);
-            this.label10.TabIndex = 109;
-            this.label10.Text = "Item Name";
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(15, 47);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(58, 13);
+            label10.TabIndex = 109;
+            label10.Text = "Item Name";
             // 
             // txtItemName
             // 
@@ -319,13 +337,12 @@ namespace SmartInventorySystem.WinForms
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(315, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 107;
-            this.label1.Text = "Item ID";
-            this.label1.Visible = false;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(315, 13);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(41, 13);
+            label1.TabIndex = 107;
+            label1.Text = "Item ID";
             // 
             // txtItemid
             // 
@@ -336,36 +353,34 @@ namespace SmartInventorySystem.WinForms
             this.txtItemid.ReadOnly = true;
             this.txtItemid.Size = new System.Drawing.Size(26, 20);
             this.txtItemid.TabIndex = 106;
-            this.txtItemid.Visible = false;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 173);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
-            this.label5.TabIndex = 122;
-            this.label5.Text = "Amount (N)";
-            this.label5.Visible = false;
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(15, 173);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(60, 13);
+            label5.TabIndex = 122;
+            label5.Text = "Amount (N)";
             // 
             // txtAmountSub
             // 
             this.txtAmountSub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAmountSub.Location = new System.Drawing.Point(124, 171);
             this.txtAmountSub.Name = "txtAmountSub";
+            this.txtAmountSub.ReadOnly = true;
             this.txtAmountSub.Size = new System.Drawing.Size(120, 20);
             this.txtAmountSub.TabIndex = 121;
             this.txtAmountSub.Text = "0";
-            this.txtAmountSub.Visible = false;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 189);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 124;
-            this.label6.Text = "VAT (%)";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(10, 189);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(45, 13);
+            label6.TabIndex = 124;
+            label6.Text = "VAT (%)";
             // 
             // txtVat
             // 
@@ -378,12 +393,12 @@ namespace SmartInventorySystem.WinForms
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 130);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 13);
-            this.label7.TabIndex = 126;
-            this.label7.Text = "Sub Total Amount (N)";
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(10, 130);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(109, 13);
+            label7.TabIndex = 126;
+            label7.Text = "Sub Total Amount (N)";
             // 
             // txtAmountTotal
             // 
@@ -415,27 +430,27 @@ namespace SmartInventorySystem.WinForms
             this.btnCompute.UseVisualStyleBackColor = true;
             this.btnCompute.Click += new System.EventHandler(this.btnCompute_Click);
             // 
-            // panel2
+            // pnlCheckout
             // 
-            this.panel2.Controls.Add(this.btnComputeTotal);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.txtDiscount);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.txtTotalFinal);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.txtdispStatus);
-            this.panel2.Controls.Add(this.dataGridView2);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.txtAmountTotal);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.txtVat);
-            this.panel2.Controls.Add(this.btnSave);
-            this.panel2.Controls.Add(this.txtCancel);
-            this.panel2.Location = new System.Drawing.Point(466, 321);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(291, 303);
-            this.panel2.TabIndex = 130;
-            this.panel2.Visible = false;
+            this.pnlCheckout.Controls.Add(this.btnComputeTotal);
+            this.pnlCheckout.Controls.Add(label17);
+            this.pnlCheckout.Controls.Add(this.txtDiscount);
+            this.pnlCheckout.Controls.Add(label16);
+            this.pnlCheckout.Controls.Add(this.txtTotalFinal);
+            this.pnlCheckout.Controls.Add(label14);
+            this.pnlCheckout.Controls.Add(this.txtdispStatus);
+            this.pnlCheckout.Controls.Add(this.dataGridView2);
+            this.pnlCheckout.Controls.Add(label7);
+            this.pnlCheckout.Controls.Add(this.txtAmountTotal);
+            this.pnlCheckout.Controls.Add(label6);
+            this.pnlCheckout.Controls.Add(this.txtVat);
+            this.pnlCheckout.Controls.Add(this.btnSave);
+            this.pnlCheckout.Controls.Add(this.txtCancel);
+            this.pnlCheckout.Location = new System.Drawing.Point(466, 321);
+            this.pnlCheckout.Name = "pnlCheckout";
+            this.pnlCheckout.Size = new System.Drawing.Size(291, 303);
+            this.pnlCheckout.TabIndex = 130;
+            this.pnlCheckout.Visible = false;
             // 
             // btnComputeTotal
             // 
@@ -450,12 +465,12 @@ namespace SmartInventorySystem.WinForms
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(10, 157);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(66, 13);
-            this.label17.TabIndex = 143;
-            this.label17.Text = "Discount (N)";
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(10, 157);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(66, 13);
+            label17.TabIndex = 143;
+            label17.Text = "Discount (N)";
             // 
             // txtDiscount
             // 
@@ -468,13 +483,13 @@ namespace SmartInventorySystem.WinForms
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(10, 219);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 13);
-            this.label16.TabIndex = 141;
-            this.label16.Text = "Total (N)";
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label16.Location = new System.Drawing.Point(10, 219);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(57, 13);
+            label16.TabIndex = 141;
+            label16.Text = "Total (N)";
             // 
             // txtTotalFinal
             // 
@@ -489,13 +504,13 @@ namespace SmartInventorySystem.WinForms
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(246, 255);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(99, 13);
-            this.label14.TabIndex = 139;
-            this.label14.Text = "Dispense Executed";
-            this.label14.Visible = false;
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(246, 255);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(99, 13);
+            label14.TabIndex = 139;
+            label14.Text = "Dispense Executed";
+            label14.Visible = false;
             // 
             // txtdispStatus
             // 
@@ -510,95 +525,97 @@ namespace SmartInventorySystem.WinForms
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dispenseQuantityDataGridViewTextBoxColumn,
+            this.itemNameDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.bsDispenseSheet;
             this.dataGridView2.Location = new System.Drawing.Point(13, 13);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(262, 87);
             this.dataGridView2.TabIndex = 127;
             // 
-            // panel1
+            // pnlDispenseItem
             // 
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.txtgroupDate);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.txtRandom);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txtDspid);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.txtCode);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtItemid);
-            this.panel1.Controls.Add(this.btnCompute);
-            this.panel1.Controls.Add(this.txtItemName);
-            this.panel1.Controls.Add(this.btnAddItem);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtStockLevel);
-            this.panel1.Controls.Add(this.txtAmountSub);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtUnitPrice);
-            this.panel1.Controls.Add(this.txtStockBal);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtDispenseQty);
-            this.panel1.Location = new System.Drawing.Point(12, 321);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 303);
-            this.panel1.TabIndex = 131;
-            this.panel1.Visible = false;
+            this.pnlDispenseItem.Controls.Add(label13);
+            this.pnlDispenseItem.Controls.Add(this.txtgroupDate);
+            this.pnlDispenseItem.Controls.Add(label11);
+            this.pnlDispenseItem.Controls.Add(this.txtRandom);
+            this.pnlDispenseItem.Controls.Add(label9);
+            this.pnlDispenseItem.Controls.Add(this.txtDspid);
+            this.pnlDispenseItem.Controls.Add(this.label8);
+            this.pnlDispenseItem.Controls.Add(label22);
+            this.pnlDispenseItem.Controls.Add(this.txtCode);
+            this.pnlDispenseItem.Controls.Add(label1);
+            this.pnlDispenseItem.Controls.Add(this.txtItemid);
+            this.pnlDispenseItem.Controls.Add(this.btnCompute);
+            this.pnlDispenseItem.Controls.Add(this.txtItemName);
+            this.pnlDispenseItem.Controls.Add(this.btnAddItem);
+            this.pnlDispenseItem.Controls.Add(label10);
+            this.pnlDispenseItem.Controls.Add(label5);
+            this.pnlDispenseItem.Controls.Add(this.txtStockLevel);
+            this.pnlDispenseItem.Controls.Add(this.txtAmountSub);
+            this.pnlDispenseItem.Controls.Add(label15);
+            this.pnlDispenseItem.Controls.Add(label4);
+            this.pnlDispenseItem.Controls.Add(this.txtUnitPrice);
+            this.pnlDispenseItem.Controls.Add(this.txtStockBal);
+            this.pnlDispenseItem.Controls.Add(label2);
+            this.pnlDispenseItem.Controls.Add(label3);
+            this.pnlDispenseItem.Controls.Add(this.txtDispenseQty);
+            this.pnlDispenseItem.Location = new System.Drawing.Point(12, 321);
+            this.pnlDispenseItem.Name = "pnlDispenseItem";
+            this.pnlDispenseItem.Size = new System.Drawing.Size(400, 303);
+            this.pnlDispenseItem.TabIndex = 131;
+            this.pnlDispenseItem.Visible = false;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(315, 272);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(30, 13);
-            this.label13.TabIndex = 138;
-            this.label13.Text = "Date";
-            this.label13.Visible = false;
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(315, 272);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(30, 13);
+            label13.TabIndex = 138;
+            label13.Text = "Date";
             // 
             // txtgroupDate
             // 
             this.txtgroupDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtgroupDate.Location = new System.Drawing.Point(362, 270);
             this.txtgroupDate.Name = "txtgroupDate";
+            this.txtgroupDate.ReadOnly = true;
             this.txtgroupDate.Size = new System.Drawing.Size(26, 20);
             this.txtgroupDate.TabIndex = 137;
-            this.txtgroupDate.Visible = false;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(315, 250);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(33, 13);
-            this.label11.TabIndex = 136;
-            this.label11.Text = "Rand";
-            this.label11.Visible = false;
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(315, 250);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(33, 13);
+            label11.TabIndex = 136;
+            label11.Text = "Rand";
             // 
             // txtRandom
             // 
             this.txtRandom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRandom.Location = new System.Drawing.Point(361, 248);
             this.txtRandom.Name = "txtRandom";
+            this.txtRandom.ReadOnly = true;
             this.txtRandom.Size = new System.Drawing.Size(26, 20);
             this.txtRandom.TabIndex = 135;
-            this.txtRandom.Visible = false;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(315, 40);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 13);
-            this.label9.TabIndex = 134;
-            this.label9.Text = "Dsp ID";
-            this.label9.Visible = false;
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(315, 40);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(40, 13);
+            label9.TabIndex = 134;
+            label9.Text = "Dsp ID";
             // 
             // txtDspid
             // 
@@ -609,7 +626,6 @@ namespace SmartInventorySystem.WinForms
             this.txtDspid.ReadOnly = true;
             this.txtDspid.Size = new System.Drawing.Size(26, 20);
             this.txtDspid.TabIndex = 133;
-            this.txtDspid.Visible = false;
             // 
             // label8
             // 
@@ -625,33 +641,32 @@ namespace SmartInventorySystem.WinForms
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 18);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 13);
-            this.label22.TabIndex = 131;
-            this.label22.Text = "Item Code";
-            this.label22.Visible = false;
+            label22.AutoSize = true;
+            label22.Location = new System.Drawing.Point(15, 18);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(55, 13);
+            label22.TabIndex = 131;
+            label22.Text = "Item Code";
             // 
             // txtCode
             // 
             this.txtCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCode.Location = new System.Drawing.Point(124, 11);
             this.txtCode.Name = "txtCode";
+            this.txtCode.ReadOnly = true;
             this.txtCode.Size = new System.Drawing.Size(185, 20);
             this.txtCode.TabIndex = 107;
-            this.txtCode.Visible = false;
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label21.Location = new System.Drawing.Point(12, 43);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(252, 20);
-            this.label21.TabIndex = 132;
-            this.label21.Text = "Search Drug by Name or Code";
+            label21.AutoSize = true;
+            label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            label21.Location = new System.Drawing.Point(12, 43);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(252, 20);
+            label21.TabIndex = 132;
+            label21.Text = "Search Drug by Name or Code";
             // 
             // txtSearch
             // 
@@ -673,15 +688,15 @@ namespace SmartInventorySystem.WinForms
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // panel3
+            // pnlSearch
             // 
-            this.panel3.Controls.Add(this.dgvSearchedItem);
-            this.panel3.Controls.Add(this.btnSelectItem);
-            this.panel3.Location = new System.Drawing.Point(12, 95);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(749, 123);
-            this.panel3.TabIndex = 135;
-            this.panel3.Visible = false;
+            this.pnlSearch.Controls.Add(this.dgvSearchedItem);
+            this.pnlSearch.Controls.Add(this.btnSelectItem);
+            this.pnlSearch.Location = new System.Drawing.Point(12, 95);
+            this.pnlSearch.Name = "pnlSearch";
+            this.pnlSearch.Size = new System.Drawing.Size(749, 123);
+            this.pnlSearch.TabIndex = 135;
+            this.pnlSearch.Visible = false;
             // 
             // dgvSearchedItem
             // 
@@ -748,18 +763,18 @@ namespace SmartInventorySystem.WinForms
             this.txtUserAmend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUserAmend.Location = new System.Drawing.Point(619, 17);
             this.txtUserAmend.Name = "txtUserAmend";
+            this.txtUserAmend.ReadOnly = true;
             this.txtUserAmend.Size = new System.Drawing.Size(47, 20);
             this.txtUserAmend.TabIndex = 137;
-            this.txtUserAmend.Visible = false;
             // 
             // txtDateAmend
             // 
             this.txtDateAmend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDateAmend.Location = new System.Drawing.Point(672, 17);
             this.txtDateAmend.Name = "txtDateAmend";
+            this.txtDateAmend.ReadOnly = true;
             this.txtDateAmend.Size = new System.Drawing.Size(46, 20);
             this.txtDateAmend.TabIndex = 136;
-            this.txtDateAmend.Visible = false;
             // 
             // splitContainer1
             // 
@@ -769,13 +784,13 @@ namespace SmartInventorySystem.WinForms
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.label21);
+            this.splitContainer1.Panel1.Controls.Add(label21);
             this.splitContainer1.Panel1.Controls.Add(this.txtUserAmend);
-            this.splitContainer1.Panel1.Controls.Add(this.label12);
+            this.splitContainer1.Panel1.Controls.Add(label12);
             this.splitContainer1.Panel1.Controls.Add(this.txtDateAmend);
-            this.splitContainer1.Panel1.Controls.Add(this.panel2);
-            this.splitContainer1.Panel1.Controls.Add(this.panel3);
-            this.splitContainer1.Panel1.Controls.Add(this.panel1);
+            this.splitContainer1.Panel1.Controls.Add(this.pnlCheckout);
+            this.splitContainer1.Panel1.Controls.Add(this.pnlSearch);
+            this.splitContainer1.Panel1.Controls.Add(this.pnlDispenseItem);
             this.splitContainer1.Panel1.Controls.Add(this.btnSearch);
             this.splitContainer1.Panel1.Controls.Add(this.txtSearch);
             // 
@@ -785,6 +800,24 @@ namespace SmartInventorySystem.WinForms
             this.splitContainer1.Size = new System.Drawing.Size(1105, 636);
             this.splitContainer1.SplitterDistance = 764;
             this.splitContainer1.TabIndex = 138;
+            // 
+            // dispenseQuantityDataGridViewTextBoxColumn
+            // 
+            this.dispenseQuantityDataGridViewTextBoxColumn.DataPropertyName = "DispenseQuantity";
+            this.dispenseQuantityDataGridViewTextBoxColumn.HeaderText = "DispenseQuantity";
+            this.dispenseQuantityDataGridViewTextBoxColumn.Name = "dispenseQuantityDataGridViewTextBoxColumn";
+            this.dispenseQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bsDispenseSheet
+            // 
+            this.bsDispenseSheet.DataSource = typeof(SmartInventorySystem.ViewModel.DispenseSheetViewModel);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -976,12 +1009,12 @@ namespace SmartInventorySystem.WinForms
             ((System.ComponentModel.ISupportInitialize)(this.dsCart)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlCheckout.ResumeLayout(false);
+            this.pnlCheckout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            this.pnlDispenseItem.ResumeLayout(false);
+            this.pnlDispenseItem.PerformLayout();
+            this.pnlSearch.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchedItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSearchedItems)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -989,6 +1022,7 @@ namespace SmartInventorySystem.WinForms
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsDispenseSheet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsForm)).EndInit();
             this.ResumeLayout(false);
 
@@ -998,52 +1032,34 @@ namespace SmartInventorySystem.WinForms
 
         private System.Windows.Forms.Button txtCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtStockBal;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDispenseQty;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUnitPrice;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtStockLevel;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtItemName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtItemid;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtAmountSub;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtVat;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtAmountTotal;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnCompute;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel pnlCheckout;
+        private System.Windows.Forms.Panel pnlDispenseItem;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlSearch;
         private System.Windows.Forms.DataGridView dgvSearchedItem;
         private System.Windows.Forms.Button btnSelectItem;
         private System.Windows.Forms.TextBox txtUserAmend;
         private System.Windows.Forms.TextBox txtDateAmend;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDspid;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TextBox txtRandom;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtgroupDate;
         private System.Windows.Forms.TextBox txtdispStatus;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtTotalFinal;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Button btnComputeTotal;
         private System.Windows.Forms.BindingSource bsSearchedItems;
@@ -1095,5 +1111,8 @@ namespace SmartInventorySystem.WinForms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn expireDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsDispenseSheet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dispenseQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
     }
 }

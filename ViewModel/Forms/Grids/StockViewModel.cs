@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SmartInventorySystem.ViewModel.Grids
+namespace SmartInventorySystem.ViewModel.Forms.Grids
 {
     public class StockRowViewModel : Core.ViewModel
     {

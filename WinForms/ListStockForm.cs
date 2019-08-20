@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using SmartInventorySystem.WinForms.View;
 using SmartInventorySystem.WinForms.Presenter;
 using SmartInventorySystem.ViewModel.Forms;
-using SmartInventorySystem.ViewModel.Grids;
+using SmartInventorySystem.ViewModel.Forms.Grids;
 
 namespace SmartInventorySystem.WinForms
 {

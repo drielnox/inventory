@@ -37,6 +37,7 @@
             System.Windows.Forms.Label lblQuantityToDispense;
             this.label8 = new System.Windows.Forms.Label();
             this.txtItemCode = new System.Windows.Forms.TextBox();
+            this.bsControl = new System.Windows.Forms.BindingSource(this.components);
             this.txtItemId = new System.Windows.Forms.TextBox();
             this.txtItemName = new System.Windows.Forms.TextBox();
             this.btnAddItem = new System.Windows.Forms.Button();
@@ -47,17 +48,74 @@
             this.txtDispenseQty = new System.Windows.Forms.TextBox();
             this.nudUnitPrice = new System.Windows.Forms.NumericUpDown();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
-            this.bsControl = new System.Windows.Forms.BindingSource(this.components);
             lblItemCode = new System.Windows.Forms.Label();
             lblItemId = new System.Windows.Forms.Label();
             lblItemName = new System.Windows.Forms.Label();
             lblAmount = new System.Windows.Forms.Label();
             lblStockLevel = new System.Windows.Forms.Label();
             lblQuantityToDispense = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.bsControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsControl)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblItemCode
+            // 
+            lblItemCode.AutoSize = true;
+            lblItemCode.Location = new System.Drawing.Point(3, 38);
+            lblItemCode.Name = "lblItemCode";
+            lblItemCode.Size = new System.Drawing.Size(55, 13);
+            lblItemCode.TabIndex = 156;
+            lblItemCode.Text = "Item Code";
+            lblItemCode.Visible = false;
+            // 
+            // lblItemId
+            // 
+            lblItemId.AutoSize = true;
+            lblItemId.Location = new System.Drawing.Point(3, 7);
+            lblItemId.Name = "lblItemId";
+            lblItemId.Size = new System.Drawing.Size(41, 13);
+            lblItemId.TabIndex = 140;
+            lblItemId.Text = "Item ID";
+            lblItemId.Visible = false;
+            // 
+            // lblItemName
+            // 
+            lblItemName.AutoSize = true;
+            lblItemName.Location = new System.Drawing.Point(3, 67);
+            lblItemName.Name = "lblItemName";
+            lblItemName.Size = new System.Drawing.Size(58, 13);
+            lblItemName.TabIndex = 143;
+            lblItemName.Text = "Item Name";
+            // 
+            // lblAmount
+            // 
+            lblAmount.AutoSize = true;
+            lblAmount.Location = new System.Drawing.Point(3, 193);
+            lblAmount.Name = "lblAmount";
+            lblAmount.Size = new System.Drawing.Size(60, 13);
+            lblAmount.TabIndex = 153;
+            lblAmount.Text = "Amount (N)";
+            lblAmount.Visible = false;
+            // 
+            // lblStockLevel
+            // 
+            lblStockLevel.AutoSize = true;
+            lblStockLevel.Location = new System.Drawing.Point(3, 97);
+            lblStockLevel.Name = "lblStockLevel";
+            lblStockLevel.Size = new System.Drawing.Size(64, 13);
+            lblStockLevel.TabIndex = 145;
+            lblStockLevel.Text = "Stock Level";
+            lblStockLevel.Visible = false;
+            // 
+            // lblQuantityToDispense
+            // 
+            lblQuantityToDispense.AutoSize = true;
+            lblQuantityToDispense.Location = new System.Drawing.Point(3, 159);
+            lblQuantityToDispense.Name = "lblQuantityToDispense";
+            lblQuantityToDispense.Size = new System.Drawing.Size(105, 13);
+            lblQuantityToDispense.TabIndex = 149;
+            lblQuantityToDispense.Text = "Quantity to Dispense";
             // 
             // label8
             // 
@@ -71,16 +129,6 @@
             this.label8.Text = "On Save, this will overwrite \r\nthe \"Stock Level\" data";
             this.label8.Visible = false;
             // 
-            // lblItemCode
-            // 
-            lblItemCode.AutoSize = true;
-            lblItemCode.Location = new System.Drawing.Point(3, 38);
-            lblItemCode.Name = "lblItemCode";
-            lblItemCode.Size = new System.Drawing.Size(55, 13);
-            lblItemCode.TabIndex = 156;
-            lblItemCode.Text = "Item Code";
-            lblItemCode.Visible = false;
-            // 
             // txtItemCode
             // 
             this.txtItemCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -91,15 +139,9 @@
             this.txtItemCode.TabIndex = 141;
             this.txtItemCode.Visible = false;
             // 
-            // lblItemId
+            // bsControl
             // 
-            lblItemId.AutoSize = true;
-            lblItemId.Location = new System.Drawing.Point(3, 7);
-            lblItemId.Name = "lblItemId";
-            lblItemId.Size = new System.Drawing.Size(41, 13);
-            lblItemId.TabIndex = 140;
-            lblItemId.Text = "Item ID";
-            lblItemId.Visible = false;
+            this.bsControl.DataSource = typeof(SmartInventorySystem.ViewModel.Forms.Grids.ItemRowViewModel);
             // 
             // txtItemId
             // 
@@ -133,25 +175,6 @@
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
-            // lblItemName
-            // 
-            lblItemName.AutoSize = true;
-            lblItemName.Location = new System.Drawing.Point(3, 67);
-            lblItemName.Name = "lblItemName";
-            lblItemName.Size = new System.Drawing.Size(58, 13);
-            lblItemName.TabIndex = 143;
-            lblItemName.Text = "Item Name";
-            // 
-            // lblAmount
-            // 
-            lblAmount.AutoSize = true;
-            lblAmount.Location = new System.Drawing.Point(3, 193);
-            lblAmount.Name = "lblAmount";
-            lblAmount.Size = new System.Drawing.Size(60, 13);
-            lblAmount.TabIndex = 153;
-            lblAmount.Text = "Amount (N)";
-            lblAmount.Visible = false;
-            // 
             // txtStockLevel
             // 
             this.txtStockLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -163,16 +186,6 @@
             this.txtStockLevel.TabIndex = 144;
             this.txtStockLevel.Text = "0";
             this.txtStockLevel.Visible = false;
-            // 
-            // lblStockLevel
-            // 
-            lblStockLevel.AutoSize = true;
-            lblStockLevel.Location = new System.Drawing.Point(3, 97);
-            lblStockLevel.Name = "lblStockLevel";
-            lblStockLevel.Size = new System.Drawing.Size(64, 13);
-            lblStockLevel.TabIndex = 145;
-            lblStockLevel.Text = "Stock Level";
-            lblStockLevel.Visible = false;
             // 
             // label4
             // 
@@ -204,15 +217,6 @@
             this.lblUnitPrice.TabIndex = 147;
             this.lblUnitPrice.Text = "Unit Price (N)";
             // 
-            // lblQuantityToDispense
-            // 
-            lblQuantityToDispense.AutoSize = true;
-            lblQuantityToDispense.Location = new System.Drawing.Point(3, 159);
-            lblQuantityToDispense.Name = "lblQuantityToDispense";
-            lblQuantityToDispense.Size = new System.Drawing.Size(105, 13);
-            lblQuantityToDispense.TabIndex = 149;
-            lblQuantityToDispense.Text = "Quantity to Dispense";
-            // 
             // txtDispenseQty
             // 
             this.txtDispenseQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -235,10 +239,6 @@
             this.nudAmount.Name = "nudAmount";
             this.nudAmount.Size = new System.Drawing.Size(120, 20);
             this.nudAmount.TabIndex = 165;
-            // 
-            // bsControl
-            // 
-            this.bsControl.DataSource = typeof(SmartInventorySystem.ViewModel.ItemRowViewModel);
             // 
             // DispenseItemDetailsUserControl
             // 
@@ -264,9 +264,9 @@
             this.Controls.Add(this.txtDispenseQty);
             this.Name = "DispenseItemDetailsUserControl";
             this.Size = new System.Drawing.Size(428, 246);
+            ((System.ComponentModel.ISupportInitialize)(this.bsControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

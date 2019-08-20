@@ -1,7 +1,6 @@
 ﻿using SmartInventorySystem.ViewModel.Core;
-using SmartInventorySystem.ViewModel.Grids;
 using System.Collections.Generic;
-using System;
+using SmartInventorySystem.ViewModel.Forms.Grids;
 
 namespace SmartInventorySystem.ViewModel.Forms
 {

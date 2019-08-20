@@ -4,7 +4,7 @@ using SmartInventorySystem.WinForms.Core;
 using SmartInventorySystem.WinForms.View;
 using System;
 using System.Linq;
-using SmartInventorySystem.ViewModel.Grids;
+using SmartInventorySystem.ViewModel.Forms.Grids;
 
 namespace SmartInventorySystem.WinForms.Presenter
 {
