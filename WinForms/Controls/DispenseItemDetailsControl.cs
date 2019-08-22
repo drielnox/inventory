@@ -2,15 +2,16 @@
 // Copyright (c) Open Source. All rights reserved.
 // </copyright>
 
-using System;
-using System.Windows.Forms;
-using SmartInventorySystem.WinForms.View.Controls;
-using SmartInventorySystem.ViewModel.Controls;
-using SmartInventorySystem.WinForms.Presenter.Controls;
-using SmartInventorySystem.WinForms.Controls;
-
 namespace SmartInventorySystem.WinForms
 {
+    using System;
+    using System.Windows.Forms;
+    using SmartInventorySystem.ViewModel.Controls;
+    using SmartInventorySystem.ViewModel.Forms.Grids;
+    using SmartInventorySystem.WinForms.Controls;
+    using SmartInventorySystem.WinForms.Presenter.Controls;
+    using SmartInventorySystem.WinForms.View.Controls;
+
     public partial class DispenseItemDetailsUserControl : UserControl, IDispenseItemDetailsView
     {
         public event EventHandler<AddCartItemEventArgs> OnAddToCart;
@@ -24,9 +25,16 @@ namespace SmartInventorySystem.WinForms
             _presenter = new DispenseItemDetailsPresenter(this);
 
             State = new DispenseItemDetailsControlViewModel();
+
+            bsControl.DataSource = State;
         }
 
-        public DispenseItemDetailsControlViewModel State { get; private set; }
+        public DispenseItemDetailsControlViewModel State { get; protected set; }
+
+        public void LoadItemDetails(int id, string code, string name, decimal unitPrice, int stock, int quantity)
+        {
+            _presenter.LoadItemDetails(id, code, name, unitPrice, stock, quantity);
+        }
 
         public void ShowError(Exception ex)
         {

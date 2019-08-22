@@ -9,8 +9,11 @@ namespace SmartInventorySystem.WinForms.Presenter
     using SmartInventorySystem.DataAccess;
     using SmartInventorySystem.Transformation.ToViewModel;
     using SmartInventorySystem.ViewModel.Forms.Grids;
+    using SmartInventorySystem.WinForms.Controls;
     using SmartInventorySystem.WinForms.Core;
     using SmartInventorySystem.WinForms.View;
+    using Model;
+    using global::DataAccess.Documental;
 
     class DispenseItemPresenter : Presenter<IDispenseItemView>
     {
@@ -57,6 +60,47 @@ namespace SmartInventorySystem.WinForms.Presenter
         internal void EnableSelectItem()
         {
             View.SetSelectItemEnable(View.State.SelectedItem != null);
+        }
+
+        internal void SaveDispensedItems(DispenseCartSaveEventArgs e)
+        {
+            try
+            {
+                var ds = new DispenseSummary();
+                ds.DateDispensed = DateTime.Now;
+                ds.Discount = (float)e.Discount;
+                ds.SubAmount = (float)e.SubTotal;
+                ds.Total = (float)e.Total;
+                ds.UserDispensed = Environment.UserName;
+                ds.Vat = (float)e.Vat;
+                ds.GroupId = string.Empty;
+                ds.GroupDate = DateTime.Now;
+
+                using (var ctx = new InventoryModel())
+                {
+                    foreach (var item in e.Items)
+                    {
+                        var aItem = ctx
+                            .Items
+                            .Single(x => x.Identifier == item.ItemId);
+
+                        aItem.StockLevel -= item.Quantity;
+                    }
+
+                    ctx.DispenseSummaries.Add(ds);
+
+                    ctx.SaveChanges();
+                }
+
+                using (var db = new InventoryDocumentStorage())
+                {
+                    db.DispenseSummaries.Insert(ds);
+                }
+            }
+            catch (Exception ex)
+            {
+                View.ShowError(ex);
+            }
         }
 
         internal void LoadSelectedItemDetails()

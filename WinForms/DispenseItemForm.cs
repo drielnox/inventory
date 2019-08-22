@@ -49,6 +49,13 @@ namespace SmartInventorySystem.WinForms
             {
                 MessageBox.Show(ex.Message, "Dispense Item");
             }
+
+            ucDispenseCart.OnSave += UcDispenseCart_OnSave;
+        }
+
+        private void UcDispenseCart_OnSave(object sender, Controls.DispenseCartSaveEventArgs e)
+        {
+            _presenter.SaveDispensedItems(e);
         }
 
         private void UpdateQty_Amt()
@@ -63,16 +70,16 @@ namespace SmartInventorySystem.WinForms
                 if (level < 1)
                 {
                     MessageBox.Show("Stock level of this item is Empty. Please refill stock before dispensing");
-                    //txtDispenseQty.Text = "0";
-                    //txtAmountSub.Text = "0";
-                    //txtStockLevel.Focus();
+                    // txtDispenseQty.Text = "0";
+                    // txtAmountSub.Text = "0";
+                    // txtStockLevel.Focus();
                 }
                 else if (deduct > level)
                 {
                     MessageBox.Show("Stock level is lower than dispense quantity. Please refill stock or dispense a lower quantity value");
-                    //txtDispenseQty.Text = "0";
-                    //txtStockBal.Text = txtStockLevel.Text;
-                    //txtStockLevel.Focus();
+                    // txtDispenseQty.Text = "0";
+                    // txtStockBal.Text = txtStockLevel.Text;
+                    // txtStockLevel.Focus();
                 }
                 else
                 {
@@ -82,7 +89,7 @@ namespace SmartInventorySystem.WinForms
                     var amountSub = deduct * nudUnitPrice.Value;
                     txtAmountSub.Text = amountSub.ToString();
 
-                    //txtAmountSub.Focus();
+                    // txtAmountSub.Focus();
                 }
             }
             catch (Exception ex)
@@ -134,7 +141,6 @@ namespace SmartInventorySystem.WinForms
                 Load_ItemsRecord();
                 pnlDispenseItem.Visible = true;
                 pnlSearch.Visible = false;
-
             }
             catch (Exception ex)
             {
@@ -147,7 +153,7 @@ namespace SmartInventorySystem.WinForms
         {
             try
             {
-                if (txtStockLevel.Text == "")
+                if (txtStockLevel.Text == string.Empty)
                 {
                     txtStockLevel.Text = "0";
                 }
@@ -243,14 +249,14 @@ namespace SmartInventorySystem.WinForms
             }
         }
 
-        //calculate the total price for all items dispense (including vat and discount)
+        // calculate the total price for all items dispense (including vat and discount)
         private void btnCompute_Click(object sender, EventArgs e)
         {
-            //UpdateQty_Amt();
-            //Update_Stock();
-            //Save_Dispensary();
-            //dispense_sheet();
-            //CalcTotal_Amount();
+            // UpdateQty_Amt();
+            // Update_Stock();
+            // Save_Dispensary();
+            // dispense_sheet();
+            // CalcTotal_Amount();
 
             txtItemid.Clear();
             txtDspid.Clear();
@@ -324,7 +330,6 @@ namespace SmartInventorySystem.WinForms
                 totalAmount = totalAmount + subAmt;
 
                 txtAmountTotal.Text = totalAmount.ToString();
-
             }
             catch (Exception ex)
             {
@@ -384,7 +389,6 @@ namespace SmartInventorySystem.WinForms
             {
                 MessageBox.Show(ex.Message, "Dispansary");
             }
-
         }
 
         private void btnComputeTotal_Click_1(object sender, EventArgs e)
@@ -396,11 +400,10 @@ namespace SmartInventorySystem.WinForms
                 var vat = nudVat.Value;
                 var discounted = amountSub - discount;
                 var vatAmount = vat / 100 * discounted;
-                //total = float.Parse(txtTotalFinal.Text + ".00");
+                // total = float.Parse(txtTotalFinal.Text + ".00");
 
                 var total = discounted + vatAmount;
                 txtTotalFinal.Text = total.ToString();
-
             }
             catch (Exception ex)
             {
@@ -465,9 +468,9 @@ namespace SmartInventorySystem.WinForms
 
         public void AddItemToCart(object itemToCart)
         {
-            var itemId = txtItemid.Text;
+            var itemId = int.Parse(txtItemid.Text);
             var itemName = txtItemName.Text;
-            var quantity = nudDispenseQty.Value;
+            var quantity = (int)nudDispenseQty.Value;
             var unitPrice = nudUnitPrice.Value;
 
             ucDispenseCart.AddItemDispense(itemId, itemName, quantity, unitPrice);

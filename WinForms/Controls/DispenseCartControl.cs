@@ -22,6 +22,8 @@ namespace SmartInventorySystem.WinForms.Controls
     {
         private readonly DispenseCartPresenter _presenter;
 
+        public event EventHandler<DispenseCartSaveEventArgs> OnSave;
+
         public DispenseCartControl()
         {
             InitializeComponent();
@@ -35,14 +37,11 @@ namespace SmartInventorySystem.WinForms.Controls
 
         public DispenseCartControlViewModel State { get; private set; }
 
-        internal void AddItemDispense(string itemId, string itemName, decimal quantity, decimal unitPrice)
+        public ItemToCheckoutRowViewModel SelectedItem => bsItemsToCheckout.Current as ItemToCheckoutRowViewModel;
+
+        internal void AddItemDispense(int id, string name, int quantity, decimal unitPrice)
         {
-            var itemDispensed = new ItemToCheckoutRowViewModel();
-            itemDispensed.ItemId = int.Parse(itemId);
-            itemDispensed.ItemName = itemName;
-            itemDispensed.Quantity = (int)quantity;
-            itemDispensed.UnitPrice = unitPrice;
-            _presenter.AddItemToCart(itemDispensed);
+            _presenter.AddItemToCart(id, name, quantity, unitPrice);
         }
 
         public void ShowError(Exception ex)
@@ -60,6 +59,36 @@ namespace SmartInventorySystem.WinForms.Controls
             bsControl.ResetBindings(false);
         }
 
-        
+        private void tsbRemoveItemCart_Click(object sender, EventArgs e)
+        {
+            _presenter.RemoveSelectedItem();
+        }
+
+        private void bsItemsToCheckout_CurrentChanged(object sender, EventArgs e)
+        {
+            _presenter.EnableRemoveItem();
+        }
+
+        public void EnableRemoveButton(bool v)
+        {
+            tsbRemoveItemCart.Enabled = v;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            _presenter.Save();
+        }
+
+        public void FireOnSave(DispenseCartControlViewModel state)
+        {
+            var args = new DispenseCartSaveEventArgs();
+            args.Items = state.ItemsToCheckout;
+            args.SubTotal = state.SubTotal;
+            args.Discount = state.Discount;
+            args.Vat = state.Vat;
+            args.Total = state.Total;
+
+            OnSave?.Invoke(this, args);
+        }
     }
 }

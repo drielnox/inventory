@@ -37,7 +37,6 @@
             System.Windows.Forms.Label label16;
             System.Windows.Forms.Label label6;
             this.dgvCart = new System.Windows.Forms.DataGridView();
-            this.identifierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +48,7 @@
             this.nudVat = new System.Windows.Forms.NumericUpDown();
             this.nudDiscount = new System.Windows.Forms.NumericUpDown();
             this.txtTotalFinal = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             gbCart = new System.Windows.Forms.GroupBox();
             tsCart = new System.Windows.Forms.ToolStrip();
             label7 = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             gbCart.Controls.Add(tsCart);
             gbCart.Location = new System.Drawing.Point(3, 3);
             gbCart.Name = "gbCart";
-            gbCart.Size = new System.Drawing.Size(409, 463);
+            gbCart.Size = new System.Drawing.Size(339, 434);
             gbCart.TabIndex = 1;
             gbCart.TabStop = false;
             gbCart.Text = "Cart";
@@ -89,7 +89,6 @@
             this.dgvCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.identifierDataGridViewTextBoxColumn,
             this.itemIdDataGridViewTextBoxColumn,
             this.itemNameDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
@@ -100,16 +99,8 @@
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCart.Size = new System.Drawing.Size(403, 413);
+            this.dgvCart.Size = new System.Drawing.Size(333, 384);
             this.dgvCart.TabIndex = 1;
-            // 
-            // identifierDataGridViewTextBoxColumn
-            // 
-            this.identifierDataGridViewTextBoxColumn.DataPropertyName = "Identifier";
-            this.identifierDataGridViewTextBoxColumn.HeaderText = "Identifier";
-            this.identifierDataGridViewTextBoxColumn.Name = "identifierDataGridViewTextBoxColumn";
-            this.identifierDataGridViewTextBoxColumn.ReadOnly = true;
-            this.identifierDataGridViewTextBoxColumn.Width = 72;
             // 
             // itemIdDataGridViewTextBoxColumn
             // 
@@ -147,6 +138,7 @@
             // 
             this.bsItemsToCheckout.DataMember = "ItemsToCheckout";
             this.bsItemsToCheckout.DataSource = this.bsControl;
+            this.bsItemsToCheckout.CurrentChanged += new System.EventHandler(this.bsItemsToCheckout_CurrentChanged);
             // 
             // bsControl
             // 
@@ -159,24 +151,26 @@
             this.tsbRemoveItemCart});
             tsCart.Location = new System.Drawing.Point(3, 16);
             tsCart.Name = "tsCart";
-            tsCart.Size = new System.Drawing.Size(403, 25);
+            tsCart.Size = new System.Drawing.Size(333, 25);
             tsCart.TabIndex = 0;
             tsCart.Text = "toolStrip1";
             // 
             // tsbRemoveItemCart
             // 
+            this.tsbRemoveItemCart.Enabled = false;
             this.tsbRemoveItemCart.Image = ((System.Drawing.Image)(resources.GetObject("tsbRemoveItemCart.Image")));
             this.tsbRemoveItemCart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRemoveItemCart.Name = "tsbRemoveItemCart";
             this.tsbRemoveItemCart.Size = new System.Drawing.Size(70, 22);
             this.tsbRemoveItemCart.Text = "Remove";
+            this.tsbRemoveItemCart.Click += new System.EventHandler(this.tsbRemoveItemCart_Click);
             // 
             // label7
             // 
             label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.Location = new System.Drawing.Point(3, 474);
+            label7.Location = new System.Drawing.Point(3, 445);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(54, 13);
             label7.TabIndex = 128;
@@ -186,7 +180,7 @@
             // 
             label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(3, 500);
+            label17.Location = new System.Drawing.Point(3, 471);
             label17.Name = "label17";
             label17.Size = new System.Drawing.Size(66, 13);
             label17.TabIndex = 150;
@@ -197,7 +191,7 @@
             label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             label16.AutoSize = true;
             label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label16.Location = new System.Drawing.Point(3, 552);
+            label16.Location = new System.Drawing.Point(3, 523);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(36, 13);
             label16.TabIndex = 149;
@@ -207,7 +201,7 @@
             // 
             label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(3, 526);
+            label6.Location = new System.Drawing.Point(3, 497);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(45, 13);
             label6.TabIndex = 147;
@@ -218,7 +212,7 @@
             this.txtAmountTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAmountTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAmountTotal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsControl, "SubTotal", true));
-            this.txtAmountTotal.Location = new System.Drawing.Point(288, 472);
+            this.txtAmountTotal.Location = new System.Drawing.Point(218, 443);
             this.txtAmountTotal.Name = "txtAmountTotal";
             this.txtAmountTotal.ReadOnly = true;
             this.txtAmountTotal.Size = new System.Drawing.Size(121, 20);
@@ -229,7 +223,7 @@
             // 
             this.nudVat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nudVat.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsControl, "Vat", true));
-            this.nudVat.Location = new System.Drawing.Point(288, 524);
+            this.nudVat.Location = new System.Drawing.Point(218, 495);
             this.nudVat.Name = "nudVat";
             this.nudVat.Size = new System.Drawing.Size(121, 20);
             this.nudVat.TabIndex = 153;
@@ -238,7 +232,7 @@
             // 
             this.nudDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nudDiscount.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsControl, "Discount", true));
-            this.nudDiscount.Location = new System.Drawing.Point(288, 498);
+            this.nudDiscount.Location = new System.Drawing.Point(218, 469);
             this.nudDiscount.Name = "nudDiscount";
             this.nudDiscount.Size = new System.Drawing.Size(121, 20);
             this.nudDiscount.TabIndex = 152;
@@ -249,17 +243,29 @@
             this.txtTotalFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotalFinal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsControl, "Total", true));
             this.txtTotalFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalFinal.Location = new System.Drawing.Point(288, 550);
+            this.txtTotalFinal.Location = new System.Drawing.Point(218, 521);
             this.txtTotalFinal.Name = "txtTotalFinal";
             this.txtTotalFinal.ReadOnly = true;
             this.txtTotalFinal.Size = new System.Drawing.Size(121, 20);
             this.txtTotalFinal.TabIndex = 148;
             this.txtTotalFinal.Text = "0";
             // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(264, 547);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 154;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // DispenseCartControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.nudVat);
             this.Controls.Add(this.nudDiscount);
             this.Controls.Add(label17);
@@ -270,7 +276,7 @@
             this.Controls.Add(this.txtAmountTotal);
             this.Controls.Add(gbCart);
             this.Name = "DispenseCartControl";
-            this.Size = new System.Drawing.Size(415, 573);
+            this.Size = new System.Drawing.Size(345, 573);
             gbCart.ResumeLayout(false);
             gbCart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
@@ -300,5 +306,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource bsItemsToCheckout;
+        private System.Windows.Forms.Button btnSave;
     }
 }

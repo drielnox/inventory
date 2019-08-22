@@ -85,6 +85,10 @@
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LiteDB, Version=4.1.4.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.4.1.4\lib\net40\LiteDB.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.6.6\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
@@ -147,6 +151,7 @@
     <Compile Include="Controls\DispenseCartControl.Designer.cs">
       <DependentUpon>DispenseCartControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DispenseCartSaveEventArgs.cs" />
     <Compile Include="Core\IView.cs" />
     <Compile Include="Core\Presenter.cs" />
     <Compile Include="DashboardForm.cs">
@@ -338,6 +343,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess.Documental\DataAccess.Documental.csproj">
+      <Project>{B5C16B98-1373-467A-A011-B34B14C261BB}</Project>
+      <Name>DataAccess.Documental</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{C45FA339-8B71-41A0-8654-78E54EC00C7B}</Project>
       <Name>DataAccess</Name>
