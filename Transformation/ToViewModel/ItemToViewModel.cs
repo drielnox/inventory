@@ -23,7 +23,7 @@ namespace SmartInventorySystem.Transformation.ToViewModel
             {
                 return (TResult)(ViewModel.Core.ViewModel)it.ToItemRowViewModel();
             }
-            else if (resultType is StockRowViewModel)
+            else if (resultType == typeof(StockRowViewModel))
             {
                 return (TResult)(ViewModel.Core.ViewModel)it.ToStockRowViewModel();
             }

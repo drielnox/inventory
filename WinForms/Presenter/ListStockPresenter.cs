@@ -2,16 +2,16 @@
 // Copyright (c) Open Source. All rights reserved.
 // </copyright>
 
-using SmartInventorySystem.DataAccess;
-using SmartInventorySystem.Transformation.ToViewModel;
-using SmartInventorySystem.WinForms.Core;
-using SmartInventorySystem.WinForms.View;
-using System;
-using System.Linq;
-using SmartInventorySystem.ViewModel.Forms.Grids;
-
 namespace SmartInventorySystem.WinForms.Presenter
 {
+    using System;
+    using System.Linq;
+    using Core;
+    using DataAccess;
+    using Transformation.ToViewModel;
+    using View;
+    using ViewModel.Forms.Grids;
+
     class ListStockPresenter : Presenter<IListStockView>
     {
         public ListStockPresenter(IListStockView view)
