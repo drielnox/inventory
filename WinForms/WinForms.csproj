@@ -152,6 +152,13 @@
       <DependentUpon>DispenseCartControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\DispenseCartSaveEventArgs.cs" />
+    <Compile Include="Controls\SearchItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SearchItemControl.Designer.cs">
+      <DependentUpon>SearchItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectedItemEventArgs.cs" />
     <Compile Include="Core\IView.cs" />
     <Compile Include="Core\Presenter.cs" />
     <Compile Include="DashboardForm.cs">
@@ -181,6 +188,7 @@
     <Compile Include="MyApplicationContext.cs" />
     <Compile Include="Presenter\Controls\DispenseCartPresenter.cs" />
     <Compile Include="Presenter\Controls\DispenseItemDetailsPresenter.cs" />
+    <Compile Include="Presenter\Controls\SearchItemPresenter.cs" />
     <Compile Include="Presenter\DispenseItemPresenter.cs" />
     <Compile Include="Presenter\ListDispensePresenter.cs" />
     <Compile Include="Presenter\ListStockPresenter.cs" />
@@ -244,6 +252,7 @@
     </Compile>
     <Compile Include="View\Controls\IDispenseCartView.cs" />
     <Compile Include="View\Controls\IDispenseItemDetailsView.cs" />
+    <Compile Include="View\Controls\IItemSearchView.cs" />
     <Compile Include="View\IDispenseItemView.cs" />
     <Compile Include="View\IListDispenseView.cs" />
     <Compile Include="View\IListStockView.cs" />
@@ -254,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\DispenseCartControl.resx">
       <DependentUpon>DispenseCartControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SearchItemControl.resx">
+      <DependentUpon>SearchItemControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>

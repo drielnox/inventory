@@ -49,6 +49,7 @@
     <Compile Include="Controls\DispenseCartControlViewModel.cs" />
     <Compile Include="Controls\DispenseItemDetailsControlViewModel.cs" />
     <Compile Include="Controls\Grids\ItemToCheckoutRowViewModel.cs" />
+    <Compile Include="Controls\ItemSearchControlViewModel.cs" />
     <Compile Include="Core\FormViewModel.cs" />
     <Compile Include="Core\ViewModel.cs" />
     <Compile Include="DispenseSheetViewModel.cs" />
