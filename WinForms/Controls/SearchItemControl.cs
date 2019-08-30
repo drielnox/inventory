@@ -69,5 +69,16 @@ namespace SmartInventorySystem.WinForms.Controls
         {
             _presenter.SelectItem();
         }
+
+        private void bsItems_CurrentChanged(object sender, EventArgs e)
+        {
+            _presenter.EnableSelectItem();
+        }
+
+        /// <inheritdoc/>
+        public void SetSelectItemEnable(bool v)
+        {
+            btnSelect.Enabled = v;
+        }
     }
 }

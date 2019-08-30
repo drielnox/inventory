@@ -10,7 +10,6 @@ namespace SmartInventorySystem.WinForms.View
 
     interface IDispenseItemView : IView<DispenseItemFormViewModel>
     {
-        void SetSelectItemEnable(bool v);
         void SetItemDetailsPanelEnable(bool v);
         void LoadItemsDetails(ItemRowViewModel selectedItem);
         void AddItemToCart(object itemToCart);

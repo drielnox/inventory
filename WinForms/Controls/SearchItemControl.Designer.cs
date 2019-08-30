@@ -32,10 +32,6 @@
             System.Windows.Forms.GroupBox groupBox1;
             System.Windows.Forms.Label label1;
             this.dgvResults = new System.Windows.Forms.DataGridView();
-            this.bsItems = new System.Windows.Forms.BindingSource(this.components);
-            this.txtItem = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnSelect = new System.Windows.Forms.Button();
             this.identifierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +53,11 @@
             this.maximumLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leadDaysDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expireDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsItems = new System.Windows.Forms.BindingSource(this.components);
             this.bsControl = new System.Windows.Forms.BindingSource(this.components);
+            this.txtItem = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
             groupBox1 = new System.Windows.Forms.GroupBox();
             label1 = new System.Windows.Forms.Label();
             groupBox1.SuspendLayout();
@@ -118,53 +118,6 @@
             this.dgvResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResults.Size = new System.Drawing.Size(671, 117);
             this.dgvResults.TabIndex = 0;
-            // 
-            // bsItems
-            // 
-            this.bsItems.AllowNew = false;
-            this.bsItems.DataMember = "SearchResult";
-            this.bsItems.DataSource = this.bsControl;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(3, 8);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(30, 13);
-            label1.TabIndex = 0;
-            label1.Text = "Item:";
-            // 
-            // txtItem
-            // 
-            this.txtItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtItem.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsControl, "SearchText", true));
-            this.txtItem.Location = new System.Drawing.Point(39, 5);
-            this.txtItem.Name = "txtItem";
-            this.txtItem.Size = new System.Drawing.Size(563, 20);
-            this.txtItem.TabIndex = 1;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(608, 3);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Location = new System.Drawing.Point(608, 174);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(75, 23);
-            this.btnSelect.TabIndex = 3;
-            this.btnSelect.Text = "Select";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // identifierDataGridViewTextBoxColumn
             // 
@@ -313,10 +266,59 @@
             this.expireDataGridViewTextBoxColumn.Name = "expireDataGridViewTextBoxColumn";
             this.expireDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // bsItems
+            // 
+            this.bsItems.AllowNew = false;
+            this.bsItems.DataMember = "SearchResult";
+            this.bsItems.DataSource = this.bsControl;
+            this.bsItems.CurrentChanged += new System.EventHandler(this.bsItems_CurrentChanged);
+            // 
             // bsControl
             // 
             this.bsControl.AllowNew = false;
             this.bsControl.DataSource = typeof(SmartInventorySystem.ViewModel.Controls.ItemSearchControlViewModel);
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(3, 8);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(30, 13);
+            label1.TabIndex = 0;
+            label1.Text = "Item:";
+            // 
+            // txtItem
+            // 
+            this.txtItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItem.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsControl, "SearchText", true));
+            this.txtItem.Location = new System.Drawing.Point(39, 5);
+            this.txtItem.Name = "txtItem";
+            this.txtItem.Size = new System.Drawing.Size(563, 20);
+            this.txtItem.TabIndex = 1;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Location = new System.Drawing.Point(608, 3);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelect.Enabled = false;
+            this.btnSelect.Location = new System.Drawing.Point(608, 174);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 3;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // SearchItemControl
             // 

@@ -22,6 +22,7 @@ namespace SmartInventorySystem.WinForms
     {
         private readonly DispenseItemPresenter _presenter;
 
+        /// <inheritdoc/>
         public DispenseItemFormViewModel State { get; protected set; }
 
         public DispenseItemForm()
@@ -43,7 +44,6 @@ namespace SmartInventorySystem.WinForms
                 txtgroupDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
 
                 generateRandom();
-                txtSearch.Focus();
             }
             catch (Exception ex)
             {
@@ -98,49 +98,19 @@ namespace SmartInventorySystem.WinForms
             }
         }
 
-        // search for drug or item using search box
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            _presenter.SearchItem();
-            _presenter.ClearSearchItemText();
-
-            pnlSearch.Visible = true;
-        }
-
         // a method to be called for loading details of selected drug from the seach result
         private void Load_ItemsRecord()
         {
             try
             {
-                var selectedItem = bsSearchedItems.Current as ItemRowViewModel;
-
-                if (selectedItem != null)
+                if (State.SelectedItem != null)
                 {
-                    txtItemid.Text = selectedItem.Identifier.ToString();
-                    txtItemCode.Text = selectedItem.Code;
-                    txtItemName.Text = selectedItem.Name;
-                    nudUnitPrice.Value = (decimal)selectedItem.PurchasePrice;
-                    txtStockLevel.Text = selectedItem.StockLevel.ToString();
+                    txtItemid.Text = State.SelectedItem.Identifier.ToString();
+                    txtItemCode.Text = State.SelectedItem.Code;
+                    txtItemName.Text = State.SelectedItem.Name;
+                    nudUnitPrice.Value = (decimal)State.SelectedItem.PurchasePrice;
+                    txtStockLevel.Text = State.SelectedItem.StockLevel.ToString();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Stock Update");
-            }
-        }
-
-        // display data of selected record onto item record textboxes
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            _presenter.LoadSelectedItemDetails();
-            try
-            {
-                DataGridViewRow dr = dgvSearchedItem.SelectedRows[0];
-                txtItemid.Text = dr.Cells[0].Value.ToString();
-
-                Load_ItemsRecord();
-                pnlDispenseItem.Visible = true;
-                pnlSearch.Visible = false;
             }
             catch (Exception ex)
             {
@@ -252,12 +222,6 @@ namespace SmartInventorySystem.WinForms
         // calculate the total price for all items dispense (including vat and discount)
         private void btnCompute_Click(object sender, EventArgs e)
         {
-            // UpdateQty_Amt();
-            // Update_Stock();
-            // Save_Dispensary();
-            // dispense_sheet();
-            // CalcTotal_Amount();
-
             txtItemid.Clear();
             txtDspid.Clear();
             txtItemCode.Clear();
@@ -272,7 +236,6 @@ namespace SmartInventorySystem.WinForms
             pnlDispenseItem.Visible = false;
             btnComputeTotal.Enabled = true;
             btnSave.Enabled = true;
-            txtSearch.Focus();
         }
 
         // display selected item to be dispensed into a grid sheet
@@ -357,8 +320,9 @@ namespace SmartInventorySystem.WinForms
             nudDispenseQty.ResetText();
             txtAmountSub.Clear();
 
+            searchItemControl1.Visible = true;
+            pnlDispenseItem.Visible = false;
             pnlCheckout.Visible = true;
-            txtSearch.Focus();
         }
 
         // save outcome of dispensary action (completed or cancelled)
@@ -445,17 +409,6 @@ namespace SmartInventorySystem.WinForms
             bsForm.ResetBindings(false);
         }
 
-        private void bsItem_CurrentChanged(object sender, EventArgs e)
-        {
-            State.SelectedItem = bsSearchedItems.Current as ItemRowViewModel;
-            _presenter.EnableSelectItem();
-        }
-
-        public void SetSelectItemEnable(bool v)
-        {
-            btnSelectItem.Enabled = v;
-        }
-
         public void SetItemDetailsPanelEnable(bool v)
         {
             pnlDispenseItem.Enabled = v;
@@ -474,6 +427,18 @@ namespace SmartInventorySystem.WinForms
             var unitPrice = nudUnitPrice.Value;
 
             ucDispenseCart.AddItemDispense(itemId, itemName, quantity, unitPrice);
+        }
+
+        private void searchItemControl1_OnSelectedItem(object sender, Controls.SelectedItemEventArgs e)
+        {
+            State.SelectedItem = e.SelectedItem;
+
+            _presenter.LoadSelectedItemDetails();
+
+            pnlDispenseItem.Visible = true;
+            searchItemControl1.Visible = false;
+
+            Load_ItemsRecord();
         }
     }
 }

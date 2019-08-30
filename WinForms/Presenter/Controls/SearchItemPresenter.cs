@@ -68,5 +68,17 @@ namespace SmartInventorySystem.WinForms.Presenter.Controls
                 View.ShowError(ex);
             }
         }
+
+        internal void EnableSelectItem()
+        {
+            try
+            {
+                View.SetSelectItemEnable(View.SelectedItem != null);
+            }
+            catch (Exception ex)
+            {
+                View.ShowError(ex);
+            }
+        }
     }
 }

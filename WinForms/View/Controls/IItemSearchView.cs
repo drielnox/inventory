@@ -13,5 +13,6 @@ namespace SmartInventorySystem.WinForms.View.Controls
         ItemRowViewModel SelectedItem { get; }
 
         void FireOnItemSelected(ItemRowViewModel selectedItem);
+        void SetSelectItemEnable(bool v);
     }
 }

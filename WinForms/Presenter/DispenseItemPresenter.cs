@@ -56,12 +56,7 @@ namespace SmartInventorySystem.WinForms.Presenter
         {
             View.State.SearchItemText = string.Empty;
         }
-
-        internal void EnableSelectItem()
-        {
-            View.SetSelectItemEnable(View.State.SelectedItem != null);
-        }
-
+        
         internal void SaveDispensedItems(DispenseCartSaveEventArgs e)
         {
             try
