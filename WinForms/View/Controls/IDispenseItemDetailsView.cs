@@ -11,5 +11,7 @@ namespace SmartInventorySystem.WinForms.View.Controls
     interface IDispenseItemDetailsView : IView<DispenseItemDetailsControlViewModel>
     {
         void FireOnAddCartItem(AddCartItemEventArgs args);
+        void ShowQuantityError(string v);
+        void ClearErrors();
     }
 }

@@ -16,7 +16,6 @@ namespace SmartInventorySystem.WinForms
     using SmartInventorySystem.ViewModel.Forms.Grids;
     using SmartInventorySystem.WinForms.Presenter;
     using SmartInventorySystem.WinForms.View;
-    using ViewModel.Controls.Grids;
 
     public partial class DispenseItemForm : Form, IDispenseItemView
     {
@@ -51,6 +50,12 @@ namespace SmartInventorySystem.WinForms
             }
 
             ucDispenseCart.OnSave += UcDispenseCart_OnSave;
+            ucItemDetails.OnAddToCart += DispenseItemDetailsUserControl1_OnAddToCart;
+        }
+
+        private void DispenseItemDetailsUserControl1_OnAddToCart(object sender, Controls.AddCartItemEventArgs e)
+        {
+            _presenter.AddItemToCart(e);
         }
 
         private void UcDispenseCart_OnSave(object sender, Controls.DispenseCartSaveEventArgs e)
@@ -320,7 +325,7 @@ namespace SmartInventorySystem.WinForms
             nudDispenseQty.ResetText();
             txtAmountSub.Clear();
 
-            searchItemControl1.Visible = true;
+            ucSearchItem.Visible = true;
             pnlDispenseItem.Visible = false;
             pnlCheckout.Visible = true;
         }
@@ -417,6 +422,7 @@ namespace SmartInventorySystem.WinForms
         public void LoadItemsDetails(ItemRowViewModel selectedItem)
         {
             txtItemid.Text = selectedItem.Identifier.ToString();
+            ucItemDetails.LoadItemDetails(selectedItem.Identifier, selectedItem.Code, selectedItem.Name, (decimal)selectedItem.SellingPrice, selectedItem.StockLevel);
         }
 
         public void AddItemToCart(object itemToCart)
@@ -436,7 +442,7 @@ namespace SmartInventorySystem.WinForms
             _presenter.LoadSelectedItemDetails();
 
             pnlDispenseItem.Visible = true;
-            searchItemControl1.Visible = false;
+            ucSearchItem.Visible = false;
 
             Load_ItemsRecord();
         }

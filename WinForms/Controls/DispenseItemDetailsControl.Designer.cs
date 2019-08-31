@@ -33,21 +33,23 @@
             System.Windows.Forms.Label lblItemId;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label5;
-            this.bsControl = new System.Windows.Forms.BindingSource(this.components);
             this.btnAddItem = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.nudUnitPrice = new System.Windows.Forms.NumericUpDown();
+            this.bsControl = new System.Windows.Forms.BindingSource(this.components);
             this.lblItemIdentifier = new System.Windows.Forms.Label();
             this.lblItemCode = new System.Windows.Forms.Label();
             this.lblItemName = new System.Windows.Forms.Label();
             this.nudQuantity = new System.Windows.Forms.NumericUpDown();
+            this.epQuantity = new System.Windows.Forms.ErrorProvider(this.components);
             label2 = new System.Windows.Forms.Label();
             lblItemId = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bsControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -58,7 +60,6 @@
             label2.Size = new System.Drawing.Size(35, 13);
             label2.TabIndex = 156;
             label2.Text = "Code:";
-            label2.Visible = false;
             // 
             // lblItemId
             // 
@@ -68,7 +69,6 @@
             lblItemId.Size = new System.Drawing.Size(50, 13);
             lblItemId.TabIndex = 140;
             lblItemId.Text = "Identifier:";
-            lblItemId.Visible = false;
             // 
             // label3
             // 
@@ -88,10 +88,6 @@
             label5.TabIndex = 149;
             label5.Text = "Quantity to Dispense";
             // 
-            // bsControl
-            // 
-            this.bsControl.DataSource = typeof(SmartInventorySystem.ViewModel.Controls.DispenseItemDetailsControlViewModel);
-            // 
             // btnAddItem
             // 
             this.btnAddItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -102,6 +98,8 @@
             this.btnAddItem.Text = "Add to Cart";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            this.btnAddItem.Validating += new System.ComponentModel.CancelEventHandler(this.btnAddItem_Validating);
+            this.btnAddItem.Validated += new System.EventHandler(this.btnAddItem_Validated);
             // 
             // label4
             // 
@@ -114,12 +112,16 @@
             // 
             // nudUnitPrice
             // 
-            this.nudUnitPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsControl, "UnitPrice", true));
+            this.nudUnitPrice.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsControl, "UnitPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.nudUnitPrice.DecimalPlaces = 2;
             this.nudUnitPrice.Location = new System.Drawing.Point(114, 51);
             this.nudUnitPrice.Name = "nudUnitPrice";
             this.nudUnitPrice.Size = new System.Drawing.Size(120, 20);
             this.nudUnitPrice.TabIndex = 164;
+            // 
+            // bsControl
+            // 
+            this.bsControl.DataSource = typeof(SmartInventorySystem.ViewModel.Controls.DispenseItemDetailsControlViewModel);
             // 
             // lblItemIdentifier
             // 
@@ -156,6 +158,7 @@
             // 
             // nudQuantity
             // 
+            this.nudQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bsControl, "Quantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.nudQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Maximum", this.bsControl, "StockLevel", true));
             this.nudQuantity.Location = new System.Drawing.Point(114, 77);
             this.nudQuantity.Minimum = new decimal(new int[] {
@@ -172,10 +175,15 @@
             0,
             0});
             // 
+            // epQuantity
+            // 
+            this.epQuantity.ContainerControl = this.nudQuantity;
+            // 
             // DispenseItemDetailsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.Controls.Add(this.nudQuantity);
             this.Controls.Add(this.lblItemName);
             this.Controls.Add(this.lblItemCode);
@@ -189,9 +197,10 @@
             this.Controls.Add(label5);
             this.Name = "DispenseItemDetailsUserControl";
             this.Size = new System.Drawing.Size(336, 148);
-            ((System.ComponentModel.ISupportInitialize)(this.bsControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +215,6 @@
         private System.Windows.Forms.Label lblItemCode;
         private System.Windows.Forms.Label lblItemName;
         private System.Windows.Forms.NumericUpDown nudQuantity;
+        private System.Windows.Forms.ErrorProvider epQuantity;
     }
 }

@@ -124,5 +124,19 @@ namespace SmartInventorySystem.WinForms.Presenter
                 View.ShowError(ex);
             }
         }
+
+        internal void AddItemToCart(AddCartItemEventArgs e)
+        {
+            try
+            {
+                var itemToCart = View.State.ItemToDispense;
+                View.State.ItemsForCheckout.Add(itemToCart);
+                View.AddItemToCart(itemToCart);
+            }
+            catch (Exception ex)
+            {
+                View.ShowError(ex);
+            }
+        }
     }
 }

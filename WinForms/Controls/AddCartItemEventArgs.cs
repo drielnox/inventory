@@ -2,13 +2,13 @@
 // Copyright (c) Open Source. All rights reserved.
 // </copyright>
 
-using System;
-
 namespace SmartInventorySystem.WinForms.Controls
 {
+    using System;
+
     public class AddCartItemEventArgs : EventArgs
     {
         public int Amount { get; internal set; }
-        public int UnitPrice { get; internal set; }
+        public decimal UnitPrice { get; internal set; }
     }
 }

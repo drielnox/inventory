@@ -79,7 +79,8 @@ namespace SmartInventorySystem.WinForms
             this.txtUserAmend = new System.Windows.Forms.TextBox();
             this.txtDateAmend = new System.Windows.Forms.TextBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.searchItemControl1 = new SmartInventorySystem.WinForms.Controls.SearchItemControl();
+            this.ucItemDetails = new SmartInventorySystem.WinForms.DispenseItemDetailsUserControl();
+            this.ucSearchItem = new SmartInventorySystem.WinForms.Controls.SearchItemControl();
             this.ucDispenseCart = new SmartInventorySystem.WinForms.Controls.DispenseCartControl();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -559,7 +560,7 @@ namespace SmartInventorySystem.WinForms
             // txtUserAmend
             // 
             this.txtUserAmend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUserAmend.Location = new System.Drawing.Point(619, 17);
+            this.txtUserAmend.Location = new System.Drawing.Point(725, 12);
             this.txtUserAmend.Name = "txtUserAmend";
             this.txtUserAmend.ReadOnly = true;
             this.txtUserAmend.Size = new System.Drawing.Size(47, 20);
@@ -568,7 +569,7 @@ namespace SmartInventorySystem.WinForms
             // txtDateAmend
             // 
             this.txtDateAmend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateAmend.Location = new System.Drawing.Point(672, 17);
+            this.txtDateAmend.Location = new System.Drawing.Point(778, 12);
             this.txtDateAmend.Name = "txtDateAmend";
             this.txtDateAmend.ReadOnly = true;
             this.txtDateAmend.Size = new System.Drawing.Size(46, 20);
@@ -582,7 +583,8 @@ namespace SmartInventorySystem.WinForms
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.searchItemControl1);
+            this.splitContainer1.Panel1.Controls.Add(this.ucItemDetails);
+            this.splitContainer1.Panel1.Controls.Add(this.ucSearchItem);
             this.splitContainer1.Panel1.Controls.Add(this.txtUserAmend);
             this.splitContainer1.Panel1.Controls.Add(label12);
             this.splitContainer1.Panel1.Controls.Add(this.txtDateAmend);
@@ -596,15 +598,22 @@ namespace SmartInventorySystem.WinForms
             this.splitContainer1.SplitterDistance = 827;
             this.splitContainer1.TabIndex = 138;
             // 
-            // searchItemControl1
+            // ucItemDetails
             // 
-            this.searchItemControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ucItemDetails.Location = new System.Drawing.Point(12, 244);
+            this.ucItemDetails.Name = "ucItemDetails";
+            this.ucItemDetails.Size = new System.Drawing.Size(336, 148);
+            this.ucItemDetails.TabIndex = 139;
+            // 
+            // ucSearchItem
+            // 
+            this.ucSearchItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchItemControl1.Location = new System.Drawing.Point(12, 43);
-            this.searchItemControl1.Name = "searchItemControl1";
-            this.searchItemControl1.Size = new System.Drawing.Size(805, 200);
-            this.searchItemControl1.TabIndex = 138;
-            this.searchItemControl1.OnSelectedItem += new System.EventHandler<SmartInventorySystem.WinForms.Controls.SelectedItemEventArgs>(this.searchItemControl1_OnSelectedItem);
+            this.ucSearchItem.Location = new System.Drawing.Point(12, 43);
+            this.ucSearchItem.Name = "ucSearchItem";
+            this.ucSearchItem.Size = new System.Drawing.Size(805, 200);
+            this.ucSearchItem.TabIndex = 138;
+            this.ucSearchItem.OnSelectedItem += new System.EventHandler<SmartInventorySystem.WinForms.Controls.SelectedItemEventArgs>(this.searchItemControl1_OnSelectedItem);
             // 
             // ucDispenseCart
             // 
@@ -700,6 +709,7 @@ namespace SmartInventorySystem.WinForms
         private System.Windows.Forms.NumericUpDown nudDiscount;
         private System.Windows.Forms.NumericUpDown nudDispenseQty;
         private Controls.DispenseCartControl ucDispenseCart;
-        private Controls.SearchItemControl searchItemControl1;
+        private Controls.SearchItemControl ucSearchItem;
+        private DispenseItemDetailsUserControl ucItemDetails;
     }
 }

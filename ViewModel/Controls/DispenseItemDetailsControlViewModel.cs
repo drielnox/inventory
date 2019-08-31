@@ -10,5 +10,6 @@ namespace SmartInventorySystem.ViewModel.Controls
         public decimal UnitPrice { get; set; }
         public int StockLevel { get; set; }
         public int Quantity { get; set; }
+        public bool HasErrors { get; set; }
     }
 }

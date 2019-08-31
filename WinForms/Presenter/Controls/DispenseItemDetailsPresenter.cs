@@ -5,11 +5,9 @@
 namespace SmartInventorySystem.WinForms.Presenter.Controls
 {
     using System;
-    using SmartInventorySystem.ViewModel.Forms.Grids;
+    using Core;
     using SmartInventorySystem.WinForms.Controls;
-    using SmartInventorySystem.WinForms.Core;
-    using SmartInventorySystem.WinForms.View.Controls;
-    using ViewModel.Controls;
+    using View.Controls;
 
     class DispenseItemDetailsPresenter : Presenter<IDispenseItemDetailsView>
     {
@@ -23,7 +21,8 @@ namespace SmartInventorySystem.WinForms.Presenter.Controls
             try
             {
                 var args = new AddCartItemEventArgs();
-                //args.UnitPrice = View.State.UnitPrice;
+                args.Amount = View.State.Quantity;
+                args.UnitPrice = View.State.UnitPrice;
 
                 View.FireOnAddCartItem(args);
             }
@@ -33,7 +32,7 @@ namespace SmartInventorySystem.WinForms.Presenter.Controls
             }
         }
 
-        internal void LoadItemDetails(int id, string code, string name, decimal unitPrice, int stock, int quantity)
+        internal void LoadItemDetails(int id, string code, string name, decimal unitPrice, int stock)
         {
             try
             {
@@ -42,8 +41,39 @@ namespace SmartInventorySystem.WinForms.Presenter.Controls
                 View.State.ItemName = name;
                 View.State.UnitPrice = unitPrice;
                 View.State.StockLevel = stock;
-                View.State.Quantity = quantity;
                 View.UpdateFormBindingSource();
+            }
+            catch (Exception ex)
+            {
+                View.ShowError(ex);
+            }
+        }
+
+        internal void ValidateQuantity()
+        {
+            try
+            {
+                if (View.State.Quantity < 1)
+                {
+                    View.State.HasErrors |= true;
+                    View.ShowQuantityError("Quantity less than one.");
+                }
+                else
+                {
+                    View.State.HasErrors |= false;
+                }
+            }
+            catch (Exception ex)
+            {
+                View.ShowError(ex);
+            }
+        }
+
+        internal void ClearErrors()
+        {
+            try
+            {
+                View.ClearErrors();
             }
             catch (Exception ex)
             {
