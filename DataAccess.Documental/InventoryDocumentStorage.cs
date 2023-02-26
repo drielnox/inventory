@@ -11,7 +11,7 @@ namespace DataAccess.Documental
         private readonly string _connString;
         private LiteDatabase db;
 
-        public LiteCollection<DispenseSummary> DispenseSummaries => db.GetCollection<DispenseSummary>();
+        public ILiteCollection<DispenseSummary> DispenseSummaries => db.GetCollection<DispenseSummary>();
 
         public InventoryDocumentStorage()
             : this("lite.db")
